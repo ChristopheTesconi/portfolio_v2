@@ -1,0 +1,259 @@
+.contact {
+  background-color: whitesmoke;
+  padding: 3rem 5vw;
+  min-height: 85vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  color: rgb(165, 180, 252);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: rgb(60, 60, 60);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Container */
+.contactContainer {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+}
+
+/* Form */
+.formContainer {
+  background: rgb(31, 32, 57);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: rgb(165, 180, 252);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+  padding: 0.9rem 1.2rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: rgb(165, 180, 252);
+  box-shadow: 0 0 0 3px rgba(165, 180, 252, 0.1);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, #8e86b5, #acaeed);
+  color: black;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 40px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(165, 180, 252, 0.3);
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(165, 180, 252, 0.5);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.errorMessage {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Alternatives */
+.alternativesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.alternativesContainer h3 {
+  font-size: 1.3rem;
+  color: rgb(31, 32, 57);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.altCard {
+  background: rgb(31, 32, 57);
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.altCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(165, 180, 252, 0.4);
+}
+
+.altIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.altContent {
+  flex: 1;
+}
+
+.altContent h4 {
+  color: rgb(165, 180, 252);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.altSubtitle,
+.altEmail {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.altCta {
+  color: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.altCard:hover .altCta {
+  transform: translateX(5px);
+}
+
+/* Trust Badges */
+.trustBadges {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(60, 60, 60);
+  font-size: 0.95rem;
+}
+
+.badgeIcon {
+  font-size: 1.3rem;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .contactContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .formContainer {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact h2 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .formContainer {
+    padding: 1.5rem;
+  }
+
+  .formGroup input,
+  .formGroup textarea {
+    padding: 0.8rem 1rem;
+  }
+
+  .submitBtn {
+    padding: 14px 32px;
+    font-size: 1rem;
+  }
+
+  .trustBadges {
+    gap: 1.5rem;
+  }
+
+  .badge {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "My Projects",
+    "services": "My Services",
+    "about": "About",
+    "contact": "Contact",
+    "prices": "Prices"
+  },
+  "titleFreelance": "Tesconi Christophe Web Developer",
+  "introQuote": "Every website is a valuable link between you and your users.",
+  "introText": "I bring your digital ideas to life with precision and passion, putting your needs at the heart of every project.\nWith a unique background, I support you with transparency, commitment, and authenticity.",
+  "contactCTA": "Got a project? Write to me",
+  "message": "A website is more than just existing online — it's a true bridge to your customers. Through clear, simple, and smooth experiences, I help you build a strong and lasting connection with them.",
+  "services": {
+    "title": "What I bring you",
+    "cta": "Let's discuss your project",
+    "services": [
+      {
+        "title": "Automation & AI integrations",
+        "icon": "⚡",
+        "description": [
+          "Automate repetitive tasks and free up valuable time",
+          "Automatic AI translation for your multilingual content",
+          "Connect your existing services (CRM, forms, online booking)",
+          "Third-party integrations: Google Maps, EventFrog, Supabase and more"
+        ]
+      },
+      {
+        "title": "Professional & multilingual websites",
+        "icon": "🌐",
+        "description": [
+          "A modern and fast website to attract your customers",
+          "Smooth and intuitive navigation on all devices (mobile, tablet, desktop)",
+          "Multilingual version to reach an international audience",
+          "Search engine optimized (SEO) for better online visibility"
+        ]
+      },
+      {
+        "title": "Business applications & content management",
+        "icon": "🛠️",
+        "description": [
+          "Save time with custom tools tailored to your business",
+          "Intuitive admin interface to manage your content easily",
+          "Personalized dashboards to track your key metrics",
+          "Modern architecture with fast and stable performance"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "title": "About",
+    "sections": [
+      {
+        "title": "My Journey",
+        "content": [
+          "After a career as a chef, I chose web development for a simple reason: to create tools that truly change the lives of entrepreneurs and associations.",
+          "Coming from haute cuisine where precision and excellence were vital, I applied this rigor to code. Trained in web and mobile development (professional certification), I now build websites and applications that combine technical performance with concrete impact."
+        ]
+      },
+      {
+        "title": "My Approach",
+        "content": [
+          "What sets me apart?",
+          "→ Obsessive attention to detail – every pixel, every line of code matters. In gastronomy, mistakes were unforgiving. Today, this excellence serves your projects.",
+          "→ True listening – I don't sell you a one-size-fits-all solution. I take time to understand your business, constraints, and ambitions.",
+          "→ Human relationships – as a practicing Buddhist, I believe in mutual respect, trust, and transparency. Working together means building a long-term relationship, not just delivering a website."
+        ]
+      },
+      {
+        "title": "How I Work",
+        "content": [
+          "My process is simple and clear:",
+          "1️⃣ Phone consultation – we discuss your project, no commitment",
+          "2️⃣ Specifications – I analyze them or we build them together",
+          "3️⃣ Transparent quote – you know exactly what you're paying for",
+          "4️⃣ Delivery in 3-4 weeks for a showcase website",
+          "5️⃣ Support – training, maintenance, I remain available",
+          "No unnecessary technical jargon. No unrealistic promises. Just serious work, on time, with measurable results."
+        ]
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "packages": [
+      {
+        "name": "Showcase",
+        "price": "CHF 2,490",
+        "priceNote": "Starting from",
+        "features": [
+          "5-page responsive website",
+          "Modern and professional design",
+          "Basic SEO optimization",
+          "Contact form",
+          "Delivery in 3-4 weeks"
+        ]
+      },
+      {
+        "name": "Pro",
+        "price": "CHF 4,900",
+        "priceNote": "Starting from",
+        "popular": true,
+        "features": [
+          "10-page responsive website",
+          "Multilingual version (FR/EN/DE)",
+          "Advanced SEO with Schema.org",
+          "Custom forms",
+          "Third-party integrations (Google Maps, etc.)",
+          "Delivery in 4-6 weeks"
+        ]
+      },
+      {
+        "name": "Custom",
+        "price": "On quote",
+        "priceNote": "",
+        "features": [
+          "Custom web application",
+          "Complex API integrations",
+          "Admin backoffice",
+          "Custom architecture",
+          "Support and maintenance included",
+          "Timeline based on project"
+        ]
+      }
+    ],
+    "notes": [
+      "Prices exclude VAT in Swiss francs",
+      "Payment accepted in CHF or EUR",
+      "50% deposit upon signing, balance upon delivery",
+      "Maintenance and support available upon request"
+    ],
+    "cta": "Request a free quote"
+  },
+  "contact": {
+    "title": "Ready to Start Your Project?",
+    "subtitle": "Let's discuss your needs together and find the ideal solution for your business.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your.email@example.com",
+      "message": "Message",
+      "messagePlaceholder": "Hello, I would like to discuss a project for [showcase site / pro site / application]. Can you contact me back?",
+      "submit": "Send my request",
+      "sending": "Sending...",
+      "success": "Thank you! Your message has been sent. I'll reply within 24h.",
+      "error": "An error occurred. Please try again or contact me directly."
+    },
+    "alternatives": {
+      "title": "Prefer another way?",
+      "whatsapp": {
+        "title": "WhatsApp",
+        "subtitle": "Fast response guaranteed",
+        "cta": "Chat on WhatsApp"
+      },
+      "email": {
+        "title": "Direct Email",
+        "address": "chris.tesconi@gmail.com",
+        "cta": "Send an email"
+      }
+    },
+    "trust": {
+      "response": "Response within 24h",
+      "quote": "Free quote, no obligation",
+      "location": "100% remote - French-speaking Switzerland"
+    }
+  },
+  "footer": {
+    "brand": "Christophe Tesconi",
+    "tagline": "Custom web solutions for Swiss SMEs",
+    "legal": "Legal Notice",
+    "address": "French-Swiss border region",
+    "phone": "+33 7 86 59 93 27",
+    "email": "chris.tesconi@gmail.com",
+    "quickLinks": "Navigation",
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "about": "About",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "followUs": "Follow me",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "instagram": "Instagram",
+    "malt": "Malt",
+    "whatsapp": "WhatsApp",
+    "calendly": "Book a consultation",
+    "copyright": "All rights reserved.",
+    "madeWith": "Built with",
+    "nextjs": "Next.js"
+  }
+}

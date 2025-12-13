@@ -1,0 +1,107 @@
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(165, 180, 252, 0.3);
+}
+
+/* Popular badge */
+.popular {
+  border: 3px solid rgb(165, 180, 252);
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: linear-gradient(135deg, #8e86b5, #acaeed);
+  color: black;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Header */
+.cardHeader {
+  text-align: center;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(165, 180, 252, 0.2);
+  margin-bottom: 2rem;
+}
+
+.packageName {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: rgb(31, 32, 57);
+  margin-bottom: 0.5rem;
+}
+
+.priceNote {
+  font-size: 0.9rem;
+  color: rgb(100, 100, 100);
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgb(165, 180, 252);
+  margin: 0;
+}
+
+/* Features */
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.features li {
+  font-size: 1rem;
+  color: rgb(31, 32, 57);
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: rgb(165, 180, 252);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .card {
+    padding: 1.5rem;
+  }
+
+  .packageName {
+    font-size: 1.5rem;
+  }
+
+  .price {
+    font-size: 2rem;
+  }
+
+  .features li {
+    font-size: 0.95rem;
+  }
+}

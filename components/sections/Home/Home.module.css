@@ -1,0 +1,108 @@
+.freelance {
+  background-color: rgb(31, 32, 57);
+  padding: 3rem 5vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.freelanceContent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.freelanceText {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainTitle {
+  font-size: 2.5rem;
+  color: rgb(165, 180, 252);
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.introQuote {
+  font-style: italic;
+  font-size: 1.6rem !important;
+  color: rgb(200, 200, 255) !important;
+  text-align: center;
+  margin-bottom: 2rem;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cursorVisible {
+  visibility: visible;
+}
+
+.cursorHidden {
+  visibility: hidden;
+}
+
+.freelanceText p {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  font-size: 1.2rem;
+  color: white;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.cta {
+  color: black;
+  background: linear-gradient(#8e86b5, #acaeed);
+  border-radius: 50px;
+  padding: 20px 30px;
+  display: inline-block;
+  margin: 2rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(165, 180, 252, 0.3);
+}
+
+/* Responsive TypingQuote */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .introQuote {
+    height: 60px;
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .introQuote {
+    height: 90px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .introQuote {
+    height: 110px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .introQuote {
+    height: 130px;
+    font-size: 1.1rem;
+  }
+}

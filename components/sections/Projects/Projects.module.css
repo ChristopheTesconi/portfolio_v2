@@ -1,0 +1,31 @@
+.projects {
+  background-color: rgb(31, 32, 57);
+  padding: 3rem 5vw;
+  /* height: 100vh; */
+  min-height: 85vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.projects h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: rgb(165, 180, 252);
+  font-weight: 700;
+}
+
+.projectsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .projects h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}

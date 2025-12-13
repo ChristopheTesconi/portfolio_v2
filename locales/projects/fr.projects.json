@@ -1,0 +1,106 @@
+{
+  "projectsTitle": "Mes projets",
+  "devBadge": "🚧 Projet en développement",
+  "projects": [
+    {
+      "titre": "Sawadi – Actualités multilingues par  IA",
+      "image": "/projects/sawadi_logo.png",
+      "description": [
+        "Plateforme de veille média internationale avec traduction automatique en 12 langues",
+        "Architecture fullstack React/TypeScript + Supabase pour performances en temps réel",
+        "Traduction instantanée par IA pour diffuser vos contenus sans barrière linguistique",
+        "Interface d'administration intuitive pour gérer contenus et traductions multilingues",
+        "Comparaison côte-à-côte original/traduit avec basculement instantané entre langues"
+      ],
+      "keywords": [
+        "actualités multilingues",
+        "traduction automatique IA",
+        "veille média internationale",
+        "React TypeScript",
+        "Supabase cloud",
+        "gestion contenu CMS",
+        "agrégation actualités",
+        "communication globale"
+      ],
+      "github": "https://github.com/ChristopheTesconi/ai_news_feed",
+      "githubCTA": "Voir sur GitHub",
+      "liveUrl": "https://sawadi.asia/",
+      "liveCTA": "Voir le site"
+    },
+    {
+      "titre": "RDF Bachata Fusion – École de danse",
+      "image": "/projects/rdf_logo.jpeg",
+      "description": [
+        "Site web moderne et responsive optimisé pour tous supports (mobile, tablette, desktop)",
+        "Version multilingue (FR/EN/DE) avec Next.js 15 pour toucher un public international",
+        "Intégration EventFrog et WhatsApp pour faciliter les réservations en ligne",
+        "Référencement optimisé (SEO) avec Schema.org pour une meilleure visibilité locale",
+        "Interface intuitive à cartes extensibles avec animations fluides pour l'expérience utilisateur"
+      ],
+      "keywords": [
+        "site web école de danse",
+        "Next.js responsive",
+        "site multilingue",
+        "SEO local danse",
+        "EventFrog intégration",
+        "TypeScript React",
+        "site bachata Suisse",
+        "réservation en ligne"
+      ],
+      "github": "https://github.com/ChristopheTesconi/wil-bachata-website",
+      "githubCTA": "Voir sur GitHub",
+      "liveUrl": "https://www.bachata-stgallen.ch/fr",
+      "liveCTA": "Voir le site"
+    },
+    {
+      "titre": "TrustBrain – Mémoire d'entreprise IA",
+      "image": "/projects/artificial.png",
+      "description": [
+        "Système de mémoire d'entreprise révolutionnaire basé sur l'IA et les graphes de connaissances temporels",
+        "Interface conversationnelle intuitive pour interroger vos documents en langage naturel",
+        "Traitement intelligent multi-formats : PDF (natifs et scannés via OCR), emails, photos et données structurées",
+        "Extraction automatique d'entités et relations par IA pour des réponses contextualisées et précises",
+        "Architecture GraphRAG (Python/FastAPI + Neo4j + OpenAI) avec frontend React moderne"
+      ],
+      "keywords": [
+        "intelligence artificielle entreprise",
+        "GraphRAG knowledge management",
+        "chatbot IA documents",
+        "Neo4j graph database",
+        "OCR traitement PDF",
+        "FastAPI Python backend",
+        "mémoire organisationnelle",
+        "système questions-réponses IA"
+      ],
+      "github": "",
+      "githubCTA": "",
+      "liveUrl": "",
+      "liveCTA": ""
+    },
+    {
+      "titre": "Phoenix Accueil – Protection de l'enfance",
+      "image": "/projects/phoenix_logo.png",
+      "description": [
+        "Site web professionnel pour association reconnue depuis 20 ans dans le Gard",
+        "Architecture Next.js moderne avec chargement ultra-rapide des pages et images",
+        "Formulaire de contact sécurisé et intégration carte interactive multi-sites",
+        "Référencement optimisé (SEO) avec Google Analytics pour mesurer l'impact",
+        "Navigation responsive intuitive avec carrousel photos et accordéons interactifs"
+      ],
+      "keywords": [
+        "association protection enfance",
+        "site web humanitaire",
+        "Next.js association",
+        "SEO local Gard",
+        "formulaire sécurisé",
+        "TypeScript React",
+        "site responsive ONG",
+        "Google Analytics"
+      ],
+      "github": "https://github.com/ChristopheTesconi/phoenix_association",
+      "githubCTA": "Voir sur GitHub",
+      "liveUrl": "https://www.phoenixaccueil.fr/",
+      "liveCTA": "Voir le site"
+    }
+  ]
+}

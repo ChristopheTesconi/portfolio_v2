@@ -1,0 +1,194 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Mes Projets",
+    "services": "Mes Services",
+    "about": "À propos",
+    "contact": "Contact",
+    "prices": "Tarifs"
+  },
+  "titleFreelance": "Tesconi Christophe Développeur Web",
+  "introQuote": "Chaque site est un lien précieux entre vous et vos utilisateurs.",
+  "introText": "Je donne vie à vos idées digitales avec rigueur et passion, en plaçant vos besoins au cœur de chaque projet.\nFort d'un parcours unique, je vous accompagne avec transparence, engagement et authenticité.",
+  "contactCTA": "Un projet ? Écrivez-moi",
+  "message": "Un site ne sert pas qu'à exister en ligne, c'est un véritable pont vers vos clients. Grâce à une expérience claire, simple et fluide, je vous aide à créer un lien fort et durable avec eux.",
+  "services": {
+    "title": "Ce que je vous apporte",
+    "cta": "Discutons de votre projet",
+    "services": [
+      {
+        "title": "Automatisation & intégrations IA",
+        "icon": "⚡",
+        "description": [
+          "Automatisez vos tâches répétitives et libérez du temps précieux",
+          "Traduction automatique par IA pour vos contenus multilingues",
+          "Connectez vos services existants (CRM, formulaires, réservation en ligne)",
+          "Intégrations tierces : Google Maps, EventFrog, Supabase et plus"
+        ]
+      },
+      {
+        "title": "Sites web professionnels & multilingues",
+        "icon": "🌐",
+        "description": [
+          "Un site moderne et rapide pour attirer vos clients",
+          "Navigation fluide et intuitive sur tous supports (mobile, tablette, desktop)",
+          "Version multilingue pour toucher un public international",
+          "Optimisé pour les moteurs de recherche (SEO) pour une meilleure visibilité en ligne"
+        ]
+      },
+      {
+        "title": "Applications métier & gestion de contenu",
+        "icon": "🛠️",
+        "description": [
+          "Gagnez du temps avec des outils sur-mesure adaptés à votre activité",
+          "Interface d'administration intuitive pour gérer vos contenus facilement",
+          "Tableaux de bord personnalisés pour suivre vos indicateurs clés",
+          "Architecture moderne avec performances rapides et stables"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "title": "À propos",
+    "sections": [
+      {
+        "title": "Mon parcours",
+        "content": [
+          "Après une carrière de chef cuisinier, j'ai choisi le développement web pour une raison simple : créer des outils qui changent vraiment la vie des entrepreneurs et associations.",
+          "Issu de la cuisine gastronomique où la précision et l'exigence étaient vitales, j'ai appliqué cette rigueur au code. Formé en développement web et web mobile (titre professionnel), je construis aujourd'hui des sites et applications qui allient performance technique et impact concret."
+        ]
+      },
+      {
+        "title": "Mon approche",
+        "content": [
+          "Ce qui me différencie ?",
+          "→ Une attention obsessionnelle aux détails – chaque pixel, chaque ligne de code compte. En gastronomie, l'erreur ne pardonnait pas. Aujourd'hui, cette exigence sert vos projets.",
+          "→ Une vraie écoute – je ne vous vends pas une solution toute faite. Je prends le temps de comprendre votre métier, vos contraintes, vos ambitions.",
+          "→ Une relation humaine – bouddhiste pratiquant, je crois au respect mutuel, à la confiance et à la transparence. Travailler ensemble, c'est bâtir une relation sur le long terme, pas juste livrer un site."
+        ]
+      },
+      {
+        "title": "Comment je travaille",
+        "content": [
+          "Mon processus est simple et clair :",
+          "1️⃣ Rendez-vous téléphonique – on discute de votre projet, sans engagement",
+          "2️⃣ Cahier des charges – je l'analyse ou on le construit ensemble",
+          "3️⃣ Devis transparent – vous savez exactement ce que vous payez",
+          "4️⃣ Livraison sous 3-4 semaines pour un site vitrine",
+          "5️⃣ Accompagnement – formation, maintenance, je reste disponible",
+          "Pas de jargon technique inutile. Pas de promesses irréalistes. Juste du travail sérieux, dans les délais, avec des résultats mesurables."
+        ]
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Tarifs",
+    "packages": [
+      {
+        "name": "Vitrine",
+        "price": "2 490 CHF",
+        "priceNote": "À partir de",
+        "features": [
+          "Site 5 pages responsive",
+          "Design moderne et professionnel",
+          "Optimisation SEO de base",
+          "Formulaire de contact",
+          "Livraison en 3-4 semaines"
+        ]
+      },
+      {
+        "name": "Pro",
+        "price": "4 900 CHF",
+        "priceNote": "À partir de",
+        "popular": true,
+        "features": [
+          "Site 10 pages responsive",
+          "Version multilingue (FR/EN/DE)",
+          "SEO avancé avec Schema.org",
+          "Formulaires personnalisés",
+          "Intégrations tierces (Google Maps, etc.)",
+          "Livraison en 4-6 semaines"
+        ]
+      },
+      {
+        "name": "Sur-mesure",
+        "price": "Sur devis",
+        "priceNote": "",
+        "features": [
+          "Application web custom",
+          "Intégrations API complexes",
+          "Backoffice d'administration",
+          "Architecture sur-mesure",
+          "Support et maintenance inclus",
+          "Délai selon le projet"
+        ]
+      }
+    ],
+    "notes": [
+      "Tarifs HT en francs suisses",
+      "Paiement en CHF ou EUR accepté",
+      "Acompte de 50% à la signature, solde à la livraison",
+      "Maintenance et support disponibles sur demande"
+    ],
+    "cta": "Demander un devis gratuit"
+  },
+  "contact": {
+    "title": "Prêt à démarrer votre projet ?",
+    "subtitle": "Discutons ensemble de vos besoins et trouvons la solution idéale pour votre entreprise.",
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre.email@exemple.ch",
+      "message": "Message",
+      "messagePlaceholder": "Bonjour, je souhaite discuter d'un projet de [site vitrine / site pro / application]. Pouvez-vous me recontacter ?",
+      "submit": "Envoyer ma demande",
+      "sending": "Envoi en cours...",
+      "success": "Merci ! Votre message a été envoyé. Je vous réponds sous 24h.",
+      "error": "Une erreur est survenue. Veuillez réessayer ou me contacter directement."
+    },
+    "alternatives": {
+      "title": "Vous préférez un autre moyen ?",
+      "whatsapp": {
+        "title": "WhatsApp",
+        "subtitle": "Réponse rapide garantie",
+        "cta": "Discuter sur WhatsApp"
+      },
+      "email": {
+        "title": "Email direct",
+        "address": "chris.tesconi@gmail.com",
+        "cta": "Envoyer un email"
+      }
+    },
+    "trust": {
+      "response": "Réponse sous 24h",
+      "quote": "Devis gratuit et sans engagement",
+      "location": "100% remote - Suisse romande"
+    }
+  },
+  "footer": {
+    "brand": "Christophe Tesconi",
+    "tagline": "Solutions web sur-mesure pour PME suisses",
+    "legal": "Mentions légales",
+    "address": "Région franco-suisse",
+    "phone": "+33 7 86 59 93 27",
+    "email": "chris.tesconi@gmail.com",
+    "quickLinks": "Navigation",
+    "home": "Accueil",
+    "services": "Services",
+    "projects": "Projets",
+    "about": "À propos",
+    "pricing": "Tarifs",
+    "contact": "Contact",
+    "followUs": "Me suivre",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "instagram": "Instagram",
+    "malt": "Malt",
+    "whatsapp": "WhatsApp",
+    "calendly": "Prendre rendez-vous",
+    "copyright": "Tous droits réservés.",
+    "madeWith": "Développé avec",
+    "nextjs": "Next.js"
+  }
+}
