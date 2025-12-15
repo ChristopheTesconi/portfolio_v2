@@ -42,7 +42,7 @@ export default function About() {
       <div className={styles.aboutContainer}>
         <div className={styles.photoContainer}>
           <Image
-            src="/christophe.jpeg"
+            src="/christophe2.jpeg"
             alt={
               currentLocale === "fr"
                 ? "Christophe Tesconi - Développeur Web Fullstack Freelance"
@@ -50,7 +50,9 @@ export default function About() {
             }
             width={250}
             height={400}
+            sizes="(max-width: 767px) 250px, (max-width: 991px) 300px, 250px"
             className={styles.photo}
+            style={{ width: "100%", height: "auto" }}
             priority
             itemProp="image"
           />

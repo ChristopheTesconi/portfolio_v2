@@ -25,11 +25,10 @@
 /* Photo */
 .photoContainer {
   flex: 0 0 250px;
+  position: relative; /* ✅ Ajouté pour le responsive */
 }
 
 .photo {
-  width: 100%;
-  height: auto;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   object-fit: cover;
@@ -40,7 +39,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.55rem;
 }
 
 /* Responsive */

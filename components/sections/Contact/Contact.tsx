@@ -259,9 +259,12 @@ export default function Contact() {
               aria-label={t.contact.alternatives.whatsapp.cta}
               itemProp="url"
             >
-              <div className={styles.altIcon}>💬</div>
+              <div className={styles.altIcon}></div>
               <div className={styles.altContent}>
-                <h4>{t.contact.alternatives.whatsapp.title}</h4>
+                <h4>
+                  {t.contact.alternatives.whatsapp.title}{" "}
+                  <i className="bi bi-whatsapp" aria-hidden="true"></i>
+                </h4>
                 <p className={styles.altSubtitle}>
                   {t.contact.alternatives.whatsapp.subtitle}
                 </p>
@@ -277,9 +280,12 @@ export default function Contact() {
               aria-label={t.contact.alternatives.email.cta}
               itemProp="email"
             >
-              <div className={styles.altIcon}>📧</div>
+              <div className={styles.altIcon}></div>
               <div className={styles.altContent}>
-                <h4>{t.contact.alternatives.email.title}</h4>
+                <h4>
+                  {t.contact.alternatives.email.title}{" "}
+                  <i className="bi bi-envelope"></i>
+                </h4>
                 <p className={styles.altEmail}>
                   {t.contact.alternatives.email.address}
                 </p>
@@ -294,11 +300,11 @@ export default function Contact() {
         {/* Trust badges */}
         <div className={styles.trustBadges}>
           <div className={styles.badge}>
-            <span className={styles.badgeIcon}>⚡</span>
+            <span className={styles.badgeIcon}></span>
             <span>{t.contact.trust.response}</span>
           </div>
           <div className={styles.badge}>
-            <span className={styles.badgeIcon}>🔒</span>
+            <span className={styles.badgeIcon}></span>
             <span>{t.contact.trust.quote}</span>
           </div>
           <div className={styles.badge}>

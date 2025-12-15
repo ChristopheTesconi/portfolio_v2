@@ -19,11 +19,8 @@
   cursor: pointer;
   user-select: none;
   transition: background-color 0.3s ease;
+  gap: 1rem;
 }
-
-/* .cardHeader:hover {
-  background-color: rgba(165, 180, 252, 0.1);
-} */
 
 /* Toggle Button */
 .toggleBtn {
@@ -34,7 +31,6 @@
   width: 2.5rem;
   height: 2.5rem;
   font-size: 1.5rem;
-  margin-right: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,6 +56,34 @@
   transform: rotate(180deg);
 }
 
+/* Header Image Wrapper */
+.headerImageWrapper {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(165, 180, 252, 0.1);
+  border: 2px solid rgba(165, 180, 252, 0.3);
+  transition: all 0.3s ease;
+}
+
+.headerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.cardHeader:hover .headerImageWrapper {
+  border-color: rgb(165, 180, 252);
+  background: rgba(165, 180, 252, 0.2);
+  transform: scale(1.05);
+}
+
 /* Title */
 .cardTitle {
   font-size: 1.5rem;
@@ -67,6 +91,7 @@
   margin: 0;
   color: rgb(31, 32, 57);
   transition: color 0.3s ease;
+  flex: 1;
 }
 
 .cardHeader:hover .cardTitle {
@@ -222,6 +247,7 @@
 @media (max-width: 767px) {
   .cardHeader {
     padding: 1rem;
+    gap: 0.75rem;
   }
 
   .toggleBtn {
@@ -230,8 +256,13 @@
     font-size: 1.2rem;
   }
 
+  .headerImageWrapper {
+    width: 32px;
+    height: 32px;
+  }
+
   .cardTitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .contentInner {

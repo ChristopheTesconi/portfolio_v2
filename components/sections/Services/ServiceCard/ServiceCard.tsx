@@ -54,9 +54,9 @@ export default function ServiceCard({
         >
           <span className={styles.toggleIcon}>{isOpen ? "−" : "+"}</span>
         </button>
-        <span className={styles.icon} aria-hidden="true">
+        {/* <span className={styles.icon} aria-hidden="true">
           {service.icon}
-        </span>
+        </span> */}
         <h3 className={styles.cardTitle} itemProp="name">
           {service.title}
         </h3>

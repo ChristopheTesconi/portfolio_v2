@@ -46,7 +46,6 @@ export default function ProjectCard({
       itemScope
       itemType="https://schema.org/WebApplication"
     >
-      {/* ✅ META CACHÉE POUR SCHEMA.ORG (Description complète en STRING) */}
       <meta itemProp="description" content={project.description.join(". ")} />
 
       <header className={styles.cardHeader} onClick={onToggle}>
@@ -61,6 +60,18 @@ export default function ProjectCard({
         >
           <span className={styles.toggleIcon}>{isOpen ? "−" : "+"}</span>
         </button>
+
+        {/* ✅ IMAGE MINIATURE DANS LE HEADER */}
+        <div className={styles.headerImageWrapper}>
+          <Image
+            src={project.image}
+            alt={`${project.titre} logo`}
+            width={40}
+            height={40}
+            className={styles.headerImage}
+          />
+        </div>
+
         <h3 className={styles.cardTitle} itemProp="name">
           {project.titre}
         </h3>
