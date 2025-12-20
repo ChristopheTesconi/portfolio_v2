@@ -214,6 +214,25 @@
   font-size: 1.3rem;
 }
 
+/* Badge icon avec check violet */
+.badgeIcon2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+  position: relative; /* ✅ IMPORTANT pour ::before avec position: absolute */
+}
+
+.badgeIcon2::before {
+  content: "✓";
+  color: rgb(165, 180, 252);
+  font-weight: bold;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
 /* Responsive */
 @media (max-width: 991px) {
   .contactContainer {

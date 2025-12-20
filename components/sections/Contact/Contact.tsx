@@ -300,11 +300,11 @@ export default function Contact() {
         {/* Trust badges */}
         <div className={styles.trustBadges}>
           <div className={styles.badge}>
-            <span className={styles.badgeIcon}></span>
+            <span className={styles.badgeIcon2}></span>
             <span>{t.contact.trust.response}</span>
           </div>
           <div className={styles.badge}>
-            <span className={styles.badgeIcon}></span>
+            <span className={styles.badgeIcon2}></span>
             <span>{t.contact.trust.quote}</span>
           </div>
           <div className={styles.badge}>
