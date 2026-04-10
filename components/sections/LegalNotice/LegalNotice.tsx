@@ -122,7 +122,7 @@ export default function LegalNotice() {
     publisher: {
       "@type": "Person",
       name: "Christophe Tesconi",
-      email: "chris.tesconi@gmail.com",
+      email: "contact@christophetesconidev.com",
       telephone: "+33786599327",
     },
   };
@@ -185,8 +185,8 @@ export default function LegalNotice() {
             <h2>{t.contact}</h2>
             <p>
               📧 {t.email}:{" "}
-              <a href="mailto:chris.tesconi@gmail.com" itemProp="email">
-                chris.tesconi@gmail.com
+              <a href="mailto:" itemProp="email">
+                contact@christophetesconidev.com
               </a>
             </p>
             <p>

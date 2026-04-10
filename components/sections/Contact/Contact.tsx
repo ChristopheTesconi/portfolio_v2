@@ -75,7 +75,7 @@ export default function Contact() {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     currentLocale === "fr"
       ? "Bonjour, je souhaite discuter d'un projet web."
-      : "Hello, I would like to discuss a web project."
+      : "Hello, I would like to discuss a web project.",
   )}`;
 
   // ✅ SCHEMA.ORG CONTACTPAGE OPTIMISÉ
@@ -92,7 +92,7 @@ export default function Contact() {
         currentLocale === "fr"
           ? "Développeur Web Fullstack Freelance"
           : "Freelance Fullstack Web Developer",
-      email: "chris.tesconi@gmail.com",
+      email: "contact@christophetesconidev.com",
       telephone: `+${whatsappNumber}`,
       url: "https://christophetesconidev.com",
       address: {
@@ -118,7 +118,7 @@ export default function Contact() {
       contactPoint: {
         "@type": "ContactPoint",
         telephone: `+${whatsappNumber}`,
-        email: "chris.tesconi@gmail.com",
+        email: "contact@christophetesconidev.com",
         contactType: "Customer Service",
         availableLanguage: ["fr", "en"],
         areaServed: "CH",
@@ -275,7 +275,7 @@ export default function Contact() {
             </a>
 
             <a
-              href="mailto:chris.tesconi@gmail.com"
+              href="mailto:contact@christophetesconidev.com"
               className={styles.altCard}
               aria-label={t.contact.alternatives.email.cta}
               itemProp="email"

@@ -146,7 +146,7 @@ export default async function LocaleLayout({
                 ? "Développeur Web Fullstack spécialisé en React, Next.js et Symfony pour PME suisses"
                 : "Fullstack Web Developer specialized in React, Next.js and Symfony for Swiss SMEs",
             url: "https://christophetesconidev.com",
-            email: "chris.tesconi@gmail.com",
+            email: "contact@christophetesconidev.com",
             telephone: "+33786599327",
             address: {
               "@type": "PostalAddress",

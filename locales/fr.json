@@ -9,7 +9,7 @@
   },
   "titleFreelance": "Tesconi Christophe Développeur Web",
   "introQuote": "Chaque site est un lien précieux entre vous et vos utilisateurs.",
-  "introText": "Je donne vie à vos idées digitales avec rigueur et passion, en plaçant vos besoins au cœur de chaque projet.\nFort d'un parcours unique, je vous accompagne avec transparence, engagement et authenticité.",
+  "introText": "Ancien chef cuisinier, je crée des sites web et applications pour les PME et restaurateurs de Suisse romande. La même exigence que dans une cuisine étoilée — appliquée à votre présence en ligne.",
   "contactCTA": "Un projet ? Écrivez-moi",
   "message": "Un site ne sert pas qu'à exister en ligne, c'est un véritable pont vers vos clients. Grâce à une expérience claire, simple et fluide, je vous aide à créer un lien fort et durable avec eux.",
   "services": {
@@ -80,6 +80,11 @@
         ]
       }
     ]
+  },
+  "testimonials": {
+    "title": "Ce que disent mes clients",
+    "subtitle": "Avis vérifiés publiés sur Malt",
+    "platformLabel": "Avis vérifié sur"
   },
   "pricing": {
     "title": "Tarifs",
@@ -155,7 +160,7 @@
       },
       "email": {
         "title": "Email direct",
-        "address": "chris.tesconi@gmail.com",
+        "address": "contact@christophetesconidev.com",
         "cta": "Envoyer un email"
       }
     },
@@ -171,7 +176,7 @@
     "legal": "Mentions légales",
     "address": "Région franco-suisse",
     "phone": "+33 7 86 59 93 27",
-    "email": "chris.tesconi@gmail.com",
+    "email": "contact@christophetesconidev.com",
     "quickLinks": "Navigation",
     "home": "Accueil",
     "services": "Services",

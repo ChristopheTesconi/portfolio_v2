@@ -9,7 +9,7 @@
   },
   "titleFreelance": "Tesconi Christophe Web Developer",
   "introQuote": "Every website is a valuable link between you and your users.",
-  "introText": "I bring your digital ideas to life with precision and passion, putting your needs at the heart of every project.\nWith a unique background, I support you with transparency, commitment, and authenticity.",
+  "introText": "Former professional chef turned web developer, I build websites and applications for SMEs and restaurants in French-speaking Switzerland. The same precision as a starred kitchen — applied to your online presence.",
   "contactCTA": "Got a project? Write to me",
   "message": "A website is more than just existing online — it's a true bridge to your customers. Through clear, simple, and smooth experiences, I help you build a strong and lasting connection with them.",
   "services": {
@@ -80,6 +80,11 @@
         ]
       }
     ]
+  },
+  "testimonials": {
+    "title": "What my clients say",
+    "subtitle": "Verified reviews published on Malt",
+    "platformLabel": "Verified review on"
   },
   "pricing": {
     "title": "Pricing",
@@ -156,7 +161,7 @@
       },
       "email": {
         "title": "Direct Email",
-        "address": "chris.tesconi@gmail.com",
+        "address": "contact@christophetesconidev.com",
         "cta": "Send an email"
       }
     },
@@ -172,7 +177,7 @@
     "legal": "Legal Notice",
     "address": "French-Swiss border region",
     "phone": "+33 7 86 59 93 27",
-    "email": "chris.tesconi@gmail.com",
+    "email": "contact@christophetesconidev.com",
     "quickLinks": "Navigation",
     "home": "Home",
     "services": "Services",

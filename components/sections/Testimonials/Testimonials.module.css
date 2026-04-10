@@ -1,0 +1,129 @@
+.testimonials {
+  background-color: rgb(31, 32, 57);
+  padding: 3rem 5vw;
+  min-height: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.testimonials h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  color: rgb(165, 180, 252);
+  font-weight: 700;
+}
+
+.subtitle {
+  text-align: center;
+  color: rgb(156, 163, 175);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.cardsContainer {
+  display: flex;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  background-color: rgba(55, 56, 90, 0.5);
+  border: 1px solid rgba(165, 180, 252, 0.15);
+  border-radius: 1rem;
+  padding: 2rem 1.75rem 1.5rem;
+  flex: 1;
+  max-width: 480px;
+  transition: border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(165, 180, 252, 0.35);
+}
+
+.quoteIcon {
+  position: absolute;
+  top: 0.5rem;
+  left: 1.25rem;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: rgba(165, 180, 252, 0.2);
+  font-family: Georgia, serif;
+  user-select: none;
+  pointer-events: none;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  width: 1rem;
+  height: 1rem;
+  color: rgb(251, 191, 36);
+}
+
+.platform {
+  font-size: 0.75rem;
+  color: rgb(156, 163, 175);
+}
+
+.text {
+  color: rgb(229, 231, 235);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
+.authorRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(165, 180, 252, 0.1);
+  padding-top: 1rem;
+}
+
+.authorName {
+  color: rgb(199, 210, 254);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.company {
+  color: rgb(156, 163, 175);
+  font-size: 0.8rem;
+  margin-top: 0.15rem;
+}
+
+.date {
+  color: rgb(107, 114, 128);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 767px) {
+  .testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cardsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+}

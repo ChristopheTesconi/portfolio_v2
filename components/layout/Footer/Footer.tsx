@@ -95,7 +95,7 @@ export default function Footer() {
                 href={`https://wa.me/33786599327?text=${encodeURIComponent(
                   currentLocale === "fr"
                     ? "Bonjour, je souhaite discuter d'un projet web."
-                    : "Hello, I would like to discuss a web project."
+                    : "Hello, I would like to discuss a web project.",
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -107,7 +107,7 @@ export default function Footer() {
             </p>
             <p>
               <a
-                href="mailto:chris.tesconi@gmail.com"
+                href="mailto:contact@christophetesconidev.com"
                 itemProp="email"
                 aria-label={`Send email to ${t.footer.email}`}
               >
@@ -232,7 +232,7 @@ export default function Footer() {
               href={`https://wa.me/33786599327?text=${encodeURIComponent(
                 currentLocale === "fr"
                   ? "Bonjour, je souhaite discuter d'un projet web."
-                  : "Hello, I would like to discuss a web project."
+                  : "Hello, I would like to discuss a web project.",
               )}`}
               target="_blank"
               rel="noopener noreferrer"

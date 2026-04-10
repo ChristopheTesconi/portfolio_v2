@@ -1,25 +1,31 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT),
+  secure: true,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { name, email, message } = body;
 
-    // Validation
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Tous les champs sont requis" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    // Send email via Resend
-    const data = await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>", // Remplacez par votre domaine vérifié
-      to: ["chris.tesconi@gmail.com"],
+    await transporter.sendMail({
+      from: "Christophe Tesconi <contact@christophetesconidev.com>",
+      to: "contact@christophetesconidev.com",
       replyTo: email,
       subject: `Nouveau message de ${name} - Portfolio`,
       html: `
@@ -31,12 +37,12 @@ export async function POST(request: Request) {
       `,
     });
 
-    return NextResponse.json({ success: true, data });
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Resend error:", error);
+    console.error("SMTP error:", error);
     return NextResponse.json(
       { error: "Erreur lors de l'envoi du message" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
