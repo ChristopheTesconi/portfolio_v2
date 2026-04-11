@@ -90,52 +90,63 @@
     "title": "Pricing",
     "packages": [
       {
-        "name": "Showcase",
-        "price": "CHF 2,490",
+        "name": "Essential",
+        "price": "CHF 1,990",
         "priceNote": "Starting from",
+        "installment": "or ~CHF 665/month over 3 months",
         "features": [
-          "5-page responsive website",
-          "Modern and professional design",
-          "Basic SEO optimization",
-          "Contact form",
-          "Delivery in 3-4 weeks"
+          "Mobile and desktop ready",
+          "Design that fits your brand",
+          "Visible on Google locally",
+          "Online in 3 weeks"
         ]
       },
       {
-        "name": "Pro",
-        "price": "CHF 4,900",
+        "name": "Complete",
+        "price": "CHF 3,900",
         "priceNote": "Starting from",
+        "installment": "or ~CHF 1,300/month over 3 months",
         "popular": true,
         "features": [
-          "10-page responsive website",
-          "Multilingual version (FR/EN/DE)",
-          "Advanced SEO with Schema.org",
-          "Custom forms",
-          "Third-party integrations (Google Maps, etc.)",
-          "Delivery in 4-6 weeks"
+          "Full multi-service website",
+          "Multilingual FR / EN / DE",
+          "Enhanced SEO, more clients",
+          "Booking and contact built-in"
         ]
       },
       {
         "name": "Custom",
         "price": "On quote",
-        "priceNote": "",
+        "priceNote": "Based on your project",
+        "installment": "free initial consultation",
         "features": [
           "Custom web application",
-          "Complex API integrations",
-          "Admin backoffice",
-          "Custom architecture",
-          "Support and maintenance included",
-          "Timeline based on project"
+          "Connected to your tools",
+          "Admin back-office included",
+          "Support and maintenance included"
         ]
       }
     ],
+    "maintenance": {
+      "name": "Maintenance & peace of mind",
+      "price": "CHF 89",
+      "period": "/month",
+      "annualPrice": "CHF 890/year",
+      "annualSaving": "2 months free",
+      "features": [
+        "Regular updates and backups",
+        "Security monitoring",
+        "Email support within 24h",
+        "Hosting included"
+      ]
+    },
     "notes": [
-      "Prices exclude VAT in Swiss francs",
-      "Payment accepted in CHF or EUR",
-      "50% deposit upon signing, balance upon delivery",
-      "Maintenance and support available upon request"
+      "Payment in CHF or EUR accepted",
+      "Pay in 2 or 3 installments, no extra fees",
+      "Hosting and domain name included for the first year",
+      "Training on how to use your site included"
     ],
-    "cta": "Request a free quote"
+    "cta": "Let's discuss your project"
   },
   "contact": {
     "title": "Ready to Start Your Project?",

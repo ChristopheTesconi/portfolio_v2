@@ -1,3 +1,4 @@
+/* Pricing.module.css */
 .pricing {
   background-color: rgb(31, 32, 57);
   padding: 3rem 5vw;
@@ -20,6 +21,85 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto 3rem;
+}
+
+/* Maintenance */
+.maintenanceContainer {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.maintenanceCard {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(165, 180, 252, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.maintenanceHeader {
+  flex-shrink: 0;
+  text-align: center;
+  min-width: 200px;
+}
+
+.maintenanceName {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgb(165, 180, 252);
+  margin-bottom: 0.75rem;
+}
+
+.maintenancePricing {
+  margin-bottom: 0.25rem;
+}
+
+.maintenancePrice {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+}
+
+.maintenancePeriod {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.maintenanceAnnual {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.maintenanceSaving {
+  color: rgb(134, 239, 172);
+  font-weight: 600;
+}
+
+.maintenanceFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.maintenanceFeatures li {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.maintenanceFeatures li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: rgb(165, 180, 252);
+  font-weight: bold;
 }
 
 /* Notes */
@@ -82,5 +162,20 @@
   .cta {
     width: 90%;
     max-width: 300px;
+  }
+
+  .maintenanceCard {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .maintenanceHeader {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .maintenanceFeatures li {
+    text-align: left;
   }
 }

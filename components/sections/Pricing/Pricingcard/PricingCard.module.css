@@ -1,3 +1,4 @@
+/* PricingCard.module.css */
 .card {
   background: white;
   border-radius: 16px;
@@ -9,6 +10,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  border: 3px solid rgb(165, 180, 252);
 }
 
 .card:hover {
@@ -68,6 +70,13 @@
   font-weight: 700;
   color: rgb(165, 180, 252);
   margin: 0;
+}
+
+.installment {
+  font-size: 0.85rem;
+  color: rgb(120, 120, 140);
+  margin-top: 0.4rem;
+  font-style: italic;
 }
 
 /* Features */

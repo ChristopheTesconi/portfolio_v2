@@ -5,6 +5,7 @@ interface Package {
   price: string;
   priceNote: string;
   popular?: boolean;
+  installment?: string;
   features: string[];
 }
 
@@ -13,7 +14,6 @@ interface PricingCardProps {
 }
 
 export default function PricingCard({ package: pkg }: PricingCardProps) {
-  // ✅ DÉTECTION DU TYPE DE PRIX
   const isOnQuote = pkg.price === "Sur devis" || pkg.price === "On quote";
   const priceValue = isOnQuote ? "0" : pkg.price.replace(/[^\d]/g, "");
 
@@ -23,7 +23,6 @@ export default function PricingCard({ package: pkg }: PricingCardProps) {
       itemScope
       itemType="https://schema.org/Offer"
     >
-      {/* ✅ META CACHÉES POUR SCHEMA.ORG */}
       <meta itemProp="priceCurrency" content="CHF" />
       {!isOnQuote && <meta itemProp="price" content={priceValue} />}
       <meta itemProp="description" content={pkg.features.join(". ")} />
@@ -38,6 +37,9 @@ export default function PricingCard({ package: pkg }: PricingCardProps) {
         </h3>
         {pkg.priceNote && <p className={styles.priceNote}>{pkg.priceNote}</p>}
         <p className={styles.price}>{pkg.price}</p>
+        {pkg.installment && (
+          <p className={styles.installment}>{pkg.installment}</p>
+        )}
       </div>
 
       <ul className={styles.features}>

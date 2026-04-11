@@ -90,51 +90,63 @@
     "title": "Tarifs",
     "packages": [
       {
-        "name": "Vitrine",
-        "price": "2 490 CHF",
+        "name": "Essentiel",
+        "price": "1 990 CHF",
         "priceNote": "À partir de",
+        "installment": "ou ~665 CHF/mois en 3 fois",
         "features": [
-          "Site 5 pages responsive",
-          "Design moderne et professionnel",
-          "Optimisation SEO de base",
-          "Formulaire de contact",
-          "Livraison en 3-4 semaines"
+          "Compatible mobile et ordinateur",
+          "Design à votre image",
+          "Visible sur Google localement",
+          "En ligne en 3 semaines"
         ]
       },
       {
-        "name": "Pro",
-        "price": "4 900 CHF",
+        "name": "Complet",
+        "price": "3 900 CHF",
         "priceNote": "À partir de",
+        "installment": "ou ~1 300 CHF/mois en 3 fois",
         "popular": true,
         "features": [
-          "Site 10 pages responsive",
-          "Version multilingue (FR/EN/DE)",
-          "SEO avancé avec Schema.org",
-          "Formulaires personnalisés",
-          "Intégrations tierces (Google Maps, etc.)",
-          "Livraison en 4-6 semaines"
+          "Site complet multi-services",
+          "Multilingue FR / EN / DE",
+          "SEO renforcé, plus de clients",
+          "Réservation et contact intégrés"
         ]
       },
       {
         "name": "Sur-mesure",
         "price": "Sur devis",
-        "priceNote": "",
+        "priceNote": "Selon votre projet",
+        "installment": "premier échange gratuit",
         "features": [
-          "Application web custom",
-          "Intégrations API complexes",
-          "Backoffice d'administration",
-          "Architecture sur-mesure",
-          "Support et maintenance inclus",
-          "Délai selon le projet"
+          "Application web sur-mesure",
+          "Connectée à vos outils métier",
+          "Back-office d'administration",
+          "Support et maintenance inclus"
         ]
       }
     ],
+    "maintenance": {
+      "name": "Maintenance & sérénité",
+      "price": "89 CHF",
+      "period": "/mois",
+      "annualPrice": "890 CHF/an",
+      "annualSaving": "soit 2 mois offerts",
+      "features": [
+        "Mises à jour et sauvegardes régulières",
+        "Sécurité et surveillance du site",
+        "Support par email sous 24h",
+        "Hébergement inclus"
+      ]
+    },
     "notes": [
       "Paiement en CHF ou EUR accepté",
-      "Acompte de 50% à la signature, solde à la livraison",
-      "Maintenance et support disponibles sur demande"
+      "Paiement en 2 ou 3 fois possible, sans frais",
+      "Hébergement et nom de domaine inclus la première année",
+      "Formation à l'utilisation de votre site incluse"
     ],
-    "cta": "Demander un devis gratuit"
+    "cta": "Discutons de votre projet"
   },
   "contact": {
     "title": "Prêt à démarrer votre projet ?",

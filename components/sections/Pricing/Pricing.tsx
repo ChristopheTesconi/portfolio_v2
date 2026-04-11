@@ -20,6 +20,16 @@ interface Package {
   price: string;
   priceNote: string;
   popular?: boolean;
+  installment?: string;
+  features: string[];
+}
+
+interface Maintenance {
+  name: string;
+  price: string;
+  period: string;
+  annualPrice: string;
+  annualSaving: string;
   features: string[];
 }
 
@@ -54,14 +64,16 @@ export default function Pricing() {
           },
         };
 
+  const maintenance: Maintenance | undefined = t.pricing.maintenance;
+
   const pricingSchema = {
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
     name: t.pricing.title,
     description:
       currentLocale === "fr"
-        ? "Tarifs de développement web fullstack pour PME suisses : sites vitrine, sites professionnels multilingues et applications sur-mesure"
-        : "Fullstack web development pricing for Swiss SMEs: showcase sites, professional multilingual websites and custom applications",
+        ? "Tarifs de développement web fullstack pour PME suisses : sites essentiels, sites complets multilingues et applications sur-mesure"
+        : "Fullstack web development pricing for Swiss SMEs: essential sites, complete multilingual websites and custom applications",
     itemListElement: t.pricing.packages.map((pkg: Package, index: number) => ({
       "@type": "Offer",
       position: index + 1,
@@ -135,9 +147,42 @@ export default function Pricing() {
           ))}
         </div>
 
+        {/* Bloc Maintenance */}
+        {maintenance && (
+          <motion.div
+            className={styles.maintenanceContainer}
+            {...fadeUp(STAGGER_DELAY * t.pricing.packages.length)}
+          >
+            <div className={styles.maintenanceCard}>
+              <div className={styles.maintenanceHeader}>
+                <h3 className={styles.maintenanceName}>{maintenance.name}</h3>
+                <div className={styles.maintenancePricing}>
+                  <span className={styles.maintenancePrice}>
+                    {maintenance.price}
+                  </span>
+                  <span className={styles.maintenancePeriod}>
+                    {maintenance.period}
+                  </span>
+                </div>
+                <p className={styles.maintenanceAnnual}>
+                  {maintenance.annualPrice}{" "}
+                  <span className={styles.maintenanceSaving}>
+                    ({maintenance.annualSaving})
+                  </span>
+                </p>
+              </div>
+              <ul className={styles.maintenanceFeatures}>
+                {maintenance.features.map((feature: string, index: number) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        )}
+
         <motion.ul
           className={styles.notes}
-          {...fadeUp(STAGGER_DELAY * t.pricing.packages.length)}
+          {...fadeUp(STAGGER_DELAY * (t.pricing.packages.length + 1))}
         >
           {t.pricing.notes.map((note: string, index: number) => (
             <li key={index}>{note}</li>
@@ -145,7 +190,7 @@ export default function Pricing() {
         </motion.ul>
 
         <motion.div
-          {...fadeUp(STAGGER_DELAY * (t.pricing.packages.length + 1))}
+          {...fadeUp(STAGGER_DELAY * (t.pricing.packages.length + 2))}
         >
           <button onClick={scrollToContact} className={styles.cta}>
             {t.pricing.cta}
