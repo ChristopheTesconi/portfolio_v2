@@ -39,7 +39,7 @@
 }
 
 .cta:hover {
-  transform: translateY(-3px) scale(1.05);
+  transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(165, 180, 252, 0.5);
 }
 

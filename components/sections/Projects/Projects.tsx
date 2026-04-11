@@ -1,8 +1,18 @@
+// components/sections/Projects/Projects.tsx
 "use client";
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { motion } from "motion/react";
 import { getProjectsTitle, type Locale } from "@/lib/i18n";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import {
+  ANIMATION_DURATION,
+  ANIMATION_EASING,
+  TRANSLATE_Y,
+  STAGGER_DELAY,
+  VIEWPORT_CONFIG,
+} from "@/lib/animations";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import { getProjects } from "./projectsData";
 import styles from "./Projects.module.css";
@@ -11,6 +21,7 @@ export default function Projects() {
   const pathname = usePathname();
   const currentLocale = (pathname?.split("/")[1] || "fr") as Locale;
   const projectsTitle = getProjectsTitle(currentLocale);
+  const reducedMotion = useReducedMotion();
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -19,6 +30,20 @@ export default function Projects() {
   const toggle = (index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index));
   };
+
+  const fadeUp = (delay: number) =>
+    reducedMotion
+      ? {}
+      : {
+          initial: { opacity: 0, y: TRANSLATE_Y },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: VIEWPORT_CONFIG,
+          transition: {
+            duration: ANIMATION_DURATION,
+            ease: ANIMATION_EASING,
+            delay,
+          },
+        };
 
   const projectsSchema = {
     "@context": "https://schema.org",
@@ -29,7 +54,6 @@ export default function Projects() {
         ? "Portfolio de projets web réalisés par Christophe Tesconi, développeur fullstack freelance spécialisé en React, Next.js et Symfony"
         : "Web projects portfolio by Christophe Tesconi, freelance fullstack developer specialized in React, Next.js and Symfony",
     itemListElement: projects.map((project, index) => {
-      // ✅ VALIDATION : URL valide ou fallback
       const projectUrl =
         project.liveUrl || project.github || "https://christophetesconidev.com";
 
@@ -41,7 +65,6 @@ export default function Projects() {
           name: project.titre,
           description: project.description.join(". "),
           url: projectUrl,
-          // ✅ AJOUT : Image du projet
           image: `https://christophetesconidev.com${project.image}`,
           applicationCategory: "WebApplication",
           operatingSystem: "Any",
@@ -55,7 +78,6 @@ export default function Projects() {
                 : "Fullstack Web Developer",
           },
           programmingLanguage: ["JavaScript", "TypeScript", "PHP"],
-          // ✅ AMÉLIORATION : potentialAction seulement si URL valide
           ...(project.liveUrl && {
             potentialAction: {
               "@type": "ViewAction",
@@ -80,16 +102,19 @@ export default function Projects() {
         itemScope
         itemType="https://schema.org/ItemList"
       >
-        <h2 itemProp="name">{projectsTitle}</h2>
+        <motion.h2 itemProp="name" {...fadeUp(0)}>
+          {projectsTitle}
+        </motion.h2>
 
         <div className={styles.projectsContainer}>
           {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              isOpen={openIndex === index}
-              onToggle={() => toggle(index)}
-            />
+            <motion.div key={index} {...fadeUp(STAGGER_DELAY * index)}>
+              <ProjectCard
+                project={project}
+                isOpen={openIndex === index}
+                onToggle={() => toggle(index)}
+              />
+            </motion.div>
           ))}
         </div>
       </section>

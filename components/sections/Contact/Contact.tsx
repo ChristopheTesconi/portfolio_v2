@@ -1,14 +1,25 @@
+// components/sections/Contact/Contact.tsx
 "use client";
 
 import { useState, FormEvent } from "react";
 import { usePathname } from "next/navigation";
+import { motion } from "motion/react";
 import { getDictionary, type Locale } from "@/lib/i18n";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import {
+  ANIMATION_DURATION,
+  ANIMATION_EASING,
+  TRANSLATE_Y,
+  STAGGER_DELAY,
+  VIEWPORT_CONFIG,
+} from "@/lib/animations";
 import styles from "./Contact.module.css";
 
 export default function Contact() {
   const pathname = usePathname();
   const currentLocale = (pathname?.split("/")[1] || "fr") as Locale;
   const t = getDictionary(currentLocale);
+  const reducedMotion = useReducedMotion();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -31,7 +42,6 @@ export default function Contact() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Anti-spam honeypot
     if (honeypot) {
       console.log("Spam detected");
       return;
@@ -66,7 +76,6 @@ export default function Contact() {
       setStatus("error");
     }
 
-    // Reset status after 5 seconds
     setTimeout(() => setStatus("idle"), 5000);
   };
 
@@ -78,7 +87,46 @@ export default function Contact() {
       : "Hello, I would like to discuss a web project.",
   )}`;
 
-  // ✅ SCHEMA.ORG CONTACTPAGE OPTIMISÉ
+  const fadeUp = (delay: number) =>
+    reducedMotion
+      ? {}
+      : {
+          initial: { opacity: 0, y: TRANSLATE_Y },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: VIEWPORT_CONFIG,
+          transition: {
+            duration: ANIMATION_DURATION,
+            ease: ANIMATION_EASING,
+            delay,
+          },
+        };
+
+  const fadeFromLeft = reducedMotion
+    ? {}
+    : {
+        initial: { opacity: 0, x: -20 },
+        whileInView: { opacity: 1, x: 0 },
+        viewport: VIEWPORT_CONFIG,
+        transition: {
+          duration: ANIMATION_DURATION,
+          ease: ANIMATION_EASING,
+          delay: 0,
+        },
+      };
+
+  const fadeFromRight = reducedMotion
+    ? {}
+    : {
+        initial: { opacity: 0, x: 20 },
+        whileInView: { opacity: 1, x: 0 },
+        viewport: VIEWPORT_CONFIG,
+        transition: {
+          duration: ANIMATION_DURATION,
+          ease: ANIMATION_EASING,
+          delay: 0.15,
+        },
+      };
+
   const contactSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
@@ -147,16 +195,15 @@ export default function Contact() {
         itemScope
         itemType="https://schema.org/ContactPage"
       >
-        <div className={styles.header}>
+        <motion.div className={styles.header} {...fadeUp(0)}>
           <h2 itemProp="name">{t.contact.title}</h2>
           <p className={styles.subtitle} itemProp="description">
             {t.contact.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         <div className={styles.contactContainer}>
-          {/* Formulaire */}
-          <div className={styles.formContainer}>
+          <motion.div className={styles.formContainer} {...fadeFromLeft}>
             <form
               onSubmit={handleSubmit}
               className={styles.form}
@@ -164,7 +211,6 @@ export default function Contact() {
               itemScope
               itemType="https://schema.org/CommunicateAction"
             >
-              {/* Honeypot anti-spam (hidden) */}
               <input
                 type="text"
                 name="website"
@@ -245,12 +291,13 @@ export default function Contact() {
                 <p className={styles.errorMessage}>{t.contact.form.error}</p>
               )}
             </form>
-          </div>
+          </motion.div>
 
-          {/* Alternatives */}
-          <div className={styles.alternativesContainer}>
+          <motion.div
+            className={styles.alternativesContainer}
+            {...fadeFromRight}
+          >
             <h3>{t.contact.alternatives.title}</h3>
-
             <a
               href={whatsappLink}
               target="_blank"
@@ -294,23 +341,26 @@ export default function Contact() {
                 </span>
               </div>
             </a>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Trust badges */}
         <div className={styles.trustBadges}>
-          <div className={styles.badge}>
-            <span className={styles.badgeIcon2}></span>
-            <span>{t.contact.trust.response}</span>
-          </div>
-          <div className={styles.badge}>
-            <span className={styles.badgeIcon2}></span>
-            <span>{t.contact.trust.quote}</span>
-          </div>
-          <div className={styles.badge}>
-            <span className={styles.badgeIcon}>🇨🇭</span>
-            <span>{t.contact.trust.location}</span>
-          </div>
+          {[
+            t.contact.trust.response,
+            t.contact.trust.quote,
+            t.contact.trust.location,
+          ].map((badge, index) => (
+            <motion.div
+              key={index}
+              className={styles.badge}
+              {...fadeUp(STAGGER_DELAY * index)}
+            >
+              <span
+                className={index === 2 ? styles.badgeIcon : styles.badgeIcon2}
+              ></span>
+              <span>{badge}</span>
+            </motion.div>
+          ))}
         </div>
       </section>
     </>

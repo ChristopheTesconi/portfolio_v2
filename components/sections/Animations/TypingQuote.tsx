@@ -1,3 +1,4 @@
+// components/sections/Animations/TypingQuote.tsx
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -5,23 +6,31 @@ import styles from "../Home/Home.module.css";
 
 interface TypingQuoteProps {
   text: string;
+  delay?: number;
+  reducedMotion?: boolean;
 }
 
-export default function TypingQuote({ text }: TypingQuoteProps) {
-  const [displayedText, setDisplayedText] = useState("");
-  const [showCursor, setShowCursor] = useState(true);
+export default function TypingQuote({
+  text,
+  delay = 0,
+  reducedMotion = false,
+}: TypingQuoteProps) {
+  const [displayedText, setDisplayedText] = useState(() =>
+    reducedMotion ? text : "",
+  );
+  const showCursor = !reducedMotion;
+  const [cursorVisible, setCursorVisible] = useState(true);
   const indexRef = useRef(0);
   const timeoutIdRef = useRef<NodeJS.Timeout | null>(null);
   const restartTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const delayTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    if (reducedMotion) return;
+
     indexRef.current = 0;
 
     function type() {
-      if (indexRef.current === 0) {
-        setDisplayedText(""); // Reset uniquement au début du cycle
-      }
-
       setDisplayedText(text.slice(0, indexRef.current + 1));
       indexRef.current += 1;
 
@@ -35,29 +44,34 @@ export default function TypingQuote({ text }: TypingQuoteProps) {
       }
     }
 
-    // Démarrer l'animation avec un micro-délai pour éviter l'appel synchrone
-    const startTimeout = setTimeout(type, 0);
+    delayTimeoutRef.current = setTimeout(type, delay * 1000);
 
     return () => {
-      clearTimeout(startTimeout);
+      if (delayTimeoutRef.current) clearTimeout(delayTimeoutRef.current);
       if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
       if (restartTimeoutRef.current) clearTimeout(restartTimeoutRef.current);
     };
-  }, [text]);
+  }, [text, delay, reducedMotion]);
 
   useEffect(() => {
+    if (reducedMotion) return;
+
     const cursorInterval = setInterval(() => {
-      setShowCursor((prev) => !prev);
+      setCursorVisible((prev) => !prev);
     }, 500);
     return () => clearInterval(cursorInterval);
-  }, []);
+  }, [reducedMotion]);
 
   return (
     <p className={styles.introQuote}>
       &ldquo;{displayedText}&rdquo;
-      <span className={showCursor ? styles.cursorVisible : styles.cursorHidden}>
-        |
-      </span>
+      {showCursor && (
+        <span
+          className={cursorVisible ? styles.cursorVisible : styles.cursorHidden}
+        >
+          |
+        </span>
+      )}
     </p>
   );
 }

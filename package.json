@@ -12,6 +12,7 @@
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "bootswatch": "^5.3.8",
+    "motion": "^12.38.0",
     "next": "16.0.10",
     "next-intl": "^4.5.5",
     "nodemailer": "^8.0.5",

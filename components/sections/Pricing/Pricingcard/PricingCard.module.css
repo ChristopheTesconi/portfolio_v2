@@ -3,7 +3,9 @@
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17,6 +19,13 @@
 /* Popular badge */
 .popular {
   border: 3px solid rgb(165, 180, 252);
+}
+
+.popular:hover {
+  border-color: rgb(165, 180, 252);
+  box-shadow:
+    0 0 20px rgba(165, 180, 252, 0.4),
+    0 10px 24px rgba(165, 180, 252, 0.3);
 }
 
 .badge {

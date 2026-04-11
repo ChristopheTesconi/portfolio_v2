@@ -1,7 +1,17 @@
+// components/sections/Pricing/Pricing.tsx
 "use client";
 
 import { usePathname } from "next/navigation";
+import { motion } from "motion/react";
 import { getDictionary, type Locale } from "@/lib/i18n";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import {
+  ANIMATION_DURATION,
+  ANIMATION_EASING,
+  TRANSLATE_Y,
+  STAGGER_DELAY,
+  VIEWPORT_CONFIG,
+} from "@/lib/animations";
 import PricingCard from "./Pricingcard/PricingCard";
 import styles from "./Pricing.module.css";
 
@@ -17,6 +27,7 @@ export default function Pricing() {
   const pathname = usePathname();
   const currentLocale = (pathname?.split("/")[1] || "fr") as Locale;
   const t = getDictionary(currentLocale);
+  const reducedMotion = useReducedMotion();
 
   if (!t || !t.pricing) {
     return null;
@@ -29,7 +40,20 @@ export default function Pricing() {
     }
   };
 
-  // ✅ SCHEMA.ORG OFFERCATALOG (CORRECT)
+  const fadeUp = (delay: number) =>
+    reducedMotion
+      ? {}
+      : {
+          initial: { opacity: 0, y: TRANSLATE_Y },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: VIEWPORT_CONFIG,
+          transition: {
+            duration: ANIMATION_DURATION,
+            ease: ANIMATION_EASING,
+            delay,
+          },
+        };
+
   const pricingSchema = {
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
@@ -43,7 +67,6 @@ export default function Pricing() {
       position: index + 1,
       name: pkg.name,
       description: pkg.features.join(". "),
-      // ✅ GESTION DES PRIX (nombre ou "Sur devis")
       ...(pkg.price !== "Sur devis" &&
         pkg.price !== "On quote" && {
           priceSpecification: {
@@ -53,7 +76,6 @@ export default function Pricing() {
             valueAddedTaxIncluded: false,
           },
         }),
-      // ✅ PRIX "SUR DEVIS" = Pas de prix fixe
       ...(pkg.price === "Sur devis" || pkg.price === "On quote"
         ? {
             priceSpecification: {
@@ -73,10 +95,7 @@ export default function Pricing() {
         url: "https://christophetesconidev.com",
       },
       areaServed: [
-        {
-          "@type": "Country",
-          name: "Switzerland",
-        },
+        { "@type": "Country", name: "Switzerland" },
         {
           "@type": "Place",
           name:
@@ -84,10 +103,7 @@ export default function Pricing() {
               ? "Suisse romande"
               : "French-speaking Switzerland",
         },
-        {
-          "@type": "Country",
-          name: "France",
-        },
+        { "@type": "Country", name: "France" },
       ],
       availability: "https://schema.org/InStock",
       url: "https://christophetesconidev.com#contact",
@@ -107,23 +123,34 @@ export default function Pricing() {
         itemScope
         itemType="https://schema.org/OfferCatalog"
       >
-        <h2 itemProp="name">{t.pricing.title}</h2>
+        <motion.h2 itemProp="name" {...fadeUp(0)}>
+          {t.pricing.title}
+        </motion.h2>
 
         <div className={styles.packagesContainer}>
           {t.pricing.packages.map((pkg: Package, index: number) => (
-            <PricingCard key={index} package={pkg} />
+            <motion.div key={index} {...fadeUp(STAGGER_DELAY * index)}>
+              <PricingCard package={pkg} />
+            </motion.div>
           ))}
         </div>
 
-        <ul className={styles.notes}>
+        <motion.ul
+          className={styles.notes}
+          {...fadeUp(STAGGER_DELAY * t.pricing.packages.length)}
+        >
           {t.pricing.notes.map((note: string, index: number) => (
             <li key={index}>{note}</li>
           ))}
-        </ul>
+        </motion.ul>
 
-        <button onClick={scrollToContact} className={styles.cta}>
-          {t.pricing.cta}
-        </button>
+        <motion.div
+          {...fadeUp(STAGGER_DELAY * (t.pricing.packages.length + 1))}
+        >
+          <button onClick={scrollToContact} className={styles.cta}>
+            {t.pricing.cta}
+          </button>
+        </motion.div>
       </section>
     </>
   );

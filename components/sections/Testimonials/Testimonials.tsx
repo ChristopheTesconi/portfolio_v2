@@ -1,7 +1,18 @@
+// components/sections/Testimonials/Testimonials.tsx
 "use client";
 
 import { usePathname } from "next/navigation";
+import { motion } from "motion/react";
 import { getDictionary, type Locale } from "@/lib/i18n";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import {
+  ANIMATION_DURATION,
+  ANIMATION_EASING,
+  TRANSLATE_Y,
+  STAGGER_DELAY,
+  VIEWPORT_CONFIG,
+} from "@/lib/animations";
+import TestimonialCard from "./TestimonialCard/TestimonialCard";
 import styles from "./Testimonials.module.css";
 
 const testimonials = [
@@ -27,69 +38,43 @@ const testimonials = [
   },
 ];
 
-function Stars({ count }: { count: number }) {
-  return (
-    <div className={styles.stars} aria-label={`${count}/5`}>
-      {Array.from({ length: count }).map((_, i) => (
-        <svg
-          key={i}
-          className={styles.star}
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.176 0l-3.37 2.448c-.784.57-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
-
 export default function Testimonials() {
   const pathname = usePathname();
   const currentLocale = (pathname?.split("/")[1] || "fr") as Locale;
   const dict = getDictionary(currentLocale);
   const t = dict.testimonials;
+  const reducedMotion = useReducedMotion();
+
+  const fadeUp = (delay: number) =>
+    reducedMotion
+      ? {}
+      : {
+          initial: { opacity: 0, y: TRANSLATE_Y },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: VIEWPORT_CONFIG,
+          transition: {
+            duration: ANIMATION_DURATION,
+            ease: ANIMATION_EASING,
+            delay,
+          },
+        };
 
   return (
     <section id="temoignages" className={styles.testimonials}>
-      <h2>{t.title}</h2>
-      <p className={styles.subtitle}>{t.subtitle}</p>
+      <motion.h2 {...fadeUp(0)}>{t.title}</motion.h2>
+      <motion.p className={styles.subtitle} {...fadeUp(0)}>
+        {t.subtitle}
+      </motion.p>
 
       <div className={styles.cardsContainer}>
-        {testimonials.map((item) => {
-          const formattedDate = new Date(item.date).toLocaleDateString(
-            item.lang === "fr" ? "fr-FR" : "en-US",
-            { year: "numeric", month: "long", day: "numeric" },
-          );
-
-          return (
-            <div key={item.id} className={styles.card}>
-              <span className={styles.quoteIcon} aria-hidden="true">
-                &ldquo;
-              </span>
-
-              <div className={styles.cardHeader}>
-                <Stars count={item.rating} />
-                <span className={styles.platform}>
-                  {t.platformLabel} {item.platform}
-                </span>
-              </div>
-
-              <p className={styles.text}>{item.text}</p>
-
-              <div className={styles.authorRow}>
-                <div>
-                  <div className={styles.authorName}>{item.author}</div>
-                  {item.company && (
-                    <div className={styles.company}>{item.company}</div>
-                  )}
-                </div>
-                <span className={styles.date}>{formattedDate}</span>
-              </div>
-            </div>
-          );
-        })}
+        {testimonials.map((item, index) => (
+          <motion.div key={item.id} {...fadeUp(STAGGER_DELAY * index)}>
+            <TestimonialCard
+              testimonial={item}
+              platformLabel={t.platformLabel}
+            />
+          </motion.div>
+        ))}
       </div>
     </section>
   );

@@ -150,6 +150,58 @@
 }
 
 /* ==============================
+   Indicateur section active
+   ============================== */
+.activeLink {
+  color: rgb(165, 180, 252) !important;
+  position: relative;
+}
+
+.activeLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background-color: rgb(165, 180, 252);
+  border-radius: 1px;
+  animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 60%;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 991px) {
+  .activeLink::after {
+    bottom: -2px;
+    width: 30px;
+    left: 0;
+    transform: none;
+  }
+
+  @keyframes slideIn {
+    from {
+      width: 0;
+      opacity: 0;
+    }
+    to {
+      width: 30px;
+      opacity: 1;
+    }
+  }
+}
+
+/* ==============================
    Responsive Mobile
    ============================== */
 @media (max-width: 991px) {

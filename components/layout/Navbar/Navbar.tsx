@@ -1,3 +1,4 @@
+// components/layout/Navbar/Navbar.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -8,8 +9,19 @@ import { useRouter, usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
 import { getDictionary, type Locale } from "@/lib/i18n";
 
+const SECTIONS = [
+  "home",
+  "services",
+  "mesprojets",
+  "apropos",
+  "tarifs",
+  "temoignages",
+  "contact",
+];
+
 export default function NavBar() {
   const [expanded, setExpanded] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const router = useRouter();
   const pathname = usePathname();
 
@@ -20,6 +32,28 @@ export default function NavBar() {
 
   const isHomePage =
     pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`;
+
+  // Détection de la section visible au scroll
+  useEffect(() => {
+    if (!isHomePage) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.find((entry) => entry.isIntersecting);
+        if (visible?.target.id) {
+          setActiveSection(visible.target.id);
+        }
+      },
+      { rootMargin: "-50% 0px -50% 0px" },
+    );
+
+    SECTIONS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [isHomePage]);
 
   useEffect(() => {
     if (window.location.hash) {
@@ -47,13 +81,11 @@ export default function NavBar() {
   }
 
   const scrollToSection = (sectionId: string) => {
-    closeNav(); // (pour Navbar seulement, retirez cette ligne dans Footer)
+    closeNav();
 
     if (!isHomePage) {
-      // ✅ CORRECTION : Ne pas mettre le hash dans l'URL, juste rediriger vers la home
       router.push(`/${currentLocale}`);
 
-      // ✅ Attendre que la navigation soit terminée, puis scroller
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -67,7 +99,7 @@ export default function NavBar() {
             behavior: "smooth",
           });
         }
-      }, 500); // ✅ Augmenté à 500ms pour laisser le temps à la page de charger
+      }, 500);
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -105,15 +137,13 @@ export default function NavBar() {
     const currentHash = window.location.hash || "";
     const pathWithoutLocale = pathname?.replace(`/${currentLocale}`, "") || "/";
 
-    // ✅ CORRECTION : Supprimer le hash SI on n'est pas sur la home
     const isOnHomePage = pathWithoutLocale === "/" || pathWithoutLocale === "";
-    const hashToKeep = isOnHomePage ? currentHash : ""; // Garder le hash seulement sur la home
+    const hashToKeep = isOnHomePage ? currentHash : "";
 
     const newUrl = `/${newLocale}${pathWithoutLocale}${hashToKeep}`;
 
     router.push(newUrl);
 
-    // ✅ SCROLL SEULEMENT SI ON EST SUR LA HOME AVEC UN HASH
     setTimeout(() => {
       if (isOnHomePage && hashToKeep) {
         const element = document.getElementById(hashToKeep.substring(1));
@@ -132,12 +162,15 @@ export default function NavBar() {
     }, 300);
   };
 
-  // ✅ TEXTE WHATSAPP TRADUIT
   const whatsappText = encodeURIComponent(
     currentLocale === "fr"
       ? "Bonjour, je souhaite discuter d'un projet web."
-      : "Hello, I would like to discuss a web project."
+      : "Hello, I would like to discuss a web project.",
   );
+
+  // Helper pour la classe active
+  const linkClass = (sectionId: string) =>
+    isHomePage && activeSection === sectionId ? styles.activeLink : "";
 
   return (
     <Navbar
@@ -153,7 +186,6 @@ export default function NavBar() {
       itemType="https://schema.org/SiteNavigationElement"
     >
       <Container fluid>
-        {/* ✅ LOGO AVEC LIEN HREF */}
         <Navbar.Brand
           as="a"
           href={`/${currentLocale}`}
@@ -176,7 +208,6 @@ export default function NavBar() {
 
         <Navbar.Collapse id="main-navbar-nav">
           <Nav className="me-auto" as="ul">
-            {/* ✅ LIENS AVEC HREF */}
             <Nav.Item as="li">
               <Nav.Link
                 as="a"
@@ -187,6 +218,7 @@ export default function NavBar() {
                 }}
                 aria-label="Go to home section"
                 itemProp="url"
+                className={linkClass("home")}
               >
                 <span itemProp="name">{t.nav.home}</span>
               </Nav.Link>
@@ -201,6 +233,7 @@ export default function NavBar() {
                 }}
                 aria-label="Discover my services"
                 itemProp="url"
+                className={linkClass("services")}
               >
                 <span itemProp="name">{t.nav.services}</span>
               </Nav.Link>
@@ -215,6 +248,7 @@ export default function NavBar() {
                 }}
                 aria-label="View my projects"
                 itemProp="url"
+                className={linkClass("mesprojets")}
               >
                 <span itemProp="name">{t.nav.projects}</span>
               </Nav.Link>
@@ -229,6 +263,7 @@ export default function NavBar() {
                 }}
                 aria-label="Learn about me"
                 itemProp="url"
+                className={linkClass("apropos")}
               >
                 <span itemProp="name">{t.nav.about}</span>
               </Nav.Link>
@@ -243,6 +278,7 @@ export default function NavBar() {
                 }}
                 aria-label="View my prices"
                 itemProp="url"
+                className={linkClass("tarifs")}
               >
                 <span itemProp="name">{t.nav.prices}</span>
               </Nav.Link>
@@ -257,6 +293,7 @@ export default function NavBar() {
                 }}
                 aria-label="Contact me"
                 itemProp="url"
+                className={linkClass("contact")}
               >
                 <span itemProp="name">{t.nav.contact}</span>
               </Nav.Link>
@@ -265,7 +302,6 @@ export default function NavBar() {
         </Navbar.Collapse>
 
         <div className={styles.rightSection}>
-          {/* ✅ WHATSAPP AVEC TEXTE TRADUIT */}
           <a
             href={`https://wa.me/33786599327?text=${whatsappText}`}
             target="_blank"

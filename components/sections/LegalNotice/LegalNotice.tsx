@@ -1,6 +1,16 @@
+// components/sections/LegalNotice/LegalNotice.tsx
 "use client";
 
 import { usePathname } from "next/navigation";
+import { motion } from "motion/react";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import {
+  ANIMATION_DURATION,
+  ANIMATION_EASING,
+  TRANSLATE_Y,
+  STAGGER_DELAY,
+  VIEWPORT_CONFIG,
+} from "@/lib/animations";
 import styles from "./LegalNotice.module.css";
 
 type Locale = "en" | "fr";
@@ -36,6 +46,8 @@ interface ContentTranslation {
 export default function LegalNotice() {
   const pathname = usePathname();
   const currentLocale = (pathname.split("/")[1] || "fr") as Locale;
+  const reducedMotion = useReducedMotion();
+  const year = new Date().getFullYear();
 
   const content: Record<string, ContentTranslation> = {
     fr: {
@@ -68,7 +80,7 @@ export default function LegalNotice() {
       privacy: "Protection des données",
       privacyText:
         "Nous respectons votre vie privée. Les données personnelles (telles que nom, adresse ou adresse e-mail) ne sont collectées que sur une base volontaire dans la mesure du possible. Ces données ne seront pas transmises à des tiers sans votre consentement explicite. Nous utilisons des mesures techniques et organisationnelles appropriées pour protéger vos données contre toute manipulation accidentelle ou intentionnelle, perte, destruction ou accès par des personnes non autorisées.",
-      footerCopyright: "© 2025 Christophe Tesconi - Tous droits réservés.",
+      footerCopyright: " Christophe Tesconi - Tous droits réservés.",
     },
     en: {
       title: "Legal Notice",
@@ -100,13 +112,26 @@ export default function LegalNotice() {
       privacy: "Data Protection",
       privacyText:
         "We respect your privacy. Personal data (such as name, address, or email address) is collected only on a voluntary basis whenever possible. This data will not be passed on to third parties without your explicit consent. We use appropriate technical and organizational measures to protect your data against accidental or intentional manipulation, loss, destruction, or access by unauthorized persons.",
-      footerCopyright: "© 2025 Christophe Tesconi - All rights reserved.",
+      footerCopyright: " Christophe Tesconi - All rights reserved.",
     },
   };
 
   const t = content[currentLocale] || content.fr;
 
-  // ✅ SCHEMA.ORG WEBPAGE
+  const fadeUp = (delay: number) =>
+    reducedMotion
+      ? {}
+      : {
+          initial: { opacity: 0, y: TRANSLATE_Y },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: VIEWPORT_CONFIG,
+          transition: {
+            duration: ANIMATION_DURATION,
+            ease: ANIMATION_EASING,
+            delay,
+          },
+        };
+
   const legalSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -127,9 +152,135 @@ export default function LegalNotice() {
     },
   };
 
+  const sections = [
+    {
+      content: (
+        <section
+          className={styles.section}
+          itemScope
+          itemType="https://schema.org/Organization"
+        >
+          <h2>{t.owner}</h2>
+          <p>
+            <strong itemProp="name">{t.companyName}</strong>
+          </p>
+          <p>
+            <strong>{t.ownerName}</strong>
+          </p>
+          <p>
+            <strong>{t.status} :</strong> {t.statusValue}
+          </p>
+          <p>
+            <strong>{t.siret} :</strong>{" "}
+            <span itemProp="taxID">{t.siretValue}</span>
+          </p>
+          <address
+            style={{ whiteSpace: "pre-line" }}
+            itemProp="address"
+            itemScope
+            itemType="https://schema.org/PostalAddress"
+          >
+            <span itemProp="streetAddress">68 rue de Meyrin</span>
+            {"\n"}
+            <span itemProp="postalCode">01210</span>{" "}
+            <span itemProp="addressLocality">Ferney-Voltaire</span>,{" "}
+            <span itemProp="addressCountry">France</span>
+          </address>
+        </section>
+      ),
+    },
+    {
+      content: (
+        <section className={styles.section}>
+          <h2>{t.contact}</h2>
+          <p>
+            📧 {t.email}:{" "}
+            <a href="mailto:" itemProp="email">
+              contact@christophetesconidev.com
+            </a>
+          </p>
+          <p>
+            📞 {t.phone}:{" "}
+            <a
+              href="https://wa.me/33786599327"
+              target="_blank"
+              rel="noopener noreferrer"
+              itemProp="telephone"
+            >
+              +33 7 86 59 93 27
+            </a>
+          </p>
+          <p>
+            🌐 {t.website}:{" "}
+            <a
+              href="https://christophetesconidev.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              itemProp="url"
+            >
+              christophetesconidev.com
+            </a>
+          </p>
+        </section>
+      ),
+    },
+    {
+      content: (
+        <section className={styles.section}>
+          <h2>{t.hosting}</h2>
+          <p>
+            <strong>{t.hostingName}</strong>
+          </p>
+          <p style={{ whiteSpace: "pre-line" }}>{t.hostingAddress}</p>
+          <p>
+            🌐{" "}
+            <a
+              href="https://www.o2switch.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              www.o2switch.fr
+            </a>
+          </p>
+        </section>
+      ),
+    },
+    {
+      content: (
+        <section className={styles.section}>
+          <h2>{t.liability}</h2>
+          <p>{t.liabilityText}</p>
+        </section>
+      ),
+    },
+    {
+      content: (
+        <section className={styles.section}>
+          <h2>{t.links}</h2>
+          <p>{t.linksText}</p>
+        </section>
+      ),
+    },
+    {
+      content: (
+        <section className={styles.section}>
+          <h2>{t.copyright}</h2>
+          <p>{t.copyrightText}</p>
+        </section>
+      ),
+    },
+    {
+      content: (
+        <section className={styles.section}>
+          <h2>{t.privacy}</h2>
+          <p>{t.privacyText}</p>
+        </section>
+      ),
+    },
+  ];
+
   return (
     <>
-      {/* ✅ SCHEMA.ORG */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(legalSchema) }}
@@ -142,124 +293,24 @@ export default function LegalNotice() {
         itemType="https://schema.org/WebPage"
       >
         <div className={styles.container}>
-          <h1 className={styles.title} itemProp="name">
+          <motion.h1 className={styles.title} itemProp="name" {...fadeUp(0)}>
             {t.title}
-          </h1>
+          </motion.h1>
 
-          {/* Owner Section */}
-          <section
-            className={styles.section}
-            itemScope
-            itemType="https://schema.org/Organization"
+          {sections.map((section, index) => (
+            <motion.div key={index} {...fadeUp(STAGGER_DELAY * index)}>
+              {section.content}
+            </motion.div>
+          ))}
+
+          <motion.footer
+            className={styles.footer}
+            {...fadeUp(STAGGER_DELAY * sections.length)}
           >
-            <h2>{t.owner}</h2>
             <p>
-              <strong itemProp="name">{t.companyName}</strong>
+              © {year} {t.footerCopyright}
             </p>
-            <p>
-              <strong>{t.ownerName}</strong>
-            </p>
-            <p>
-              <strong>{t.status} :</strong> {t.statusValue}
-            </p>
-            <p>
-              <strong>{t.siret} :</strong>{" "}
-              <span itemProp="taxID">{t.siretValue}</span>
-            </p>
-            <address
-              style={{ whiteSpace: "pre-line" }}
-              itemProp="address"
-              itemScope
-              itemType="https://schema.org/PostalAddress"
-            >
-              <span itemProp="streetAddress">68 rue de Meyrin</span>
-              {"\n"}
-              <span itemProp="postalCode">01210</span>{" "}
-              <span itemProp="addressLocality">Ferney-Voltaire</span>,{" "}
-              <span itemProp="addressCountry">France</span>
-            </address>
-          </section>
-
-          {/* Contact Section */}
-          <section className={styles.section}>
-            <h2>{t.contact}</h2>
-            <p>
-              📧 {t.email}:{" "}
-              <a href="mailto:" itemProp="email">
-                contact@christophetesconidev.com
-              </a>
-            </p>
-            <p>
-              📞 {t.phone}:{" "}
-              <a
-                href="https://wa.me/33786599327"
-                target="_blank"
-                rel="noopener noreferrer"
-                itemProp="telephone"
-              >
-                +33 7 86 59 93 27
-              </a>
-            </p>
-            <p>
-              🌐 {t.website}:{" "}
-              <a
-                href="https://christophetesconidev.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                itemProp="url"
-              >
-                christophetesconidev.com
-              </a>
-            </p>
-          </section>
-
-          {/* Hosting Section */}
-          <section className={styles.section}>
-            <h2>{t.hosting}</h2>
-            <p>
-              <strong>{t.hostingName}</strong>
-            </p>
-            <p style={{ whiteSpace: "pre-line" }}>{t.hostingAddress}</p>
-            <p>
-              🌐{" "}
-              <a
-                href="https://www.o2switch.fr"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                www.o2switch.fr
-              </a>
-            </p>
-          </section>
-
-          {/* Liability Section */}
-          <section className={styles.section}>
-            <h2>{t.liability}</h2>
-            <p>{t.liabilityText}</p>
-          </section>
-
-          {/* Links Section */}
-          <section className={styles.section}>
-            <h2>{t.links}</h2>
-            <p>{t.linksText}</p>
-          </section>
-
-          {/* Copyright Section */}
-          <section className={styles.section}>
-            <h2>{t.copyright}</h2>
-            <p>{t.copyrightText}</p>
-          </section>
-
-          {/* Privacy Section */}
-          <section className={styles.section}>
-            <h2>{t.privacy}</h2>
-            <p>{t.privacyText}</p>
-          </section>
-
-          {/* Footer */}
-          <footer className={styles.footer}>
-            <p>{t.footerCopyright}</p>
-          </footer>
+          </motion.footer>
         </div>
       </main>
     </>

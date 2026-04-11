@@ -1,15 +1,30 @@
+// components/sections/Home/Home.tsx
 "use client";
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { motion } from "motion/react";
 import { getDictionary, type Locale } from "@/lib/i18n";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import {
+  ANIMATION_DURATION,
+  ANIMATION_EASING,
+  TRANSLATE_Y,
+} from "@/lib/animations";
 import TypingQuote from "../Animations/TypingQuote";
 import styles from "./Home.module.css";
+
+const WORD_STAGGER = 0.06;
 
 export default function Home() {
   const pathname = usePathname();
   const currentLocale = (pathname?.split("/")[1] || "fr") as Locale;
   const texts = getDictionary(currentLocale);
+  const reducedMotion = useReducedMotion();
+
+  const titleWords = texts.titleFreelance.split(" ");
+  // Durée totale de l'animation du titre
+  const titleDuration = titleWords.length * WORD_STAGGER + ANIMATION_DURATION;
 
   useEffect(() => {
     if (window.location.hash) {
@@ -23,7 +38,6 @@ export default function Home() {
     }
   }, [currentLocale]);
 
-  // ✅ SCHEMA.ORG SERVICE OPTIMISÉ (SUPPRESSION DU PERSON - DOUBLON AVEC LAYOUT)
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -36,12 +50,8 @@ export default function Home() {
       name: "Christophe Tesconi",
       url: "https://christophetesconidev.com",
     },
-    // ✅ CORRECTION : Suisse + Suisse romande + France
     areaServed: [
-      {
-        "@type": "Country",
-        name: "Switzerland",
-      },
+      { "@type": "Country", name: "Switzerland" },
       {
         "@type": "Place",
         name:
@@ -49,10 +59,7 @@ export default function Home() {
             ? "Suisse romande"
             : "French-speaking Switzerland",
       },
-      {
-        "@type": "Country",
-        name: "France",
-      },
+      { "@type": "Country", name: "France" },
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -119,9 +126,28 @@ export default function Home() {
     },
   };
 
+  const fadeUp = (delay: number) =>
+    reducedMotion
+      ? {}
+      : {
+          initial: { opacity: 0, y: TRANSLATE_Y },
+          animate: { opacity: 1, y: 0 },
+          transition: {
+            duration: ANIMATION_DURATION,
+            ease: ANIMATION_EASING,
+            delay,
+          },
+        };
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
-      {/* ✅ UN SEUL SCHEMA.ORG SERVICE (PERSON SUPPRIMÉ - DOUBLON AVEC LAYOUT) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
@@ -136,22 +162,48 @@ export default function Home() {
         <div className={styles.freelanceContent}>
           <div className={styles.freelanceText}>
             <h1 className={styles.mainTitle} itemProp="name">
-              {texts.titleFreelance}
+              {reducedMotion
+                ? texts.titleFreelance
+                : titleWords.map((word, index) => (
+                    <motion.span
+                      key={index}
+                      className={styles.titleWord}
+                      initial={{ opacity: 0, y: TRANSLATE_Y }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: ANIMATION_DURATION,
+                        ease: ANIMATION_EASING,
+                        delay: WORD_STAGGER * index,
+                      }}
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
             </h1>
-            <TypingQuote text={texts.introQuote} />
-            <p itemProp="description">{texts.introText}</p>
-            <a
-              href={`/${currentLocale}#contact`}
-              className={styles.cta}
-              itemProp="contactPoint"
-              aria-label={
-                currentLocale === "fr"
-                  ? "Contactez-moi pour votre projet web"
-                  : "Contact me for your web project"
-              }
-            >
-              {texts.contactCTA}
-            </a>
+
+            <TypingQuote
+              text={texts.introQuote}
+              delay={reducedMotion ? 0 : titleDuration * 0.6}
+              reducedMotion={reducedMotion}
+            />
+
+            <motion.p itemProp="description" {...fadeUp(titleDuration * 0.7)}>
+              {texts.introText}
+            </motion.p>
+
+            <motion.div {...fadeUp(titleDuration * 0.85)}>
+              <button
+                onClick={scrollToContact}
+                className={styles.cta}
+                aria-label={
+                  currentLocale === "fr"
+                    ? "Contactez-moi pour votre projet web"
+                    : "Contact me for your web project"
+                }
+              >
+                {texts.contactCTA}
+              </button>
+            </motion.div>
           </div>
         </div>
       </section>

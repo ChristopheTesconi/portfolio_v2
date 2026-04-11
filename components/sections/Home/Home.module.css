@@ -34,6 +34,15 @@
   text-align: center;
 }
 
+.titleWord {
+  display: inline-block;
+  margin-right: 0.3em;
+}
+
+.titleWord:last-child {
+  margin-right: 0;
+}
+
 .introQuote {
   font-style: italic;
   font-size: 1.6rem !important;
@@ -66,16 +75,27 @@
   color: black;
   background: linear-gradient(#8e86b5, #acaeed);
   border-radius: 50px;
+  border: none;
   padding: 20px 30px;
   display: inline-block;
   margin: 2rem;
   text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .cta:hover {
-  transform: translateY(-5px) scale(1.03);
+  transform: translateY(-5px);
   box-shadow: 0 8px 24px rgba(165, 180, 252, 0.3);
+}
+
+.cta:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(165, 180, 252, 0.2);
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
 }
 
 /* Responsive TypingQuote */

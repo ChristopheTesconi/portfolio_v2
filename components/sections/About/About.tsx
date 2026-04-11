@@ -1,9 +1,19 @@
+// components/sections/About/About.tsx
 "use client";
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { motion } from "motion/react";
 import { getDictionary, type Locale } from "@/lib/i18n";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import {
+  ANIMATION_DURATION,
+  ANIMATION_EASING,
+  TRANSLATE_Y,
+  STAGGER_DELAY,
+  VIEWPORT_CONFIG,
+} from "@/lib/animations";
 import AboutCard from "./AboutCard/AboutCard";
 import styles from "./About.module.css";
 
@@ -16,6 +26,7 @@ export default function About() {
   const pathname = usePathname();
   const currentLocale = (pathname?.split("/")[1] || "fr") as Locale;
   const t = getDictionary(currentLocale);
+  const reducedMotion = useReducedMotion();
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -27,8 +38,34 @@ export default function About() {
     setOpenIndex((prev) => (prev === index ? null : index));
   };
 
-  // ✅ SCHEMA.ORG SUPPRIMÉ (DOUBLON AVEC LAYOUT.TSX)
-  // Le schema Person principal est déjà dans layout.tsx avec toutes les infos
+  const fadeUp = (delay: number) =>
+    reducedMotion
+      ? {}
+      : {
+          initial: { opacity: 0, y: TRANSLATE_Y },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: VIEWPORT_CONFIG,
+          transition: {
+            duration: ANIMATION_DURATION,
+            ease: ANIMATION_EASING,
+            delay,
+          },
+        };
+
+  // Photo : translateX sur desktop, translateY sur mobile (fallback via CSS media query non nécessaire,
+  // motion gère le même axe partout — on utilise translateX comme prévu, fallback si besoin plus tard)
+  const fadeFromLeft = reducedMotion
+    ? {}
+    : {
+        initial: { opacity: 0, x: -20 },
+        whileInView: { opacity: 1, x: 0 },
+        viewport: VIEWPORT_CONFIG,
+        transition: {
+          duration: ANIMATION_DURATION,
+          ease: ANIMATION_EASING,
+          delay: 0,
+        },
+      };
 
   return (
     <section
@@ -37,10 +74,12 @@ export default function About() {
       itemScope
       itemType="https://schema.org/AboutPage"
     >
-      <h2 itemProp="name">{t.about.title}</h2>
+      <motion.h2 itemProp="name" {...fadeUp(0)}>
+        {t.about.title}
+      </motion.h2>
 
       <div className={styles.aboutContainer}>
-        <div className={styles.photoContainer}>
+        <motion.div className={styles.photoContainer} {...fadeFromLeft}>
           <Image
             src="/christophe2.jpeg"
             alt={
@@ -56,16 +95,17 @@ export default function About() {
             priority
             itemProp="image"
           />
-        </div>
+        </motion.div>
 
         <div className={styles.cardsContainer}>
           {t.about.sections.map((section: AboutSection, index: number) => (
-            <AboutCard
-              key={index}
-              section={section}
-              isOpen={openIndex === index}
-              onToggle={() => toggle(index)}
-            />
+            <motion.div key={index} {...fadeUp(STAGGER_DELAY * index)}>
+              <AboutCard
+                section={section}
+                isOpen={openIndex === index}
+                onToggle={() => toggle(index)}
+              />
+            </motion.div>
           ))}
         </div>
       </div>
