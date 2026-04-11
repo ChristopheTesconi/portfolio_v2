@@ -19,7 +19,7 @@ const testimonials = [
   {
     id: 1,
     author: "Thierry",
-    company: null,
+    company: "Président de l'association Phoenix",
     date: "2025-11-10",
     rating: 5,
     platform: "Malt",
