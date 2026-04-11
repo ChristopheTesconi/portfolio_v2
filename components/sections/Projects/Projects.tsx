@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { getProjectsTitle, type Locale } from "@/lib/i18n";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useIsMounted } from "@/hooks/useIsMounted";
 import {
   ANIMATION_DURATION,
   ANIMATION_EASING,
@@ -22,6 +23,8 @@ export default function Projects() {
   const currentLocale = (pathname?.split("/")[1] || "fr") as Locale;
   const projectsTitle = getProjectsTitle(currentLocale);
   const reducedMotion = useReducedMotion();
+  const isMounted = useIsMounted();
+  const shouldAnimate = isMounted && !reducedMotion;
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -32,9 +35,8 @@ export default function Projects() {
   };
 
   const fadeUp = (delay: number) =>
-    reducedMotion
-      ? {}
-      : {
+    shouldAnimate
+      ? {
           initial: { opacity: 0, y: TRANSLATE_Y },
           whileInView: { opacity: 1, y: 0 },
           viewport: VIEWPORT_CONFIG,
@@ -43,7 +45,8 @@ export default function Projects() {
             ease: ANIMATION_EASING,
             delay,
           },
-        };
+        }
+      : {};
 
   const projectsSchema = {
     "@context": "https://schema.org",
@@ -102,13 +105,20 @@ export default function Projects() {
         itemScope
         itemType="https://schema.org/ItemList"
       >
-        <motion.h2 itemProp="name" {...fadeUp(0)}>
+        <motion.h2
+          key={shouldAnimate ? "h2-a" : "h2-s"}
+          itemProp="name"
+          {...fadeUp(0)}
+        >
           {projectsTitle}
         </motion.h2>
 
         <div className={styles.projectsContainer}>
           {projects.map((project, index) => (
-            <motion.div key={index} {...fadeUp(STAGGER_DELAY * index)}>
+            <motion.div
+              key={shouldAnimate ? `proj-a-${index}` : `proj-s-${index}`}
+              {...fadeUp(STAGGER_DELAY * index)}
+            >
               <ProjectCard
                 project={project}
                 isOpen={openIndex === index}

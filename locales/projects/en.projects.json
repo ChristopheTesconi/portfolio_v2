@@ -3,31 +3,6 @@
   "devBadge": "🚧 Project in development",
   "projects": [
     {
-      "titre": "Sawadi Asia – AI-powered multilingual news platform",
-      "image": "/projects/sawadi_logo.png",
-      "description": [
-        "International media monitoring platform with automatic translation in 12 languages",
-        "Fullstack React/TypeScript + Supabase architecture for real-time performance",
-        "Instant AI translation to publish your content without language barriers",
-        "Intuitive admin interface to manage multilingual content and translations",
-        "Side-by-side original/translated comparison with instant language switching"
-      ],
-      "keywords": [
-        "multilingual news",
-        "AI automatic translation",
-        "international media monitoring",
-        "React TypeScript",
-        "Supabase cloud",
-        "CMS content management",
-        "news aggregation",
-        "global communication"
-      ],
-      "github": "https://github.com/ChristopheTesconi/ai_news_feed",
-      "githubCTA": "View on GitHub",
-      "liveUrl": "https://sawadi.asia/",
-      "liveCTA": "Visit website"
-    },
-    {
       "titre": "RDF Bachata Fusion – Dance school",
       "image": "/projects/rdf_logo.jpeg",
       "description": [
@@ -75,8 +50,8 @@
       ],
       "github": "",
       "githubCTA": "",
-      "liveUrl": "",
-      "liveCTA": ""
+      "liveUrl": "https://trustbrainfront-production.up.railway.app/landing",
+      "liveCTA": "Visit website"
     },
     {
       "titre": "Phoenix Accueil – Child protection association",
@@ -102,6 +77,56 @@
       "githubCTA": "View on GitHub",
       "liveUrl": "https://www.phoenixaccueil.fr/",
       "liveCTA": "Visit website"
+    },
+    {
+      "titre": "milkies47.camera – Camera Rental",
+      "image": "/projects/milk_logo.png",
+      "description": [
+        "Bilingual landing page (English/Thai) for a camera rental business in Pattaya, Thailand",
+        "Mobile-first design with soft pink branding, smooth animations and portrait photo carousel",
+        "Instant language switching with fully translated UI and SEO metadata",
+        "Direct booking integration via LINE, Instagram and TikTok social channels",
+        "Built with Next.js 16, TypeScript and Tailwind CSS — deployed on Vercel with blazing-fast performance"
+      ],
+      "keywords": [
+        "camera rental Pattaya",
+        "bilingual website",
+        "Next.js landing page",
+        "mobile-first design",
+        "Thai English translation",
+        "Tailwind CSS",
+        "TypeScript React",
+        "Vercel deployment"
+      ],
+      "github": "https://github.com/ChristopheTesconi/milk_camera",
+      "githubCTA": "View on GitHub",
+      "liveUrl": "https://milk-camera.vercel.app/",
+      "liveCTA": "Visit website"
+    },
+    {
+      "titre": "Sawadi Asia – AI-powered multilingual news platform",
+      "image": "/projects/sawadi_logo.png",
+      "description": [
+        "International media monitoring platform with automatic translation in 12 languages",
+        "Fullstack React/TypeScript + Supabase architecture for real-time performance",
+        "Instant AI translation to publish your content without language barriers",
+        "Intuitive admin interface to manage multilingual content and translations",
+        "Side-by-side original/translated comparison with instant language switching"
+      ],
+      "keywords": [
+        "multilingual news",
+        "AI automatic translation",
+        "international media monitoring",
+        "React TypeScript",
+        "Supabase cloud",
+        "CMS content management",
+        "news aggregation",
+        "global communication"
+      ],
+      "github": "",
+      "githubCTA": "",
+      "liveUrl": "",
+      "liveCTA": ""
     }
   ]
 }

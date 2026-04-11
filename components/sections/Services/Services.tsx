@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useIsMounted } from "@/hooks/useIsMounted";
 import {
   ANIMATION_DURATION,
   ANIMATION_EASING,
@@ -27,6 +28,8 @@ export default function Services() {
   const currentLocale = (pathname?.split("/")[1] || "fr") as Locale;
   const t = getDictionary(currentLocale);
   const reducedMotion = useReducedMotion();
+  const isMounted = useIsMounted();
+  const shouldAnimate = isMounted && !reducedMotion;
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -46,9 +49,8 @@ export default function Services() {
   };
 
   const fadeUp = (delay: number) =>
-    reducedMotion
-      ? {}
-      : {
+    shouldAnimate
+      ? {
           initial: { opacity: 0, y: TRANSLATE_Y },
           whileInView: { opacity: 1, y: 0 },
           viewport: VIEWPORT_CONFIG,
@@ -57,7 +59,8 @@ export default function Services() {
             ease: ANIMATION_EASING,
             delay,
           },
-        };
+        }
+      : {};
 
   const servicesSchema = {
     "@context": "https://schema.org",
@@ -108,13 +111,20 @@ export default function Services() {
         itemScope
         itemType="https://schema.org/ItemList"
       >
-        <motion.h2 itemProp="name" {...fadeUp(0)}>
+        <motion.h2
+          key={shouldAnimate ? "h2-a" : "h2-s"}
+          itemProp="name"
+          {...fadeUp(0)}
+        >
           {t.services.title}
         </motion.h2>
 
         <div className={styles.servicesContainer}>
           {t.services.services.map((service: Service, index: number) => (
-            <motion.div key={index} {...fadeUp(STAGGER_DELAY * index)}>
+            <motion.div
+              key={shouldAnimate ? `svc-a-${index}` : `svc-s-${index}`}
+              {...fadeUp(STAGGER_DELAY * index)}
+            >
               <ServiceCard
                 service={service}
                 isOpen={openIndex === index}
@@ -124,7 +134,10 @@ export default function Services() {
           ))}
         </div>
 
-        <motion.div {...fadeUp(STAGGER_DELAY * t.services.services.length)}>
+        <motion.div
+          key={shouldAnimate ? "cta-a" : "cta-s"}
+          {...fadeUp(STAGGER_DELAY * t.services.services.length)}
+        >
           <button onClick={scrollToContact} className={styles.cta}>
             {t.services.cta}
           </button>

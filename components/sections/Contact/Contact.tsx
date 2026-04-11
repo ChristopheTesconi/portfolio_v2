@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useIsMounted } from "@/hooks/useIsMounted";
 import {
   ANIMATION_DURATION,
   ANIMATION_EASING,
@@ -20,6 +21,8 @@ export default function Contact() {
   const currentLocale = (pathname?.split("/")[1] || "fr") as Locale;
   const t = getDictionary(currentLocale);
   const reducedMotion = useReducedMotion();
+  const isMounted = useIsMounted();
+  const shouldAnimate = isMounted && !reducedMotion;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -88,9 +91,8 @@ export default function Contact() {
   )}`;
 
   const fadeUp = (delay: number) =>
-    reducedMotion
-      ? {}
-      : {
+    shouldAnimate
+      ? {
           initial: { opacity: 0, y: TRANSLATE_Y },
           whileInView: { opacity: 1, y: 0 },
           viewport: VIEWPORT_CONFIG,
@@ -99,11 +101,11 @@ export default function Contact() {
             ease: ANIMATION_EASING,
             delay,
           },
-        };
+        }
+      : {};
 
-  const fadeFromLeft = reducedMotion
-    ? {}
-    : {
+  const fadeFromLeft = shouldAnimate
+    ? {
         initial: { opacity: 0, x: -20 },
         whileInView: { opacity: 1, x: 0 },
         viewport: VIEWPORT_CONFIG,
@@ -112,11 +114,11 @@ export default function Contact() {
           ease: ANIMATION_EASING,
           delay: 0,
         },
-      };
+      }
+    : {};
 
-  const fadeFromRight = reducedMotion
-    ? {}
-    : {
+  const fadeFromRight = shouldAnimate
+    ? {
         initial: { opacity: 0, x: 20 },
         whileInView: { opacity: 1, x: 0 },
         viewport: VIEWPORT_CONFIG,
@@ -125,7 +127,8 @@ export default function Contact() {
           ease: ANIMATION_EASING,
           delay: 0.15,
         },
-      };
+      }
+    : {};
 
   const contactSchema = {
     "@context": "https://schema.org",
@@ -195,7 +198,11 @@ export default function Contact() {
         itemScope
         itemType="https://schema.org/ContactPage"
       >
-        <motion.div className={styles.header} {...fadeUp(0)}>
+        <motion.div
+          key={shouldAnimate ? "header-a" : "header-s"}
+          className={styles.header}
+          {...fadeUp(0)}
+        >
           <h2 itemProp="name">{t.contact.title}</h2>
           <p className={styles.subtitle} itemProp="description">
             {t.contact.subtitle}
@@ -203,7 +210,11 @@ export default function Contact() {
         </motion.div>
 
         <div className={styles.contactContainer}>
-          <motion.div className={styles.formContainer} {...fadeFromLeft}>
+          <motion.div
+            key={shouldAnimate ? "form-a" : "form-s"}
+            className={styles.formContainer}
+            {...fadeFromLeft}
+          >
             <form
               onSubmit={handleSubmit}
               className={styles.form}
@@ -294,6 +305,7 @@ export default function Contact() {
           </motion.div>
 
           <motion.div
+            key={shouldAnimate ? "alt-a" : "alt-s"}
             className={styles.alternativesContainer}
             {...fadeFromRight}
           >
@@ -351,7 +363,7 @@ export default function Contact() {
             t.contact.trust.location,
           ].map((badge, index) => (
             <motion.div
-              key={index}
+              key={shouldAnimate ? `badge-a-${index}` : `badge-s-${index}`}
               className={styles.badge}
               {...fadeUp(STAGGER_DELAY * index)}
             >

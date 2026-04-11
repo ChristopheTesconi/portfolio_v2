@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useIsMounted } from "@/hooks/useIsMounted";
 import {
   ANIMATION_DURATION,
   ANIMATION_EASING,
@@ -38,6 +39,8 @@ export default function Pricing() {
   const currentLocale = (pathname?.split("/")[1] || "fr") as Locale;
   const t = getDictionary(currentLocale);
   const reducedMotion = useReducedMotion();
+  const isMounted = useIsMounted();
+  const shouldAnimate = isMounted && !reducedMotion;
 
   if (!t || !t.pricing) {
     return null;
@@ -51,9 +54,8 @@ export default function Pricing() {
   };
 
   const fadeUp = (delay: number) =>
-    reducedMotion
-      ? {}
-      : {
+    shouldAnimate
+      ? {
           initial: { opacity: 0, y: TRANSLATE_Y },
           whileInView: { opacity: 1, y: 0 },
           viewport: VIEWPORT_CONFIG,
@@ -62,7 +64,8 @@ export default function Pricing() {
             ease: ANIMATION_EASING,
             delay,
           },
-        };
+        }
+      : {};
 
   const maintenance: Maintenance | undefined = t.pricing.maintenance;
 
@@ -135,21 +138,28 @@ export default function Pricing() {
         itemScope
         itemType="https://schema.org/OfferCatalog"
       >
-        <motion.h2 itemProp="name" {...fadeUp(0)}>
+        <motion.h2
+          key={shouldAnimate ? "h2-a" : "h2-s"}
+          itemProp="name"
+          {...fadeUp(0)}
+        >
           {t.pricing.title}
         </motion.h2>
 
         <div className={styles.packagesContainer}>
           {t.pricing.packages.map((pkg: Package, index: number) => (
-            <motion.div key={index} {...fadeUp(STAGGER_DELAY * index)}>
+            <motion.div
+              key={shouldAnimate ? `pkg-a-${index}` : `pkg-s-${index}`}
+              {...fadeUp(STAGGER_DELAY * index)}
+            >
               <PricingCard package={pkg} />
             </motion.div>
           ))}
         </div>
 
-        {/* Bloc Maintenance */}
         {maintenance && (
           <motion.div
+            key={shouldAnimate ? "maint-a" : "maint-s"}
             className={styles.maintenanceContainer}
             {...fadeUp(STAGGER_DELAY * t.pricing.packages.length)}
           >
@@ -181,6 +191,7 @@ export default function Pricing() {
         )}
 
         <motion.ul
+          key={shouldAnimate ? "notes-a" : "notes-s"}
           className={styles.notes}
           {...fadeUp(STAGGER_DELAY * (t.pricing.packages.length + 1))}
         >
@@ -190,6 +201,7 @@ export default function Pricing() {
         </motion.ul>
 
         <motion.div
+          key={shouldAnimate ? "cta-a" : "cta-s"}
           {...fadeUp(STAGGER_DELAY * (t.pricing.packages.length + 2))}
         >
           <button onClick={scrollToContact} className={styles.cta}>

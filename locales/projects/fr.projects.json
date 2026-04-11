@@ -3,31 +3,6 @@
   "devBadge": "🚧 Projet en développement",
   "projects": [
     {
-      "titre": "Sawadi – Actualités multilingues par  IA",
-      "image": "/projects/sawadi_logo.png",
-      "description": [
-        "Plateforme de veille média internationale avec traduction automatique en 12 langues",
-        "Architecture fullstack React/TypeScript + Supabase pour performances en temps réel",
-        "Traduction instantanée par IA pour diffuser vos contenus sans barrière linguistique",
-        "Interface d'administration intuitive pour gérer contenus et traductions multilingues",
-        "Comparaison côte-à-côte original/traduit avec basculement instantané entre langues"
-      ],
-      "keywords": [
-        "actualités multilingues",
-        "traduction automatique IA",
-        "veille média internationale",
-        "React TypeScript",
-        "Supabase cloud",
-        "gestion contenu CMS",
-        "agrégation actualités",
-        "communication globale"
-      ],
-      "github": "https://github.com/ChristopheTesconi/ai_news_feed",
-      "githubCTA": "Voir sur GitHub",
-      "liveUrl": "https://sawadi.asia/",
-      "liveCTA": "Voir le site"
-    },
-    {
       "titre": "RDF Bachata Fusion – École de danse",
       "image": "/projects/rdf_logo.jpeg",
       "description": [
@@ -72,10 +47,10 @@
         "mémoire organisationnelle",
         "système questions-réponses IA"
       ],
-      "github": "",
+      "github": "#",
       "githubCTA": "",
-      "liveUrl": "",
-      "liveCTA": ""
+      "liveUrl": "https://trustbrainfront-production.up.railway.app/landing",
+      "liveCTA": "Voir le site"
     },
     {
       "titre": "Phoenix Accueil – Protection de l'enfance",
@@ -101,6 +76,56 @@
       "githubCTA": "Voir sur GitHub",
       "liveUrl": "https://www.phoenixaccueil.fr/",
       "liveCTA": "Voir le site"
+    },
+    {
+      "titre": "milkies47.camera – Location d'appareil photo",
+      "image": "/projects/milk_logo.png",
+      "description": [
+        "Landing page bilingue (anglais/thaï) pour un service de location de caméra à Pattaya, Thaïlande",
+        "Design mobile-first avec identité visuelle rose, animations fluides et carousel photo portrait",
+        "Changement de langue instantané avec interface et métadonnées SEO entièrement traduites",
+        "Réservation directe via LINE, Instagram et TikTok intégrés",
+        "Développé avec Next.js 16, TypeScript et Tailwind CSS — déployé sur Vercel avec des performances ultra-rapides"
+      ],
+      "keywords": [
+        "location caméra Pattaya",
+        "site bilingue",
+        "landing page Next.js",
+        "design mobile-first",
+        "traduction thaï anglais",
+        "Tailwind CSS",
+        "TypeScript React",
+        "déploiement Vercel"
+      ],
+      "github": "https://github.com/ChristopheTesconi/milk_camera",
+      "githubCTA": "Voir sur GitHub",
+      "liveUrl": "https://milk-camera.vercel.app/",
+      "liveCTA": "Visiter le site"
+    },
+    {
+      "titre": "Sawadi – Actualités multilingues par  IA",
+      "image": "/projects/sawadi_logo.png",
+      "description": [
+        "Plateforme de veille média internationale avec traduction automatique en 12 langues",
+        "Architecture fullstack React/TypeScript + Supabase pour performances en temps réel",
+        "Traduction instantanée par IA pour diffuser vos contenus sans barrière linguistique",
+        "Interface d'administration intuitive pour gérer contenus et traductions multilingues",
+        "Comparaison côte-à-côte original/traduit avec basculement instantané entre langues"
+      ],
+      "keywords": [
+        "actualités multilingues",
+        "traduction automatique IA",
+        "veille média internationale",
+        "React TypeScript",
+        "Supabase cloud",
+        "gestion contenu CMS",
+        "agrégation actualités",
+        "communication globale"
+      ],
+      "github": "",
+      "githubCTA": "",
+      "liveUrl": "",
+      "liveCTA": ""
     }
   ]
 }

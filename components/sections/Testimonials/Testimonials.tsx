@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useIsMounted } from "@/hooks/useIsMounted";
 import {
   ANIMATION_DURATION,
   ANIMATION_EASING,
@@ -44,11 +45,12 @@ export default function Testimonials() {
   const dict = getDictionary(currentLocale);
   const t = dict.testimonials;
   const reducedMotion = useReducedMotion();
+  const isMounted = useIsMounted();
+  const shouldAnimate = isMounted && !reducedMotion;
 
   const fadeUp = (delay: number) =>
-    reducedMotion
-      ? {}
-      : {
+    shouldAnimate
+      ? {
           initial: { opacity: 0, y: TRANSLATE_Y },
           whileInView: { opacity: 1, y: 0 },
           viewport: VIEWPORT_CONFIG,
@@ -57,18 +59,28 @@ export default function Testimonials() {
             ease: ANIMATION_EASING,
             delay,
           },
-        };
+        }
+      : {};
 
   return (
     <section id="temoignages" className={styles.testimonials}>
-      <motion.h2 {...fadeUp(0)}>{t.title}</motion.h2>
-      <motion.p className={styles.subtitle} {...fadeUp(0)}>
+      <motion.h2 key={shouldAnimate ? "h2-a" : "h2-s"} {...fadeUp(0)}>
+        {t.title}
+      </motion.h2>
+      <motion.p
+        key={shouldAnimate ? "p-a" : "p-s"}
+        className={styles.subtitle}
+        {...fadeUp(0)}
+      >
         {t.subtitle}
       </motion.p>
 
       <div className={styles.cardsContainer}>
         {testimonials.map((item, index) => (
-          <motion.div key={item.id} {...fadeUp(STAGGER_DELAY * index)}>
+          <motion.div
+            key={shouldAnimate ? `test-a-${item.id}` : `test-s-${item.id}`}
+            {...fadeUp(STAGGER_DELAY * index)}
+          >
             <TestimonialCard
               testimonial={item}
               platformLabel={t.platformLabel}

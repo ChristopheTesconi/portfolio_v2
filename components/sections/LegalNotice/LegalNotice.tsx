@@ -4,6 +4,7 @@
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useIsMounted } from "@/hooks/useIsMounted";
 import {
   ANIMATION_DURATION,
   ANIMATION_EASING,
@@ -48,6 +49,8 @@ export default function LegalNotice() {
   const currentLocale = (pathname.split("/")[1] || "fr") as Locale;
   const reducedMotion = useReducedMotion();
   const year = new Date().getFullYear();
+  const isMounted = useIsMounted();
+  const shouldAnimate = isMounted && !reducedMotion;
 
   const content: Record<string, ContentTranslation> = {
     fr: {
@@ -119,9 +122,8 @@ export default function LegalNotice() {
   const t = content[currentLocale] || content.fr;
 
   const fadeUp = (delay: number) =>
-    reducedMotion
-      ? {}
-      : {
+    shouldAnimate
+      ? {
           initial: { opacity: 0, y: TRANSLATE_Y },
           whileInView: { opacity: 1, y: 0 },
           viewport: VIEWPORT_CONFIG,
@@ -130,7 +132,8 @@ export default function LegalNotice() {
             ease: ANIMATION_EASING,
             delay,
           },
-        };
+        }
+      : {};
 
   const legalSchema = {
     "@context": "https://schema.org",
@@ -293,17 +296,26 @@ export default function LegalNotice() {
         itemType="https://schema.org/WebPage"
       >
         <div className={styles.container}>
-          <motion.h1 className={styles.title} itemProp="name" {...fadeUp(0)}>
+          <motion.h1
+            key={shouldAnimate ? "h1-a" : "h1-s"}
+            className={styles.title}
+            itemProp="name"
+            {...fadeUp(0)}
+          >
             {t.title}
           </motion.h1>
 
           {sections.map((section, index) => (
-            <motion.div key={index} {...fadeUp(STAGGER_DELAY * index)}>
+            <motion.div
+              key={shouldAnimate ? `sec-a-${index}` : `sec-s-${index}`}
+              {...fadeUp(STAGGER_DELAY * index)}
+            >
               {section.content}
             </motion.div>
           ))}
 
           <motion.footer
+            key={shouldAnimate ? "footer-a" : "footer-s"}
             className={styles.footer}
             {...fadeUp(STAGGER_DELAY * sections.length)}
           >

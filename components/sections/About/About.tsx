@@ -7,6 +7,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useIsMounted } from "@/hooks/useIsMounted";
 import {
   ANIMATION_DURATION,
   ANIMATION_EASING,
@@ -27,6 +28,8 @@ export default function About() {
   const currentLocale = (pathname?.split("/")[1] || "fr") as Locale;
   const t = getDictionary(currentLocale);
   const reducedMotion = useReducedMotion();
+  const isMounted = useIsMounted();
+  const shouldAnimate = isMounted && !reducedMotion;
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -39,9 +42,8 @@ export default function About() {
   };
 
   const fadeUp = (delay: number) =>
-    reducedMotion
-      ? {}
-      : {
+    shouldAnimate
+      ? {
           initial: { opacity: 0, y: TRANSLATE_Y },
           whileInView: { opacity: 1, y: 0 },
           viewport: VIEWPORT_CONFIG,
@@ -50,13 +52,11 @@ export default function About() {
             ease: ANIMATION_EASING,
             delay,
           },
-        };
+        }
+      : {};
 
-  // Photo : translateX sur desktop, translateY sur mobile (fallback via CSS media query non nécessaire,
-  // motion gère le même axe partout — on utilise translateX comme prévu, fallback si besoin plus tard)
-  const fadeFromLeft = reducedMotion
-    ? {}
-    : {
+  const fadeFromLeft = shouldAnimate
+    ? {
         initial: { opacity: 0, x: -20 },
         whileInView: { opacity: 1, x: 0 },
         viewport: VIEWPORT_CONFIG,
@@ -65,7 +65,8 @@ export default function About() {
           ease: ANIMATION_EASING,
           delay: 0,
         },
-      };
+      }
+    : {};
 
   return (
     <section
@@ -74,12 +75,20 @@ export default function About() {
       itemScope
       itemType="https://schema.org/AboutPage"
     >
-      <motion.h2 itemProp="name" {...fadeUp(0)}>
+      <motion.h2
+        key={shouldAnimate ? "h2-a" : "h2-s"}
+        itemProp="name"
+        {...fadeUp(0)}
+      >
         {t.about.title}
       </motion.h2>
 
       <div className={styles.aboutContainer}>
-        <motion.div className={styles.photoContainer} {...fadeFromLeft}>
+        <motion.div
+          key={shouldAnimate ? "photo-a" : "photo-s"}
+          className={styles.photoContainer}
+          {...fadeFromLeft}
+        >
           <Image
             src="/christophe2.jpeg"
             alt={
@@ -99,7 +108,10 @@ export default function About() {
 
         <div className={styles.cardsContainer}>
           {t.about.sections.map((section: AboutSection, index: number) => (
-            <motion.div key={index} {...fadeUp(STAGGER_DELAY * index)}>
+            <motion.div
+              key={shouldAnimate ? `card-a-${index}` : `card-s-${index}`}
+              {...fadeUp(STAGGER_DELAY * index)}
+            >
               <AboutCard
                 section={section}
                 isOpen={openIndex === index}
