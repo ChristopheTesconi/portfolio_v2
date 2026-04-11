@@ -129,7 +129,7 @@ export default function Home() {
     reducedMotion
       ? {}
       : {
-          initial: { opacity: 0, y: TRANSLATE_Y },
+          initial: false,
           animate: { opacity: 1, y: 0 },
           transition: {
             duration: ANIMATION_DURATION,
