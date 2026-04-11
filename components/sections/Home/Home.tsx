@@ -146,28 +146,9 @@ export default function Home() {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-  console.log(
-    "Home render — isMounted:",
-    isMounted,
-    "shouldAnimate:",
-    shouldAnimate,
-  );
+
   return (
     <>
-      <p
-        style={{
-          color: "red",
-          position: "fixed",
-          top: 70,
-          left: 10,
-          zIndex: 9999,
-          fontSize: "14px",
-          background: "black",
-          padding: "5px",
-        }}
-      >
-        M:{String(isMounted)} A:{String(shouldAnimate)}
-      </p>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
