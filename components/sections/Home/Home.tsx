@@ -160,52 +160,60 @@ export default function Home() {
         itemScope
         itemType="https://schema.org/Person"
       >
-        <div className={styles.freelanceText}>
-          <div className={styles.freelanceText}>
-            <h1 className={styles.mainTitle} itemProp="name">
-              {shouldAnimate
-                ? titleWords.map((word, index) => (
-                    <motion.span
-                      key={index}
-                      className={styles.titleWord}
-                      initial={{ opacity: 0, y: TRANSLATE_Y }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        duration: ANIMATION_DURATION,
-                        ease: ANIMATION_EASING,
-                        delay: WORD_STAGGER * index,
-                      }}
-                    >
-                      {word}
-                    </motion.span>
-                  ))
-                : texts.titleFreelance}
-            </h1>
+        <div
+          className={styles.freelanceText}
+          key={shouldAnimate ? "animated" : "static"}
+        >
+          <h1 className={styles.mainTitle} itemProp="name">
+            {shouldAnimate
+              ? titleWords.map((word, index) => (
+                  <motion.span
+                    key={index}
+                    className={styles.titleWord}
+                    initial={{ opacity: 0, y: TRANSLATE_Y }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: ANIMATION_DURATION,
+                      ease: ANIMATION_EASING,
+                      delay: WORD_STAGGER * index,
+                    }}
+                  >
+                    {word}
+                  </motion.span>
+                ))
+              : texts.titleFreelance}
+          </h1>
 
-            <TypingQuote
-              text={texts.introQuote}
-              delay={shouldAnimate ? titleDuration * 0.6 : 0}
-              reducedMotion={!shouldAnimate}
-            />
+          <TypingQuote
+            text={texts.introQuote}
+            delay={shouldAnimate ? titleDuration * 0.6 : 0}
+            reducedMotion={!shouldAnimate}
+          />
 
-            <motion.p itemProp="description" {...fadeUp(titleDuration * 0.7)}>
-              {texts.introText}
-            </motion.p>
+          <motion.p
+            key={shouldAnimate ? "p-animated" : "p-static"}
+            itemProp="description"
+            {...fadeUp(titleDuration * 0.7)}
+          >
+            {texts.introText}
+          </motion.p>
 
-            <motion.div {...fadeUp(titleDuration * 0.85)}>
-              <button
-                onClick={scrollToContact}
-                className={styles.cta}
-                aria-label={
-                  currentLocale === "fr"
-                    ? "Contactez-moi pour votre projet web"
-                    : "Contact me for your web project"
-                }
-              >
-                {texts.contactCTA}
-              </button>
-            </motion.div>
-          </div>
+          <motion.div
+            key={shouldAnimate ? "cta-animated" : "cta-static"}
+            {...fadeUp(titleDuration * 0.85)}
+          >
+            <button
+              onClick={scrollToContact}
+              className={styles.cta}
+              aria-label={
+                currentLocale === "fr"
+                  ? "Contactez-moi pour votre projet web"
+                  : "Contact me for your web project"
+              }
+            >
+              {texts.contactCTA}
+            </button>
+          </motion.div>
         </div>
       </section>
     </>
