@@ -35,6 +35,9 @@ body {
   padding: 0;
 }
 
+section[id] {
+  scroll-margin-top: 90px;
+}
 * {
   box-sizing: border-box;
   padding: 0;
