@@ -1,4 +1,3 @@
-// components/sections/Home/Home.tsx
 "use client";
 
 import { useEffect } from "react";
@@ -6,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useIsMounted } from "@/hooks/useIsMounted";
 import {
   ANIMATION_DURATION,
   ANIMATION_EASING,
@@ -21,6 +21,8 @@ export default function Home() {
   const currentLocale = (pathname?.split("/")[1] || "fr") as Locale;
   const texts = getDictionary(currentLocale);
   const reducedMotion = useReducedMotion();
+  const isMounted = useIsMounted();
+  const shouldAnimate = isMounted && !reducedMotion;
 
   const titleWords = texts.titleFreelance.split(" ");
   const titleDuration = titleWords.length * WORD_STAGGER + ANIMATION_DURATION;
@@ -126,17 +128,17 @@ export default function Home() {
   };
 
   const fadeUp = (delay: number) =>
-    reducedMotion
-      ? {}
-      : {
-          initial: false,
+    shouldAnimate
+      ? {
+          initial: { opacity: 0, y: TRANSLATE_Y },
           animate: { opacity: 1, y: 0 },
           transition: {
             duration: ANIMATION_DURATION,
             ease: ANIMATION_EASING,
             delay,
           },
-        };
+        }
+      : {};
 
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
@@ -158,12 +160,11 @@ export default function Home() {
         itemScope
         itemType="https://schema.org/Person"
       >
-        <div className={`${styles.freelanceText} motion-fallback`}>
+        <div className={styles.freelanceText}>
           <div className={styles.freelanceText}>
             <h1 className={styles.mainTitle} itemProp="name">
-              {reducedMotion
-                ? texts.titleFreelance
-                : titleWords.map((word, index) => (
+              {shouldAnimate
+                ? titleWords.map((word, index) => (
                     <motion.span
                       key={index}
                       className={styles.titleWord}
@@ -177,13 +178,14 @@ export default function Home() {
                     >
                       {word}
                     </motion.span>
-                  ))}
+                  ))
+                : texts.titleFreelance}
             </h1>
 
             <TypingQuote
               text={texts.introQuote}
-              delay={reducedMotion ? 0 : titleDuration * 0.6}
-              reducedMotion={reducedMotion}
+              delay={shouldAnimate ? titleDuration * 0.6 : 0}
+              reducedMotion={!shouldAnimate}
             />
 
             <motion.p itemProp="description" {...fadeUp(titleDuration * 0.7)}>
