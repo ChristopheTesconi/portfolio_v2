@@ -5,4 +5,4 @@ export const ANIMATION_EASING: [number, number, number, number] = [
 ];
 export const TRANSLATE_Y = 24;
 export const STAGGER_DELAY = 0.12;
-export const VIEWPORT_CONFIG = { once: true, amount: 0.2 } as const;
+export const VIEWPORT_CONFIG = { once: true, amount: 0 } as const;
