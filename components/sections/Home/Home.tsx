@@ -23,7 +23,6 @@ export default function Home() {
   const reducedMotion = useReducedMotion();
 
   const titleWords = texts.titleFreelance.split(" ");
-  // Durée totale de l'animation du titre
   const titleDuration = titleWords.length * WORD_STAGGER + ANIMATION_DURATION;
 
   useEffect(() => {

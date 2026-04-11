@@ -45,7 +45,6 @@ export default function Services() {
     }
   };
 
-  // Animation scroll-triggered — fade-in + slide-up
   const fadeUp = (delay: number) =>
     reducedMotion
       ? {}
