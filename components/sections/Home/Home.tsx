@@ -158,7 +158,7 @@ export default function Home() {
         itemScope
         itemType="https://schema.org/Person"
       >
-        <div className={styles.freelanceContent}>
+        <div className={`${styles.freelanceText} motion-fallback`}>
           <div className={styles.freelanceText}>
             <h1 className={styles.mainTitle} itemProp="name">
               {reducedMotion
