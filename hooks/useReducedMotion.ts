@@ -11,6 +11,6 @@ export function useReducedMotion(): boolean {
       return () => mq.removeEventListener("change", callback);
     },
     () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-    () => false,
+    () => true, // SSR fallback : pas d'animation côté serveur = contenu visible
   );
 }
