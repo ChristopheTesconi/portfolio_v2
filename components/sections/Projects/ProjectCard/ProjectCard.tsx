@@ -63,13 +63,31 @@ export default function ProjectCard({
 
         {/* ✅ IMAGE MINIATURE DANS LE HEADER */}
         <div className={styles.headerImageWrapper}>
-          <Image
-            src={project.image}
-            alt={`${project.titre} logo`}
-            width={40}
-            height={40}
-            className={styles.headerImage}
-          />
+          {project.liveUrl ? (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visiter ${project.titre}`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={project.image}
+                alt={`${project.titre} logo`}
+                width={40}
+                height={40}
+                className={styles.headerImage}
+              />
+            </a>
+          ) : (
+            <Image
+              src={project.image}
+              alt={`${project.titre} logo`}
+              width={40}
+              height={40}
+              className={styles.headerImage}
+            />
+          )}
         </div>
 
         <h3 className={styles.cardTitle} itemProp="name">

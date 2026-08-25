@@ -3,6 +3,56 @@
   "devBadge": "🚧 Projet en développement",
   "projects": [
     {
+      "titre": "Zenevents.ch – Place de marché événementielle",
+      "image": "/projects/landing_deborah.png",
+      "description": [
+        "Place de marché mettant en relation organisateurs d'événements et prestataires en Suisse romande",
+        "Demande de devis unique envoyée à plusieurs prestataires, avec ou sans création de compte",
+        "Recherche filtrable par catégorie de service et type d'événement, avec fiches prestataires illustrées",
+        "Back-office de modération : validation manuelle des fiches et suivi des demandes reçues",
+        "Interface multilingue (FR/EN/DE/IT), e-mails automatiques et conception mobile-first"
+      ],
+      "keywords": [
+        "place de marché événementielle",
+        "prestataires événementiel Suisse",
+        "demande de devis en ligne",
+        "plateforme mise en relation",
+        "site multilingue",
+        "back-office modération",
+        "SEO local Genève",
+        "événementiel Suisse romande"
+      ],
+      "github": "#",
+      "githubCTA": "",
+      "liveUrl": "https://zenevents.ch",
+      "liveCTA": "Voir le site"
+    },
+    {
+      "titre": "TrustBrain – Mémoire d'entreprise IA",
+      "image": "/projects/artificial.png",
+      "description": [
+        "Système de mémoire d'entreprise révolutionnaire basé sur l'IA et les graphes de connaissances temporels",
+        "Interface conversationnelle intuitive pour interroger vos documents en langage naturel",
+        "Traitement intelligent multi-formats : PDF (natifs et scannés via OCR), emails, photos et données structurées",
+        "Extraction automatique d'entités et relations par IA pour des réponses contextualisées et précises",
+        "Architecture GraphRAG (Python/FastAPI + Neo4j + OpenAI) avec frontend React moderne"
+      ],
+      "keywords": [
+        "intelligence artificielle entreprise",
+        "GraphRAG knowledge management",
+        "chatbot IA documents",
+        "Neo4j graph database",
+        "OCR traitement PDF",
+        "FastAPI Python backend",
+        "mémoire organisationnelle",
+        "système questions-réponses IA"
+      ],
+      "github": "#",
+      "githubCTA": "",
+      "liveUrl": "https://www.trustbrain.ai/",
+      "liveCTA": "Voir le site"
+    },
+    {
       "titre": "RDF Bachata Fusion – École de danse",
       "image": "/projects/rdf_logo.jpeg",
       "description": [
@@ -28,29 +78,29 @@
       "liveCTA": "Voir le site"
     },
     {
-      "titre": "TrustBrain – Mémoire d'entreprise IA",
-      "image": "/projects/artificial.png",
+      "titre": "Sawadi – Application mobile et web multilingue",
+      "image": "/projects/sawadi_logo.png",
       "description": [
-        "Système de mémoire d'entreprise révolutionnaire basé sur l'IA et les graphes de connaissances temporels",
-        "Interface conversationnelle intuitive pour interroger vos documents en langage naturel",
-        "Traitement intelligent multi-formats : PDF (natifs et scannés via OCR), emails, photos et données structurées",
-        "Extraction automatique d'entités et relations par IA pour des réponses contextualisées et précises",
-        "Architecture GraphRAG (Python/FastAPI + Neo4j + OpenAI) avec frontend React moderne"
+        "Application iOS, Android et web pour les expatriés et voyageurs en Thaïlande, en français, anglais, thaï et chinois",
+        "Fil d'actualité locale collecté, réécrit et traduit automatiquement par IA, classé par thématique",
+        "Annuaire d'établissements multi-villes avec fiches détaillées, avis, galerie photo et bons de réduction",
+        "Moteur de réservation universel (ponctuel ou par période) et messagerie directe client ↔ commerce",
+        "React Native/Expo + React/Vite en monorepo, backend Supabase avec sécurité au niveau base de données"
       ],
       "keywords": [
-        "intelligence artificielle entreprise",
-        "GraphRAG knowledge management",
-        "chatbot IA documents",
-        "Neo4j graph database",
-        "OCR traitement PDF",
-        "FastAPI Python backend",
-        "mémoire organisationnelle",
-        "système questions-réponses IA"
+        "application mobile Thaïlande",
+        "React Native Expo",
+        "actualités multilingues IA",
+        "annuaire établissements",
+        "réservation en ligne",
+        "Supabase PostgreSQL",
+        "recherche sémantique",
+        "app expatriés Pattaya"
       ],
-      "github": "#",
+      "github": "",
       "githubCTA": "",
-      "liveUrl": "https://trustbrainfront-production.up.railway.app/landing",
-      "liveCTA": "Voir le site"
+      "liveUrl": "",
+      "liveCTA": ""
     },
     {
       "titre": "Phoenix Accueil – Protection de l'enfance",
@@ -76,56 +126,6 @@
       "githubCTA": "Voir sur GitHub",
       "liveUrl": "https://www.phoenixaccueil.fr/",
       "liveCTA": "Voir le site"
-    },
-    {
-      "titre": "milkies47.camera – Location d'appareil photo",
-      "image": "/projects/milk_logo.png",
-      "description": [
-        "Landing page bilingue (anglais/thaï) pour un service de location de caméra à Pattaya, Thaïlande",
-        "Design mobile-first avec identité visuelle rose, animations fluides et carousel photo portrait",
-        "Changement de langue instantané avec interface et métadonnées SEO entièrement traduites",
-        "Réservation directe via LINE, Instagram et TikTok intégrés",
-        "Développé avec Next.js 16, TypeScript et Tailwind CSS — déployé sur Vercel avec des performances ultra-rapides"
-      ],
-      "keywords": [
-        "location caméra Pattaya",
-        "site bilingue",
-        "landing page Next.js",
-        "design mobile-first",
-        "traduction thaï anglais",
-        "Tailwind CSS",
-        "TypeScript React",
-        "déploiement Vercel"
-      ],
-      "github": "https://github.com/ChristopheTesconi/milk_camera",
-      "githubCTA": "Voir sur GitHub",
-      "liveUrl": "https://milk-camera.vercel.app/",
-      "liveCTA": "Visiter le site"
-    },
-    {
-      "titre": "Sawadi – Actualités multilingues par  IA",
-      "image": "/projects/sawadi_logo.png",
-      "description": [
-        "Plateforme de veille média internationale avec traduction automatique en 12 langues",
-        "Architecture fullstack React/TypeScript + Supabase pour performances en temps réel",
-        "Traduction instantanée par IA pour diffuser vos contenus sans barrière linguistique",
-        "Interface d'administration intuitive pour gérer contenus et traductions multilingues",
-        "Comparaison côte-à-côte original/traduit avec basculement instantané entre langues"
-      ],
-      "keywords": [
-        "actualités multilingues",
-        "traduction automatique IA",
-        "veille média internationale",
-        "React TypeScript",
-        "Supabase cloud",
-        "gestion contenu CMS",
-        "agrégation actualités",
-        "communication globale"
-      ],
-      "github": "",
-      "githubCTA": "",
-      "liveUrl": "",
-      "liveCTA": ""
     }
   ]
 }

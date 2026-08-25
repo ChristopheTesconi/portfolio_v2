@@ -3,7 +3,9 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -112,7 +114,9 @@
 /* Lien image (pour le hover) */
 .imageLink {
   display: block;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
   cursor: pointer;
 }
 
@@ -241,6 +245,17 @@
   color: rgb(200, 200, 255);
   text-decoration: none;
   transform: translateX(5px);
+}
+
+.headerImageWrapper a {
+  display: block;
+  line-height: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.headerImageWrapper a:hover {
+  opacity: 0.75;
 }
 
 /* Responsive Mobile */

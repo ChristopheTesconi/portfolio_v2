@@ -3,31 +3,30 @@
   "devBadge": "🚧 Project in development",
   "projects": [
     {
-      "titre": "RDF Bachata Fusion – Dance school",
-      "image": "/projects/rdf_logo.jpeg",
+      "titre": "Zenevents.ch – Event services marketplace",
+      "image": "/projects/landing_deborah.png",
       "description": [
-        "Modern and responsive website optimized for all devices (mobile, tablet, desktop)",
-        "Multilingual version (FR/EN/DE) with Next.js 15 to reach an international audience",
-        "EventFrog and WhatsApp integration to facilitate online bookings",
-        "SEO-optimized with Schema.org for better local visibility",
-        "Intuitive expandable card interface with smooth animations for user experience"
+        "Marketplace connecting event organizers with service providers across French-speaking Switzerland",
+        "One quote request sent to multiple providers, available with or without an account",
+        "Filterable search by service category and event type, with illustrated provider profiles",
+        "Moderation back-office: manual listing approval and tracking of incoming quote requests",
+        "Multilingual interface (FR/EN/DE/IT), automated e-mails and mobile-first design"
       ],
       "keywords": [
-        "dance school website",
-        "Next.js responsive",
+        "event marketplace",
+        "event service providers Switzerland",
+        "online quote request",
+        "vendor matching platform",
         "multilingual website",
-        "local SEO dance",
-        "EventFrog integration",
-        "TypeScript React",
-        "bachata site Switzerland",
-        "online booking"
+        "moderation back-office",
+        "local SEO Geneva",
+        "Romandy event planning"
       ],
-      "github": "https://github.com/ChristopheTesconi/wil-bachata-website",
-      "githubCTA": "View on GitHub",
-      "liveUrl": "https://www.bachata-stgallen.ch/en",
+      "github": "#",
+      "githubCTA": "",
+      "liveUrl": "https://zenevents.ch",
       "liveCTA": "Visit website"
     },
-
     {
       "titre": "TrustBrain – AI Enterprise Memory",
       "image": "/projects/artificial.png",
@@ -50,57 +49,32 @@
       ],
       "github": "#",
       "githubCTA": "",
-      "liveUrl": "https://trustbrainfront-production.up.railway.app/landing",
+      "liveUrl": "https://www.trustbrain.ai/",
       "liveCTA": "Visit website"
     },
     {
-      "titre": "Phoenix Accueil – Child protection association",
-      "image": "/projects/phoenix_logo.png",
+      "titre": "RDF Bachata Fusion – Dance school",
+      "image": "/projects/rdf_logo.jpeg",
       "description": [
-        "Professional website for a recognized 20-year-old association in Southern France",
-        "Modern Next.js architecture with ultra-fast page and image loading",
-        "Secure contact form and interactive multi-location map integration",
-        "SEO-optimized with Google Analytics to measure online impact",
-        "Intuitive responsive navigation with photo carousel and interactive accordions"
+        "Modern and responsive website optimized for all devices (mobile, tablet, desktop)",
+        "Multilingual version (FR/EN/DE) with Next.js 15 to reach an international audience",
+        "EventFrog and WhatsApp integration to facilitate online bookings",
+        "SEO-optimized with Schema.org for better local visibility",
+        "Intuitive expandable card interface with smooth animations for user experience"
       ],
       "keywords": [
-        "child protection association",
-        "nonprofit website",
-        "Next.js association",
-        "local SEO France",
-        "secure contact form",
+        "dance school website",
+        "Next.js responsive",
+        "multilingual website",
+        "local SEO dance",
+        "EventFrog integration",
         "TypeScript React",
-        "responsive NGO site",
-        "Google Analytics"
+        "bachata site Switzerland",
+        "online booking"
       ],
-      "github": "https://github.com/ChristopheTesconi/phoenix_association",
+      "github": "https://github.com/ChristopheTesconi/wil-bachata-website",
       "githubCTA": "View on GitHub",
-      "liveUrl": "https://www.phoenixaccueil.fr/",
-      "liveCTA": "Visit website"
-    },
-    {
-      "titre": "milkies47.camera – Camera Rental",
-      "image": "/projects/milk_logo.png",
-      "description": [
-        "Bilingual landing page (English/Thai) for a camera rental business in Pattaya, Thailand",
-        "Mobile-first design with soft pink branding, smooth animations and portrait photo carousel",
-        "Instant language switching with fully translated UI and SEO metadata",
-        "Direct booking integration via LINE, Instagram and TikTok social channels",
-        "Built with Next.js 16, TypeScript and Tailwind CSS — deployed on Vercel with blazing-fast performance"
-      ],
-      "keywords": [
-        "camera rental Pattaya",
-        "bilingual website",
-        "Next.js landing page",
-        "mobile-first design",
-        "Thai English translation",
-        "Tailwind CSS",
-        "TypeScript React",
-        "Vercel deployment"
-      ],
-      "github": "https://github.com/ChristopheTesconi/milk_camera",
-      "githubCTA": "View on GitHub",
-      "liveUrl": "https://milk-camera.vercel.app/",
+      "liveUrl": "https://www.bachata-stgallen.ch/",
       "liveCTA": "Visit website"
     },
     {
@@ -127,6 +101,31 @@
       "githubCTA": "",
       "liveUrl": "",
       "liveCTA": ""
+    },
+    {
+      "titre": "Phoenix Accueil – Child protection association",
+      "image": "/projects/phoenix_logo.png",
+      "description": [
+        "Professional website for a recognized 20-year-old association in Southern France",
+        "Modern Next.js architecture with ultra-fast page and image loading",
+        "Secure contact form and interactive multi-location map integration",
+        "SEO-optimized with Google Analytics to measure online impact",
+        "Intuitive responsive navigation with photo carousel and interactive accordions"
+      ],
+      "keywords": [
+        "child protection association",
+        "nonprofit website",
+        "Next.js association",
+        "local SEO France",
+        "secure contact form",
+        "TypeScript React",
+        "responsive NGO site",
+        "Google Analytics"
+      ],
+      "github": "https://github.com/ChristopheTesconi/phoenix_association",
+      "githubCTA": "View on GitHub",
+      "liveUrl": "https://www.phoenixaccueil.fr/",
+      "liveCTA": "Visit website"
     }
   ]
 }
