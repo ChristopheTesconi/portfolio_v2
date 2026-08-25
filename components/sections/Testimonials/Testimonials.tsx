@@ -18,13 +18,13 @@ import styles from "./Testimonials.module.css";
 
 const testimonials = [
   {
-    id: 1,
-    author: "Thierry",
-    company: "Président de l'association Phoenix",
-    date: "2025-11-10",
+    id: 3,
+    author: "Deborah",
+    company: "Kaizen Sàrl – Zenevents.ch",
+    date: "2026-08-22",
     rating: 5,
     platform: "Malt",
-    text: "Excellente collaboration ; très réactif et s'est mis à notre niveau pour bien comprendre la philosophie de notre Lieu de Vie.",
+    text: "Christophe a développé Zenevents.ch, notre plateforme de mise en relation pour événements, de A à Z. Ce qui m'a le plus rassurée : sa disponibilité et sa clarté — il prend le temps d'expliquer les choses simplement, même sans aucune notion technique de mon côté. Le résultat est à la hauteur de ce qu'on avait imaginé ensemble, et je sais que je peux compter sur lui pour la suite. Je recommande sans hésiter.",
     lang: "fr",
   },
   {
@@ -36,6 +36,16 @@ const testimonials = [
     platform: "Malt",
     text: "He built a new website for my dance classes in Saint-Gallen, and he did a remarkable job! He really brought my vision to life — the site is colorful, friendly, and easy to navigate. Christophe was professional, efficient, and a pleasure to work with throughout the whole process. I'd definitely recommend him and would be happy to collaborate again on future projects.",
     lang: "en",
+  },
+  {
+    id: 1,
+    author: "Thierry",
+    company: "Président de l'association Phoenix",
+    date: "2025-11-10",
+    rating: 5,
+    platform: "Malt",
+    text: "Excellente collaboration ; très réactif et s'est mis à notre niveau pour bien comprendre la philosophie de notre Lieu de Vie.",
+    lang: "fr",
   },
 ];
 
