@@ -44,15 +44,17 @@ Constats faits uniquement sur la base de `package.json`, `tsconfig.json`, `eslin
 │   │   ├── Navbar/
 │   │   └── Footer/
 │   └── sections/            Composants correspondant chacun à une section de la page d'accueil (une section = un <section id="...">)
-│       ├── Home/                 Section hero (titre, citation animée, CTA)
+│       ├── Home/                 Section hero (titre-phrase avec mots en blanc, signature animée, CTA)
 │       ├── Services/             Section liste de services (accordéon)
 │       │   └── ServiceCard/          Sous-composant carte individuelle
 │       ├── Projects/             Section portfolio de projets (accordéon)
 │       │   └── ProjectCard/          Sous-composant carte individuelle
-│       ├── About/                Section "à propos" (photo + cartes accordéon)
+│       ├── About/                Section "Pourquoi moi" (photo + 4 cartes accordéon, `id` `apropos` conservé)
 │       │   └── AboutCard/            Sous-composant carte individuelle
 │       ├── Pricing/              Section tarifs (grille de forfaits + maintenance)
 │       │   └── Pricingcard/          Sous-composant carte tarif (nom en minuscule, seule exception de casse du repo)
+│       ├── Faq/                  Section FAQ (6 questions en accordéon + CTA vers le contact)
+│       │   └── FaqCard/              Sous-composant carte question/réponse
 │       ├── Testimonials/         Section témoignages clients
 │       │   └── TestimonialCard/      Sous-composant carte témoignage
 │       ├── Contact/               Section formulaire de contact + alternatives (WhatsApp, e-mail)
@@ -77,17 +79,21 @@ Convention de lecture : "Consomme" liste uniquement les hooks personnalisés, fi
 |---|---|---|
 | `components/layout/Navbar/Navbar.tsx` | Barre de navigation fixe avec ancres de scroll, sélecteur de langue et lien WhatsApp. | `lib/i18n.ts` (`getDictionary`), `Navbar.module.css` |
 | `components/layout/Footer/Footer.tsx` | Pied de page avec liens rapides, réseaux sociaux, adresse et copyright. | `lib/i18n.ts` (`getDictionary`), `Footer.module.css` |
-| `components/sections/Home/Home.tsx` | Section hero : titre animé mot par mot, citation à effet machine à écrire, CTA vers le contact. | `hooks/useReducedMotion.ts`, `hooks/useIsMounted.ts`, `lib/animations.ts`, `lib/i18n.ts` (`getDictionary`), `Home.module.css`, composant `TypingQuote` |
-| `components/sections/Animations/TypingQuote.tsx` | Effet visuel de frappe de texte caractère par caractère, boucle et curseur clignotant. | `Home.module.css` (réutilise le module CSS du composant parent `Home`, n'a pas de module CSS propre) |
+| `components/sections/Home/Home.tsx` | Section hero : titre-phrase animé mot par mot (mots en blanc via `titleHighlight.ts`), signature à effet machine à écrire, CTA vers le contact. | `hooks/useReducedMotion.ts`, `hooks/useIsMounted.ts`, `lib/animations.ts`, `lib/i18n.ts` (`getDictionary`), `Home.module.css`, composants `TypingText`, `titleHighlight.ts` |
+| `components/sections/Home/titleHighlight.ts` | Fonction pure `getHighlightRange(words, highlight)` : renvoie la plage `{ start, end }` des mots à mettre en blanc dans le titre, ou `null`. | aucune |
+| `components/sections/Animations/TypingText.tsx` | Effet visuel de frappe de la signature caractère par caractère, boucle et curseur clignotant (texte complet réservé par un `span` invisible). | `Home.module.css` (réutilise le module CSS du composant parent `Home`, n'a pas de module CSS propre) |
 | `components/sections/Services/Services.tsx` | Liste des services proposés sous forme d'accordéon, injecte un schema.org `ItemList`. | `hooks/useReducedMotion.ts`, `hooks/useIsMounted.ts`, `lib/animations.ts`, `lib/i18n.ts` (`getDictionary`), `Services.module.css`, composant `ServiceCard` |
 | `components/sections/Services/ServiceCard/ServiceCard.tsx` | Carte accordéon d'un service unique (ouverture/fermeture par hauteur max animée en JS). | `ServiceCard.module.css` |
 | `components/sections/Projects/Projects.tsx` | Grille de projets du portfolio sous forme d'accordéon, injecte un schema.org `ItemList` (WebApplication). | `hooks/useReducedMotion.ts`, `hooks/useIsMounted.ts`, `lib/animations.ts`, `lib/i18n.ts` (`getProjectsTitle`), `projectsData.ts` (`getProjects`), `Projects.module.css`, composant `ProjectCard` |
 | `components/sections/Projects/ProjectCard/ProjectCard.tsx` | Carte accordéon d'un projet (image, description, liens live/GitHub ou badge "en développement"). | `projectsData.ts` (type `Project`), `lib/i18n.ts` (type `Locale`), `ProjectCard.module.css` |
 | `components/sections/Projects/projectsData.ts` | Adaptateur qui transforme les données JSON de `locales/projects/*.json` en objets typés `Project`. | `lib/i18n.ts` (`getProjectsData`, type `Locale`) |
-| `components/sections/About/About.tsx` | Section "à propos" : photo + liste de cartes accordéon générées depuis le dictionnaire de traduction. | `hooks/useReducedMotion.ts`, `hooks/useIsMounted.ts`, `lib/animations.ts`, `lib/i18n.ts` (`getDictionary`), `About.module.css`, composant `AboutCard` |
-| `components/sections/About/AboutCard/AboutCard.tsx` | Carte accordéon d'une sous-section "à propos" (même mécanique d'ouverture que `ServiceCard`/`ProjectCard`). | `AboutCard.module.css` |
+| `components/sections/About/About.tsx` | Section "Pourquoi moi" (`id` `apropos` conservé, première carte ouverte au chargement) : photo + liste de cartes accordéon générées depuis le dictionnaire de traduction. | `hooks/useReducedMotion.ts`, `hooks/useIsMounted.ts`, `lib/animations.ts`, `lib/i18n.ts` (`getDictionary`), `About.module.css`, composant `AboutCard` |
+| `components/sections/About/AboutCard/AboutCard.tsx` | Carte accordéon d'une sous-section "Pourquoi moi" (même mécanique d'ouverture que `ServiceCard`/`ProjectCard`). | `AboutCard.module.css` |
 | `components/sections/Pricing/Pricing.tsx` | Grille de forfaits tarifaires + carte de maintenance optionnelle, injecte un schema.org `OfferCatalog`. | `hooks/useReducedMotion.ts`, `hooks/useIsMounted.ts`, `lib/animations.ts`, `lib/i18n.ts` (`getDictionary`), `Pricing.module.css`, composant `PricingCard` |
 | `components/sections/Pricing/Pricingcard/PricingCard.tsx` | Carte d'un forfait tarifaire unique (nom, prix, features), pas d'accordéon contrairement aux autres cartes du repo. | `PricingCard.module.css` |
+| `components/sections/Faq/Faq.tsx` | Section FAQ : liste de cartes accordéon (première ouverte) générées depuis `faq.items`, puis bouton vers le contact ; pas de données structurées. | `hooks/useReducedMotion.ts`, `hooks/useIsMounted.ts`, `lib/animations.ts`, `lib/i18n.ts` (`getDictionary`), `Faq.module.css`, `faq.types.ts`, composant `FaqCard` |
+| `components/sections/Faq/FaqCard/FaqCard.tsx` | Carte accordéon d'une question/réponse (même mécanique d'ouverture que `AboutCard`). | `FaqCard.module.css`, `faq.types.ts` |
+| `components/sections/Faq/faq.types.ts` | Interface `FaqItem { question, answer }`. | aucune |
 | `components/sections/Testimonials/Testimonials.tsx` | Section témoignages clients ; **les données des témoignages sont codées en dur dans le composant** (tableau `testimonials`), pas dans un fichier JSON de `locales/`, contrairement aux autres sections. | `hooks/useReducedMotion.ts`, `hooks/useIsMounted.ts`, `lib/animations.ts`, `lib/i18n.ts` (`getDictionary`, uniquement pour les libellés `title`/`subtitle`/`platformLabel`), `Testimonials.module.css`, composant `TestimonialCard` |
 | `components/sections/Testimonials/TestimonialCard/TestimonialCard.tsx` | Affiche un témoignage individuel (étoiles, texte, auteur, date localisée). | `../Testimonials.module.css` (n'a pas de module CSS propre, importe celui du dossier parent) |
 | `components/sections/Contact/Contact.tsx` | Formulaire de contact (avec honeypot anti-spam) + cartes WhatsApp/e-mail, injecte un schema.org `ContactPage`. | `hooks/useReducedMotion.ts`, `hooks/useIsMounted.ts`, `lib/animations.ts`, `lib/i18n.ts` (`getDictionary`), `Contact.module.css`, route API `/api/contact` (fetch côté client) |
@@ -110,7 +116,7 @@ app/
 │       └── route.ts                  POST /api/contact — envoi d'e-mail via nodemailer/SMTP, validation minimale (champs requis), pas de rate limiting visible
 └── [locale]/
     ├── layout.tsx                    Layout de section locale : injecte Navbar + Footer, generateMetadata dynamique par locale (fr/en), 2 blocs JSON-LD (Person, WebSite)
-    ├── page.tsx                      Page d'accueil (route /[locale]) — assemble les 7 sections dans l'ordre : Home, Services, Projects, About, Pricing, Testimonials, Contact
+    ├── page.tsx                      Page d'accueil (route /[locale]) — assemble les 8 sections dans l'ordre : Home, Services, Projects, About (« Pourquoi moi »), Pricing, Faq, Testimonials, Contact
     ├── legal-notice/
     │   └── page.tsx                  Route /en/legal-notice (et /fr/legal-notice) — rend <LegalNotice/>, metadata statique en anglais
     └── mentions-legales/
@@ -141,14 +147,14 @@ Deux niveaux de layout imbriqués : `app/layout.tsx` (racine, HTML/body/tags glo
 
 ## 5. Conventions de nommage et de structure observées
 
-- **Organisation dossier/composant** : chaque composant "section" ou "layout" vit dans son propre dossier sous `components/sections/<Nom>/` ou `components/layout/<Nom>/`, avec son fichier `<Nom>.tsx` et son `<Nom>.module.css` colocalisés. Les sous-composants (cartes) sont dans un sous-dossier du composant parent (ex. `Services/ServiceCard/`, `Projects/ProjectCard/`, `About/AboutCard/`, `Pricing/Pricingcard/`, `Testimonials/TestimonialCard/`).
-- **Casse des dossiers de sous-composants** : `PascalCase` partout (`ServiceCard`, `ProjectCard`, `AboutCard`, `TestimonialCard`) sauf `Pricing/Pricingcard/` qui est en casse mixte non standard (`Pricingcard`, pas `PricingCard`) — seule exception relevée dans le repo.
-- **Nommage des modules CSS** : un fichier `<NomDuComposant>.module.css` par composant, avec le même nom que le composant React (`Navbar.tsx` → `Navbar.module.css`). Deux exceptions constatées : `TypingQuote.tsx` et `TestimonialCard.tsx` n'ont pas de module CSS propre et importent celui du composant parent (`Home.module.css`, `../Testimonials.module.css`).
+- **Organisation dossier/composant** : chaque composant "section" ou "layout" vit dans son propre dossier sous `components/sections/<Nom>/` ou `components/layout/<Nom>/`, avec son fichier `<Nom>.tsx` et son `<Nom>.module.css` colocalisés. Les sous-composants (cartes) sont dans un sous-dossier du composant parent (ex. `Services/ServiceCard/`, `Projects/ProjectCard/`, `About/AboutCard/`, `Faq/FaqCard/`, `Pricing/Pricingcard/`, `Testimonials/TestimonialCard/`).
+- **Casse des dossiers de sous-composants** : `PascalCase` partout (`ServiceCard`, `ProjectCard`, `AboutCard`, `FaqCard`, `TestimonialCard`) sauf `Pricing/Pricingcard/` qui est en casse mixte non standard (`Pricingcard`, pas `PricingCard`) — seule exception relevée dans le repo.
+- **Nommage des modules CSS** : un fichier `<NomDuComposant>.module.css` par composant, avec le même nom que le composant React (`Navbar.tsx` → `Navbar.module.css`). Deux exceptions constatées : `TypingText.tsx` et `TestimonialCard.tsx` n'ont pas de module CSS propre et importent celui du composant parent (`Home.module.css`, `../Testimonials.module.css`).
 - **Emplacement des types** : pas de dossier `types/` centralisé. Les interfaces/types sont définis localement dans le fichier qui les utilise en premier (ex. `interface Service` redéfinie identiquement dans `Services.tsx` et `ServiceCard.tsx` — voir section 6), sauf `Project` qui est exporté depuis `projectsData.ts` et réimporté par `Projects.tsx`/`ProjectCard.tsx`, et `Locale`/`Dictionary`/`ProjectData` exportés depuis `lib/i18n.ts`.
 - **Locale courante côté client** : aucun contexte React ni provider ; chaque composant client recalcule indépendamment `const currentLocale = (pathname?.split("/")[1] || "fr") as Locale` à partir de `usePathname()`. Ce pattern est répété à l'identique dans au moins 9 composants (`Navbar`, `Footer`, `Home`, `Services`, `Projects`, `ProjectCard`, `About`, `Pricing`, `Testimonials`, `Contact`, `LegalNotice`).
 - **Directive `"use client"`** : présente en tête de tous les composants de `components/` qui utilisent des hooks ou des animations ; absente des fichiers `app/*.ts(x)` de type route handler/metadata (`layout.tsx` racine excepté qui reste composant serveur), `robots.ts`, `sitemap.ts`, `route.ts`.
 - **Fichiers de données JSON** : convention `<lang>.json` pour les dictionnaires principaux (`locales/en.json`, `locales/fr.json`) et `<lang>.projects.json` pour les données de projets (`locales/projects/en.projects.json`).
-- **En-tête de fichier en commentaire** : certains fichiers commencent par un commentaire `// chemin/relatif/du/fichier.tsx` reproduisant leur propre chemin (ex. `Navbar.tsx`, `Contact.tsx`, `Home.tsx`, `Services.tsx`, `About.tsx`, `Pricing.tsx`, `Testimonials.tsx`, `Animations/TypingQuote.tsx`, `hooks/useReducedMotion.ts`, `lib/animations.ts`) ; d'autres fichiers du même type n'en ont pas (`Footer.tsx`, `ProjectCard.tsx`, `AboutCard.tsx`, `ServiceCard.tsx`, `PricingCard.tsx`, `TestimonialCard.tsx`, `LegalNotice.tsx`) — convention appliquée de façon incohérente.
+- **En-tête de fichier en commentaire** : certains fichiers commencent par un commentaire `// chemin/relatif/du/fichier.tsx` reproduisant leur propre chemin (ex. `Navbar.tsx`, `Contact.tsx`, `Home.tsx`, `Services.tsx`, `About.tsx`, `Pricing.tsx`, `Testimonials.tsx`, `Animations/TypingText.tsx`, `hooks/useReducedMotion.ts`, `lib/animations.ts`) ; d'autres fichiers du même type n'en ont pas (`Footer.tsx`, `ProjectCard.tsx`, `AboutCard.tsx`, `ServiceCard.tsx`, `PricingCard.tsx`, `TestimonialCard.tsx`, `LegalNotice.tsx`) — convention appliquée de façon incohérente.
 
 ---
 
@@ -170,9 +176,9 @@ Deux niveaux de layout imbriqués : `app/layout.tsx` (racine, HTML/body/tags glo
 
 - **Détection de locale** : logique `pathname?.split("/")[1] || "fr"` dupliquée à l'identique dans au moins 9 fichiers (voir section 5).
 - **Décalage de scroll pour la navbar fixe** : la valeur en dur `navbarHeight = 90` et le bloc de calcul `getBoundingClientRect().top + window.pageYOffset - navbarHeight` apparaissent 12 fois au total dans `Navbar.tsx` et `Footer.tsx`.
-- **Fonction `scrollToContact`** (récupère `document.getElementById("contact")` puis `scrollIntoView`) redéfinie indépendamment dans `Home.tsx`, `Services.tsx` et `Pricing.tsx`.
+- **Fonction `scrollToContact`** (récupère `document.getElementById("contact")` puis `scrollIntoView`) redéfinie indépendamment dans `Home.tsx`, `Services.tsx`, `Pricing.tsx` et `Faq.tsx`.
 - **Texte du message WhatsApp pré-rempli** (`"Bonjour, je souhaite discuter d'un projet web."` / version anglaise) dupliqué en dur dans `Navbar.tsx`, `Footer.tsx` (×2) et `Contact.tsx`.
-- **Pattern accordéon** (état `openIndex`/`isOpen`, `useRef` + `useEffect` qui fixe `el.style.maxHeight` manuellement) réimplémenté séparément et à l'identique dans `ServiceCard.tsx`, `ProjectCard.tsx` et `AboutCard.tsx`, sans hook ni composant partagé.
+- **Pattern accordéon** (état `openIndex`/`isOpen`, `useRef` + `useEffect` qui fixe `el.style.maxHeight` manuellement) réimplémenté séparément et à l'identique dans `ServiceCard.tsx`, `ProjectCard.tsx`, `AboutCard.tsx` et `FaqCard.tsx`, sans hook ni composant partagé.
 - **Interface `Service { title, icon, description }`** redéfinie séparément (mais identiquement) dans `Services.tsx` et `ServiceCard.tsx` plutôt qu'exportée d'un seul endroit.
 - **Interface `Package`** (forfait tarifaire) redéfinie séparément dans `Pricing.tsx` et `PricingCard.tsx`.
 - **Blocs JSON-LD schema.org** : chaque section (`Home`, `Services`, `Projects`, `Pricing`, `Contact`, `LegalNotice`, `app/[locale]/layout.tsx`) construit indépendamment son propre objet schema.org avec des champs `areaServed`/`address`/coordonnées de contact répétés (adresse postale, numéro de téléphone, e-mail) copiés-collés à l'identique dans au moins 5 fichiers.
