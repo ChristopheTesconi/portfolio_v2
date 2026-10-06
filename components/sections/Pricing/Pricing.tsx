@@ -111,13 +111,6 @@ export default function Pricing() {
       },
       areaServed: [
         { "@type": "Country", name: "Switzerland" },
-        {
-          "@type": "Place",
-          name:
-            currentLocale === "fr"
-              ? "Suisse romande"
-              : "French-speaking Switzerland",
-        },
         { "@type": "Country", name: "France" },
       ],
       availability: "https://schema.org/InStock",

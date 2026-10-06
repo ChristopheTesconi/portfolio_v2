@@ -1,24 +1,23 @@
-// components/sections/Animations/TypingQuote.tsx
+// components/sections/Animations/TypingText.tsx
 "use client";
 
 import { useState, useEffect, useRef } from "react";
 import styles from "../Home/Home.module.css";
 
-interface TypingQuoteProps {
+interface TypingTextProps {
   text: string;
   delay?: number;
   reducedMotion?: boolean;
 }
 
-export default function TypingQuote({
+export default function TypingText({
   text,
   delay = 0,
   reducedMotion = false,
-}: TypingQuoteProps) {
+}: TypingTextProps) {
   const [displayedText, setDisplayedText] = useState(() =>
     reducedMotion ? text : "",
   );
-  const showCursor = !reducedMotion;
   const [cursorVisible, setCursorVisible] = useState(true);
   const indexRef = useRef(0);
   const timeoutIdRef = useRef<NodeJS.Timeout | null>(null);
@@ -62,16 +61,23 @@ export default function TypingQuote({
     return () => clearInterval(cursorInterval);
   }, [reducedMotion]);
 
+  if (reducedMotion) {
+    return <p className={styles.introSignature}>{text}</p>;
+  }
+
   return (
-    <p className={styles.introQuote}>
-      &ldquo;{displayedText}&rdquo;
-      {showCursor && (
+    <p className={styles.introSignature}>
+      <span className={styles.signatureGhost} aria-hidden="true">
+        {text}|
+      </span>
+      <span className={styles.signatureTyped}>
+        {displayedText}
         <span
           className={cursorVisible ? styles.cursorVisible : styles.cursorHidden}
         >
           |
         </span>
-      )}
+      </span>
     </p>
   );
 }

@@ -18,8 +18,8 @@ export async function generateMetadata({
   };
 
   const descriptions = {
-    fr: "Développeur Web Fullstack freelance spécialisé React, Next.js et Symfony. Création de sites web et applications sur-mesure pour PME suisses. Basé en Suisse romande.",
-    en: "Freelance Fullstack Web Developer specialized in React, Next.js and Symfony. Custom websites and applications for Swiss SMEs. Based in French-speaking Switzerland.",
+    fr: "Développeur web freelance et ancien chef cuisinier. Création de sites web et d'applications sur-mesure pour les PME suisses. Basé à Ferney-Voltaire, près de Genève.",
+    en: "Freelance web developer and former professional chef. I create custom websites and web applications for Swiss SMEs. Based in Ferney-Voltaire, right next to Geneva.",
   };
 
   return {
@@ -160,13 +160,6 @@ export default async function LocaleLayout({
               {
                 "@type": "Country",
                 name: "Switzerland",
-              },
-              {
-                "@type": "Place",
-                name:
-                  locale === "fr"
-                    ? "Suisse romande"
-                    : "French-speaking Switzerland",
               },
               {
                 "@type": "Place",

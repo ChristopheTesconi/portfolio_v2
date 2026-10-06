@@ -31,7 +31,7 @@ export default function About() {
   const isMounted = useIsMounted();
   const shouldAnimate = isMounted && !reducedMotion;
 
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   if (!t || !t.about) {
     return null;

@@ -84,13 +84,6 @@ export default function Services() {
           },
           areaServed: [
             { "@type": "Country", name: "Switzerland" },
-            {
-              "@type": "Place",
-              name:
-                currentLocale === "fr"
-                  ? "Suisse romande"
-                  : "French-speaking Switzerland",
-            },
             { "@type": "Country", name: "France" },
           ],
         },

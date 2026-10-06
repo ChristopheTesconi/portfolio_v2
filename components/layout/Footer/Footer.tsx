@@ -190,6 +190,19 @@ export default function Footer() {
               </li>
               <li>
                 <a
+                  href={`/${currentLocale}#faq`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("faq");
+                  }}
+                  className={styles.footerLink}
+                  aria-label="Read the FAQ"
+                >
+                  {t.footer.faq}
+                </a>
+              </li>
+              <li>
+                <a
                   href={`/${currentLocale}#contact`}
                   onClick={(e) => {
                     e.preventDefault();

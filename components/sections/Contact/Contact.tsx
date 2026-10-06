@@ -158,13 +158,6 @@ export default function Contact() {
           "@type": "Country",
           name: "Switzerland",
         },
-        {
-          "@type": "Place",
-          name:
-            currentLocale === "fr"
-              ? "Suisse romande"
-              : "French-speaking Switzerland",
-        },
       ],
       contactPoint: {
         "@type": "ContactPoint",

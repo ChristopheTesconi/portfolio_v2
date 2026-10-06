@@ -15,6 +15,7 @@ const SECTIONS = [
   "mesprojets",
   "apropos",
   "tarifs",
+  "faq",
   "temoignages",
   "contact",
 ];
@@ -281,6 +282,21 @@ export default function NavBar() {
                 className={linkClass("tarifs")}
               >
                 <span itemProp="name">{t.nav.prices}</span>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item as="li">
+              <Nav.Link
+                as="a"
+                href={`/${currentLocale}#faq`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("faq");
+                }}
+                aria-label="Read the FAQ"
+                itemProp="url"
+                className={linkClass("faq")}
+              >
+                <span itemProp="name">{t.nav.faq}</span>
               </Nav.Link>
             </Nav.Item>
             <Nav.Item as="li">

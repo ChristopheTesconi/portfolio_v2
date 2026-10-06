@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { getDictionary, type Locale } from "@/lib/i18n";
@@ -11,7 +11,8 @@ import {
   ANIMATION_EASING,
   TRANSLATE_Y,
 } from "@/lib/animations";
-import TypingQuote from "../Animations/TypingQuote";
+import TypingText from "../Animations/TypingText";
+import { getHighlightRange } from "./titleHighlight";
 import styles from "./Home.module.css";
 
 const WORD_STAGGER = 0.06;
@@ -25,6 +26,7 @@ export default function Home() {
   const shouldAnimate = isMounted && !reducedMotion;
 
   const titleWords = texts.titleFreelance.split(" ");
+  const highlightRange = getHighlightRange(titleWords, texts.titleHighlight);
   const titleDuration = titleWords.length * WORD_STAGGER + ANIMATION_DURATION;
 
   useEffect(() => {
@@ -53,13 +55,6 @@ export default function Home() {
     },
     areaServed: [
       { "@type": "Country", name: "Switzerland" },
-      {
-        "@type": "Place",
-        name:
-          currentLocale === "fr"
-            ? "Suisse romande"
-            : "French-speaking Switzerland",
-      },
       { "@type": "Country", name: "France" },
     ],
     hasOfferCatalog: {
@@ -160,32 +155,54 @@ export default function Home() {
         itemScope
         itemType="https://schema.org/Person"
       >
+        <meta itemProp="name" content="Christophe Tesconi" />
+        <meta
+          itemProp="jobTitle"
+          content={
+            currentLocale === "fr"
+              ? "Développeur web freelance"
+              : "Freelance web developer"
+          }
+        />
         <div
           className={styles.freelanceText}
           key={shouldAnimate ? "animated" : "static"}
         >
-          <h1 className={styles.mainTitle} itemProp="name">
-            {shouldAnimate
-              ? titleWords.map((word, index) => (
-                  <motion.span
-                    key={index}
-                    className={styles.titleWord}
-                    initial={{ opacity: 0, y: TRANSLATE_Y }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: ANIMATION_DURATION,
-                      ease: ANIMATION_EASING,
-                      delay: WORD_STAGGER * index,
-                    }}
-                  >
-                    {word}
-                  </motion.span>
-                ))
-              : texts.titleFreelance}
+          <h1 className={styles.mainTitle}>
+            {titleWords.map((word, index) => {
+              const isHighlight =
+                highlightRange !== null &&
+                index >= highlightRange.start &&
+                index < highlightRange.end;
+              const className = isHighlight
+                ? `${styles.titleWord} ${styles.titleHighlight}`
+                : styles.titleWord;
+              return (
+                <Fragment key={index}>
+                  {shouldAnimate ? (
+                    <motion.span
+                      className={className}
+                      initial={{ opacity: 0, y: TRANSLATE_Y }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: ANIMATION_DURATION,
+                        ease: ANIMATION_EASING,
+                        delay: WORD_STAGGER * index,
+                      }}
+                    >
+                      {word}
+                    </motion.span>
+                  ) : (
+                    <span className={className}>{word}</span>
+                  )}
+                  {index < titleWords.length - 1 && " "}
+                </Fragment>
+              );
+            })}
           </h1>
 
-          <TypingQuote
-            text={texts.introQuote}
+          <TypingText
+            text={texts.introSignature}
             delay={shouldAnimate ? titleDuration * 0.6 : 0}
             reducedMotion={!shouldAnimate}
           />

@@ -29,7 +29,8 @@
 }
 
 .mainTitle {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  line-height: 1.25;
   color: rgb(165, 180, 252);
   margin-bottom: 2.5rem;
   text-align: center;
@@ -37,22 +38,29 @@
 
 .titleWord {
   display: inline-block;
-  margin-right: 0.3em;
 }
 
-.titleWord:last-child {
-  margin-right: 0;
+.titleHighlight {
+  color: #ffffff;
 }
 
-.introQuote {
+.freelanceText .introSignature {
+  position: relative;
   font-style: italic;
-  font-size: 1.6rem !important;
-  color: rgb(200, 200, 255) !important;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: rgb(200, 200, 255);
   text-align: center;
-  margin-bottom: 2rem;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 2rem;
+}
+
+.signatureGhost {
+  visibility: hidden;
+}
+
+.signatureTyped {
+  position: absolute;
+  inset: 0;
 }
 
 .cursorVisible {
@@ -97,33 +105,4 @@
   transition:
     transform 0.1s ease,
     box-shadow 0.1s ease;
-}
-
-/* Responsive TypingQuote */
-@media (min-width: 768px) and (max-width: 1199px) {
-  .introQuote {
-    height: 60px;
-    font-size: 1.4rem;
-  }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-  .introQuote {
-    height: 90px;
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 575px) {
-  .introQuote {
-    height: 110px;
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 375px) {
-  .introQuote {
-    height: 130px;
-    font-size: 1.1rem;
-  }
 }

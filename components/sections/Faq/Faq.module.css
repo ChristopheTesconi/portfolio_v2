@@ -1,0 +1,55 @@
+/* components/sections/Faq/Faq.module.css */
+.faq {
+  background-color: whitesmoke;
+  padding: 3rem 5vw;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.faq h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: rgb(165, 180, 252);
+  font-weight: 700;
+}
+
+.faqContainer {
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.55rem;
+}
+
+.cta {
+  display: block;
+  margin: 0 auto;
+  color: black;
+  background: linear-gradient(135deg, #8e86b5, #acaeed);
+  border: none;
+  border-radius: 50px;
+  padding: 16px 40px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(165, 180, 252, 0.3);
+}
+
+.cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(165, 180, 252, 0.5);
+}
+
+@media (max-width: 767px) {
+  .faq h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta {
+    width: 90%;
+    max-width: 300px;
+  }
+}

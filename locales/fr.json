@@ -3,13 +3,15 @@
     "home": "Accueil",
     "projects": "Mes Projets",
     "services": "Mes Services",
-    "about": "À propos",
+    "about": "Pourquoi moi",
     "contact": "Contact",
-    "prices": "Tarifs"
+    "prices": "Tarifs",
+    "faq": "FAQ"
   },
-  "titleFreelance": "Tesconi Christophe Développeur Web",
-  "introQuote": "Chaque site est un lien précieux entre vous et vos utilisateurs.",
-  "introText": "Ancien chef cuisinier, je crée des sites web et applications pour les PME et restaurateurs de Suisse romande. La même exigence que dans une cuisine étoilée — appliquée à votre présence en ligne.",
+  "titleFreelance": "Chaque site est un lien précieux entre vous et vos utilisateurs.",
+  "titleHighlight": "un lien précieux",
+  "introSignature": "Christophe Tesconi, développeur web freelance",
+  "introText": "Je crée des sites web et des applications pour les PME partout en Suisse. Ancien chef cuisinier, j'y applique l'exigence d'une cuisine étoilée.",
   "contactCTA": "Un projet ? Écrivez-moi",
   "message": "Un site ne sert pas qu'à exister en ligne, c'est un véritable pont vers vos clients. Grâce à une expérience claire, simple et fluide, je vous aide à créer un lien fort et durable avec eux.",
   "services": {
@@ -23,7 +25,7 @@
           "Automatisez vos tâches répétitives et libérez du temps précieux",
           "Traduction automatique par IA pour vos contenus multilingues",
           "Connectez vos services existants (CRM, formulaires, réservation en ligne)",
-          "Intégrations tierces : Google Maps, EventFrog, Supabase et plus"
+          "Intégrations tierces : Google Maps, EventFrog, WhatsApp et plus"
         ]
       },
       {
@@ -49,34 +51,34 @@
     ]
   },
   "about": {
-    "title": "À propos",
+    "title": "Pourquoi moi",
     "sections": [
       {
-        "title": "Mon parcours",
+        "title": "L'exigence du détail",
         "content": [
-          "Après une carrière de chef cuisinier, j'ai choisi le développement web pour une raison simple : créer des outils qui changent vraiment la vie des entrepreneurs et associations.",
-          "Issu de la cuisine gastronomique où la précision et l'exigence étaient vitales, j'ai appliqué cette rigueur au code. Formé en développement web et web mobile (titre professionnel), je construis aujourd'hui des sites et applications qui allient performance technique et impact concret."
+          "Formé en cuisine gastronomique, en maisons étoilées, chez Alain Ducasse, je vérifie tout avant chaque mise en ligne.",
+          "Sur Zenevents.ch, chaque prestataire a son adresse web, à son nom : offert, non demandé."
         ]
       },
       {
-        "title": "Mon approche",
+        "title": "Une vraie écoute",
         "content": [
-          "Ce qui me différencie ?",
-          "→ Une attention obsessionnelle aux détails – chaque pixel, chaque ligne de code compte. En gastronomie, l'erreur ne pardonnait pas. Aujourd'hui, cette exigence sert vos projets.",
-          "→ Une vraie écoute – je ne vous vends pas une solution toute faite. Je prends le temps de comprendre votre métier, vos contraintes, vos ambitions.",
-          "→ Une relation humaine – bouddhiste pratiquant, je crois au respect mutuel, à la confiance et à la transparence. Travailler ensemble, c'est bâtir une relation sur le long terme, pas juste livrer un site."
+          "Je ne vous vends pas une solution toute faite. J'écoute d'abord et je demande toujours le but : pourquoi ce projet ?",
+          "Un client voulait deux parcours utilisateur : je lui en ai proposé un seul, plus simple."
         ]
       },
       {
-        "title": "Comment je travaille",
+        "title": "Une relation humaine",
         "content": [
-          "Mon processus est simple et clair :",
-          "1️⃣ Rendez-vous téléphonique – on discute de votre projet, sans engagement",
-          "2️⃣ Cahier des charges – je l'analyse ou on le construit ensemble",
-          "3️⃣ Devis transparent – vous savez exactement ce que vous payez",
-          "4️⃣ Livraison sous 3-4 semaines pour un site vitrine",
-          "5️⃣ Accompagnement – formation, maintenance, je reste disponible",
-          "Pas de jargon technique inutile. Pas de promesses irréalistes. Juste du travail sérieux, dans les délais, avec des résultats mesurables."
+          "Je crois au respect mutuel, à la confiance et à la transparence : c'est aussi ce qui m'intéresse dans le bouddhisme.",
+          "Un seul interlocuteur, moi. Et tous mes clients travaillent encore avec moi aujourd'hui."
+        ]
+      },
+      {
+        "title": "Clair, sans jargon",
+        "content": [
+          "Pas de jargon technique inutile. J'explique tous mes choix simplement, et je fais le point avec vous chaque semaine.",
+          "Mon devis détaille chaque ligne, et précise aussi ce qui n'est pas compris dans le prix."
         ]
       }
     ]
@@ -98,7 +100,7 @@
           "Compatible mobile et ordinateur",
           "Design à votre image",
           "Visible sur Google localement",
-          "En ligne en 3 semaines"
+          "Prêt en 3 à 4 semaines"
         ]
       },
       {
@@ -110,7 +112,7 @@
         "features": [
           "Site complet multi-services",
           "Multilingue FR / EN / DE",
-          "SEO renforcé, plus de clients",
+          "Référencement Google renforcé",
           "Réservation et contact intégrés"
         ]
       },
@@ -123,7 +125,7 @@
           "Application web sur-mesure",
           "Connectée à vos outils métier",
           "Back-office d'administration",
-          "Support et maintenance inclus"
+          "Maintenance définie avec vous"
         ]
       }
     ],
@@ -148,6 +150,36 @@
     ],
     "cta": "Discutons de votre projet"
   },
+  "faq": {
+    "title": "Questions fréquentes",
+    "cta": "Une autre question ? Écrivez-moi",
+    "items": [
+      {
+        "question": "Combien coûte un site web ?",
+        "answer": "Un site Essentiel démarre à 1 990 CHF, un site Complet à 3 900 CHF. Les applications sur-mesure sont chiffrées sur devis, après un premier échange gratuit. Vous savez exactement ce que vous payez avant de commencer."
+      },
+      {
+        "question": "Peut-on payer en plusieurs fois ?",
+        "answer": "Oui, sans frais : en 2 ou 3 fois, jusqu'à 6 fois selon le montant. Je commence à travailler dès le premier versement, et les suivants arrivent chaque mois, à la même date. Vous réglez par virement, en CHF ou en EUR."
+      },
+      {
+        "question": "En combien de temps mon site sera-t-il en ligne ?",
+        "answer": "Un site vitrine est en ligne 3 à 4 semaines après le premier versement, si vos contenus et vos validations arrivent à temps. Pour un projet plus complexe, le délai dépend du travail : je vous l'annonce au démarrage."
+      },
+      {
+        "question": "Comment se déroule un projet ?",
+        "answer": "Un premier échange sans engagement. Puis le cahier des charges, le devis et le contrat. Je démarre au premier versement, avec un point chaque semaine. Vous voyez le site avant sa mise en ligne, puis je vous y forme."
+      },
+      {
+        "question": "Faut-il s'y connaître en technique ?",
+        "answer": "Non. J'ai seulement besoin de connaître le but de votre projet : le reste, je m'en occupe, et je vous l'explique simplement. Si vous avez déjà un site ou un nom de domaine, je les reprends si la technique le permet."
+      },
+      {
+        "question": "Que se passe-t-il après la mise en ligne ?",
+        "answer": "Une fois le projet payé, le site, le code et le nom de domaine sont à vous. Un bug qui vient de mon travail, je le corrige gratuitement. Pour le reste, vous choisissez : maintenance à 89 CHF/mois ou prix à la tâche."
+      }
+    ]
+  },
   "contact": {
     "title": "Prêt à démarrer votre projet ?",
     "subtitle": "Discutons ensemble de vos besoins et trouvons la solution idéale pour votre entreprise.",
@@ -167,7 +199,7 @@
       "title": "Vous préférez un autre moyen ?",
       "whatsapp": {
         "title": "WhatsApp",
-        "subtitle": "Réponse rapide garantie",
+        "subtitle": "Réponse en moins de 24h",
         "cta": "Discuter sur WhatsApp"
       },
       "email": {
@@ -179,22 +211,23 @@
     "trust": {
       "response": "Réponse sous 24h",
       "quote": "Devis gratuit et sans engagement",
-      "location": "100% remote - Suisse romande"
+      "location": "100% remote - Suisse entière"
     }
   },
   "footer": {
     "brand": "Christophe Tesconi",
     "tagline": "Solutions web sur-mesure pour PME suisses",
     "legal": "Mentions légales",
-    "address": "Région franco-suisse",
+    "address": "Aux portes de Genève",
     "phone": "+33 7 86 59 93 27",
     "email": "contact@christophetesconidev.com",
     "quickLinks": "Navigation",
     "home": "Accueil",
     "services": "Services",
     "projects": "Projets",
-    "about": "À propos",
+    "about": "Pourquoi moi",
     "pricing": "Tarifs",
+    "faq": "FAQ",
     "contact": "Contact",
     "followUs": "Me suivre",
     "linkedin": "LinkedIn",
