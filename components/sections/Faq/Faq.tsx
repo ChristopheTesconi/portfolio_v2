@@ -26,7 +26,7 @@ export default function Faq() {
   const isMounted = useIsMounted();
   const shouldAnimate = isMounted && !reducedMotion;
 
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   if (!t || !t.faq) {
     return null;
