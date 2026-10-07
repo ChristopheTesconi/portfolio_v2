@@ -6,11 +6,11 @@
       "titre": "Zenevents.ch – Place de marché événementielle",
       "image": "/projects/landing_deborah.png",
       "description": [
-        "Place de marché mettant en relation organisateurs d'événements et prestataires en Suisse romande",
-        "Demande de devis unique envoyée à plusieurs prestataires, avec ou sans création de compte",
-        "Recherche filtrable par catégorie de service et type d'événement, avec fiches prestataires illustrées",
-        "Back-office de modération : validation manuelle des fiches et suivi des demandes reçues",
-        "Interface multilingue (FR/EN/DE/IT), e-mails automatiques et conception mobile-first"
+        "Place de marché en ligne qui met en relation organisateurs d'événements et prestataires en Suisse",
+        "Demande de devis sans compte : un seul formulaire, et le prestataire la reçoit par e-mail",
+        "Recherche par métier : 44 critères et 320 options pour filtrer les prestataires, par canton ou budget",
+        "Fiches relues une par une avant publication : aucun avis ni chiffre inventé sur le site",
+        "Conçu et développé seul, de A à Z : Next.js, Supabase, 4 langues, pensé pour le mobile"
       ],
       "keywords": [
         "place de marché événementielle",
@@ -31,11 +31,11 @@
       "titre": "TrustBrain – Mémoire d'entreprise IA",
       "image": "/projects/artificial.png",
       "description": [
-        "Système de mémoire d'entreprise révolutionnaire basé sur l'IA et les graphes de connaissances temporels",
-        "Interface conversationnelle intuitive pour interroger vos documents en langage naturel",
-        "Traitement intelligent multi-formats : PDF (natifs et scannés via OCR), emails, photos et données structurées",
-        "Extraction automatique d'entités et relations par IA pour des réponses contextualisées et précises",
-        "Architecture GraphRAG (Python/FastAPI + Neo4j + OpenAI) avec frontend React moderne"
+        "L'assistant IA qui répond aux équipes et aux clients d'une PME, à partir de ses seuls documents validés",
+        "Chaque réponse cite ses sources : un clic ouvre le document d'origine, à côté du chat",
+        "Base alimentée par PDF (même scannés), Word, Excel, pages web, notes dictées et dossiers Google Drive reliés",
+        "Chacun n'interroge que ce qu'il a le droit de voir ; chaque client a sa propre base, hébergée en UE",
+        "Conçu et développé seul, de A à Z : Python/FastAPI, Neo4j, OpenAI, React, Supabase"
       ],
       "keywords": [
         "intelligence artificielle entreprise",
@@ -82,10 +82,10 @@
       "image": "/projects/sawadi_logo.png",
       "description": [
         "Application iOS, Android et web pour les expatriés et voyageurs en Thaïlande, en français, anglais, thaï et chinois",
-        "Fil d'actualité locale collecté, réécrit et traduit automatiquement par IA, classé par thématique",
-        "Annuaire d'établissements multi-villes avec fiches détaillées, avis, galerie photo et bons de réduction",
-        "Moteur de réservation universel (ponctuel ou par période) et messagerie directe client ↔ commerce",
-        "React Native/Expo + React/Vite en monorepo, backend Supabase avec sécurité au niveau base de données"
+        "Déjà en place : un fil d'actualité locale que l'IA collecte, trie, réécrit et traduit toute seule",
+        "Chacun lit l'actualité dans sa langue, sans traducteur : tout est traduit à l'avance, rien à attendre",
+        "À venir : annuaire des commerces, bons de réduction, réservation, messagerie avec les commerçants",
+        "Conçu et développé seul : un seul code pour Android et iOS (React Native/Expo), backend Supabase"
       ],
       "keywords": [
         "application mobile Thaïlande",
