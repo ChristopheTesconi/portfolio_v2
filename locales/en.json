@@ -19,33 +19,33 @@
     "cta": "Let's discuss your project",
     "services": [
       {
-        "title": "Automation & AI integrations",
-        "icon": "⚡",
-        "description": [
-          "Automate repetitive tasks and free up valuable time",
-          "Automatic AI translation for your multilingual content",
-          "Connect your existing services (CRM, forms, online booking)",
-          "Third-party integrations: Google Maps, EventFrog, WhatsApp and more"
-        ]
-      },
-      {
         "title": "Professional & multilingual websites",
         "icon": "🌐",
         "description": [
-          "A modern and fast website to attract your customers",
-          "Smooth and intuitive navigation on all devices (mobile, tablet, desktop)",
-          "Multilingual version to reach an international audience",
-          "Search engine optimized (SEO) for better online visibility"
+          "A website that looks like you, easy to read on phone and computer",
+          "Built to be found on Google in your area",
+          "Once paid, it is all yours: the website, the code and the domain name",
+          "Example: the RDF Bachata Fusion dance school, in three languages, with online booking"
         ]
       },
       {
-        "title": "Business applications & content management",
+        "title": "Custom applications for your business",
         "icon": "🛠️",
         "description": [
-          "Save time with custom tools tailored to your business",
-          "Intuitive admin interface to manage your content easily",
-          "Personalized dashboards to track your key metrics",
-          "Modern architecture with fast and stable performance"
+          "A tool built around the way you work, not the other way around",
+          "You manage content and users yourself, without calling me",
+          "Everyone sees only what concerns them: customers, team, administrators",
+          "Live example: Zenevents.ch, a Swiss marketplace"
+        ]
+      },
+      {
+        "title": "Automation & AI integrations",
+        "icon": "⚡",
+        "description": [
+          "Confirmations and quote requests sent automatically",
+          "Your texts translated by AI into your customers' languages",
+          "Connected to your tools: Google Maps, EventFrog, WhatsApp, Google Drive",
+          "Example: TrustBrain, the AI assistant that answers from your documents alone"
         ]
       }
     ]

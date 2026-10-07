@@ -19,33 +19,33 @@
     "cta": "Discutons de votre projet",
     "services": [
       {
-        "title": "Automatisation & intégrations IA",
-        "icon": "⚡",
-        "description": [
-          "Automatisez vos tâches répétitives et libérez du temps précieux",
-          "Traduction automatique par IA pour vos contenus multilingues",
-          "Connectez vos services existants (CRM, formulaires, réservation en ligne)",
-          "Intégrations tierces : Google Maps, EventFrog, WhatsApp et plus"
-        ]
-      },
-      {
         "title": "Sites web professionnels & multilingues",
         "icon": "🌐",
         "description": [
-          "Un site moderne et rapide pour attirer vos clients",
-          "Navigation fluide et intuitive sur tous supports (mobile, tablette, desktop)",
-          "Version multilingue pour toucher un public international",
-          "Optimisé pour les moteurs de recherche (SEO) pour une meilleure visibilité en ligne"
+          "Un site à votre image, lisible sur téléphone et ordinateur",
+          "Construit pour être trouvé sur Google dans votre région",
+          "Une fois payé, tout est à vous : le site, le code et le nom de domaine",
+          "Exemple : l'école RDF Bachata Fusion, en trois langues, avec réservation en ligne"
         ]
       },
       {
-        "title": "Applications métier & gestion de contenu",
+        "title": "Applications sur-mesure pour votre métier",
         "icon": "🛠️",
         "description": [
-          "Gagnez du temps avec des outils sur-mesure adaptés à votre activité",
-          "Interface d'administration intuitive pour gérer vos contenus facilement",
-          "Tableaux de bord personnalisés pour suivre vos indicateurs clés",
-          "Architecture moderne avec performances rapides et stables"
+          "Un outil construit autour de votre façon de travailler, pas l'inverse",
+          "Vous gérez contenus et utilisateurs vous-même, sans m'appeler",
+          "Chacun ne voit que ce qui le concerne : clients, équipe, administrateurs",
+          "Exemple en ligne : Zenevents.ch, une place de marché suisse"
+        ]
+      },
+      {
+        "title": "Automatisation & intégrations IA",
+        "icon": "⚡",
+        "description": [
+          "Confirmations et demandes de devis envoyées toutes seules",
+          "Vos textes traduits par IA dans les langues de vos clients",
+          "Relié à vos outils : Google Maps, EventFrog, WhatsApp, Google Drive",
+          "Exemple : TrustBrain, l'assistant IA qui répond à partir de vos seuls documents"
         ]
       }
     ]
