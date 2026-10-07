@@ -6,11 +6,11 @@
       "titre": "Zenevents.ch – Event services marketplace",
       "image": "/projects/landing_deborah.png",
       "description": [
-        "Marketplace connecting event organizers with service providers across French-speaking Switzerland",
-        "One quote request sent to multiple providers, available with or without an account",
-        "Filterable search by service category and event type, with illustrated provider profiles",
-        "Moderation back-office: manual listing approval and tracking of incoming quote requests",
-        "Multilingual interface (FR/EN/DE/IT), automated e-mails and mobile-first design"
+        "Online marketplace connecting event organizers with service providers in Switzerland",
+        "Quote request with no account: one single form, and the provider receives it by e-mail",
+        "Search by trade: 44 criteria and 320 options to filter providers, by canton or budget",
+        "Listings reviewed one by one before publication: no invented reviews or figures on the site",
+        "Designed and built on my own, from A to Z: Next.js, Supabase, 4 languages, mobile-first"
       ],
       "keywords": [
         "event marketplace",
@@ -31,11 +31,11 @@
       "titre": "TrustBrain – AI Enterprise Memory",
       "image": "/projects/artificial.png",
       "description": [
-        "Revolutionary enterprise memory system powered by AI and temporal knowledge graphs",
-        "Intuitive conversational interface to query your documents in natural language",
-        "Smart multi-format processing: PDF (native and scanned via OCR), emails, photos, and structured data",
-        "Automatic AI-powered entity and relationship extraction for contextual and accurate answers",
-        "GraphRAG architecture (Python/FastAPI + Neo4j + OpenAI) with modern React frontend"
+        "AI assistant that answers an SME's teams and customers, using only its validated documents",
+        "Every answer cites its sources: one click opens the original document, next to the chat",
+        "Fed by PDFs (even scanned), Word, Excel, web pages, dictated notes and linked Google Drive folders",
+        "Everyone queries only what they may see; each client has its own database, hosted in the EU",
+        "Designed and built on my own, from A to Z: Python/FastAPI, Neo4j, OpenAI, React, Supabase"
       ],
       "keywords": [
         "enterprise AI knowledge management",
@@ -78,14 +78,14 @@
       "liveCTA": "Visit website"
     },
     {
-      "titre": "Sawadi Asia – AI-powered multilingual news platform",
+      "titre": "Sawadi – Multilingual mobile and web app",
       "image": "/projects/sawadi_logo.png",
       "description": [
-        "International media monitoring platform with automatic translation in 12 languages",
-        "Fullstack React/TypeScript + Supabase architecture for real-time performance",
-        "Instant AI translation to publish your content without language barriers",
-        "Intuitive admin interface to manage multilingual content and translations",
-        "Side-by-side original/translated comparison with instant language switching"
+        "iOS, Android and web app for expats and travelers in Thailand, in French, English, Thai and Chinese",
+        "Already in place: a local news feed that AI collects, sorts, rewrites and translates on its own",
+        "Everyone reads the news in their own language, no translator needed: it is all translated in advance",
+        "Coming next: business directory, discount vouchers, bookings, messaging with businesses",
+        "Designed and built on my own: one codebase for Android and iOS (React Native/Expo), Supabase backend"
       ],
       "keywords": [
         "multilingual news",
