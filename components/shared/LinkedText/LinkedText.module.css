@@ -1,0 +1,11 @@
+/* components/shared/LinkedText/LinkedText.module.css */
+.link {
+  color: rgb(165, 180, 252);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: white;
+}

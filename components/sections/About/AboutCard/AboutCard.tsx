@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import LinkedText from "@/components/shared/LinkedText/LinkedText";
 import styles from "./AboutCard.module.css";
 
 interface AboutSection {
@@ -59,7 +60,7 @@ export default function AboutCard({
         <div className={styles.contentInner} itemProp="articleBody">
           {section.content.map((paragraph, i) => (
             <p key={i} className={styles.paragraph}>
-              {paragraph}
+              <LinkedText text={paragraph} />
             </p>
           ))}
         </div>

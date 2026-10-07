@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import LinkedText from "@/components/shared/LinkedText/LinkedText";
 import styles from "./ServiceCard.module.css";
 
 interface Service {
@@ -67,7 +68,9 @@ export default function ServiceCard({
           {/* ✅ UL SANS itemProp (déjà dans <meta>) */}
           <ul className={styles.description}>
             {service.description.map((item, i) => (
-              <li key={i}>{item}</li>
+              <li key={i}>
+                <LinkedText text={item} />
+              </li>
             ))}
           </ul>
         </div>

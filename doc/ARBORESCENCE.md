@@ -43,6 +43,8 @@ Constats faits uniquement sur la base de `package.json`, `tsconfig.json`, `eslin
 │   ├── layout/              Composants d'ossature de page (persistants sur toutes les routes)
 │   │   ├── Navbar/
 │   │   └── Footer/
+│   ├── shared/              Composants réutilisés par plusieurs sections
+│   │   └── LinkedText/          Texte dont les noms de projets en ligne deviennent des liens
 │   └── sections/            Composants correspondant chacun à une section de la page d'accueil (une section = un <section id="...">)
 │       ├── Home/                 Section hero (titre-phrase avec mots en blanc, signature animée, CTA)
 │       ├── Services/             Section liste de services (accordéon)
@@ -61,7 +63,7 @@ Constats faits uniquement sur la base de `package.json`, `tsconfig.json`, `eslin
 │       ├── LegalNotice/          Contenu de la page mentions légales / legal notice
 │       └── Animations/           Composant d'animation transverse (effet machine à écrire)
 ├── hooks/                   Hooks React réutilisables (2 fichiers)
-├── lib/                     Logique non-UI partagée (dictionnaires i18n, constantes d'animation)
+├── lib/                     Logique non-UI partagée (dictionnaires i18n, constantes d'animation, liens vers les projets cités)
 ├── locales/                 Dictionnaires de traduction JSON (source de vérité du texte du site)
 │   └── projects/                Dictionnaires JSON dédiés aux données des projets du portfolio
 ├── public/                  Assets statiques servis à la racine (images, logos, manifest)
@@ -98,6 +100,8 @@ Convention de lecture : "Consomme" liste uniquement les hooks personnalisés, fi
 | `components/sections/Testimonials/TestimonialCard/TestimonialCard.tsx` | Affiche un témoignage individuel (étoiles, texte, auteur, date localisée). | `../Testimonials.module.css` (n'a pas de module CSS propre, importe celui du dossier parent) |
 | `components/sections/Contact/Contact.tsx` | Formulaire de contact (avec honeypot anti-spam) + cartes WhatsApp/e-mail, injecte un schema.org `ContactPage`. | `hooks/useReducedMotion.ts`, `hooks/useIsMounted.ts`, `lib/animations.ts`, `lib/i18n.ts` (`getDictionary`), `Contact.module.css`, route API `/api/contact` (fetch côté client) |
 | `components/sections/LegalNotice/LegalNotice.tsx` | Contenu de la page mentions légales/legal notice ; **définit son propre dictionnaire de traduction en dur dans le composant** (objet `content: Record<Locale, ContentTranslation>`), sans passer par `locales/*.json` ni `lib/i18n.ts`. | `hooks/useReducedMotion.ts`, `hooks/useIsMounted.ts`, `lib/animations.ts`, `LegalNotice.module.css` |
+| `components/shared/LinkedText/LinkedText.tsx` | Affiche un texte en rendant cliquable chaque nom de projet qui a un site en ligne (nouvel onglet) ; utilisé par `ServiceCard` et `AboutCard`. | `lib/projectLinks.ts`, `lib/i18n.ts` (type `Locale`), `LinkedText.module.css` |
+| `lib/projectLinks.ts` | `getProjectLinks(locale)` : nom (début du titre, avant " – ") et `liveUrl` des projets en ligne, lus dans `locales/projects/*.json` ; `splitByProjectNames(text, links)` : découpe un texte autour de ces noms. | `lib/i18n.ts` (`getProjectsData`) |
 
 ---
 
