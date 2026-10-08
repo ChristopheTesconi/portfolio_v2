@@ -18,12 +18,12 @@
   box-shadow: 0 10px 24px rgba(165, 180, 252, 0.3);
 }
 
-/* Popular badge */
-.popular {
+/* Recommended badge */
+.recommended {
   border: 3px solid rgb(165, 180, 252);
 }
 
-.popular:hover {
+.recommended:hover {
   border-color: rgb(165, 180, 252);
   box-shadow:
     0 0 20px rgba(165, 180, 252, 0.4),
@@ -50,6 +50,19 @@
   padding-bottom: 2rem;
   border-bottom: 2px solid rgba(165, 180, 252, 0.2);
   margin-bottom: 2rem;
+}
+
+.lead {
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: rgb(31, 32, 57);
+}
+
+/* Même hauteur que .lead, pour aligner la barre entre les cartes */
+.leadSpacer {
+  visibility: hidden;
 }
 
 .packageName {
@@ -106,6 +119,12 @@
 }
 
 /* Responsive */
+@media (max-width: 991px) {
+  .leadSpacer {
+    display: none;
+  }
+}
+
 @media (max-width: 767px) {
   .card {
     padding: 1.5rem;

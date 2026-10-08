@@ -4,22 +4,29 @@ interface Package {
   name: string;
   price: string;
   priceNote: string;
-  popular?: boolean;
+  recommended?: boolean;
   installment?: string;
   features: string[];
 }
 
 interface PricingCardProps {
   package: Package;
+  recommendedLabel: string;
 }
 
-export default function PricingCard({ package: pkg }: PricingCardProps) {
+export default function PricingCard({
+  package: pkg,
+  recommendedLabel,
+}: PricingCardProps) {
   const isOnQuote = pkg.price === "Sur devis" || pkg.price === "On quote";
+  const hasLead = /\s?:$/.test(pkg.features[0] ?? "");
+  const lead = hasLead ? pkg.features[0] : null;
+  const listItems = hasLead ? pkg.features.slice(1) : pkg.features;
   const priceValue = isOnQuote ? "0" : pkg.price.replace(/[^\d]/g, "");
 
   return (
     <article
-      className={`${styles.card} ${pkg.popular ? styles.popular : ""}`}
+      className={`${styles.card} ${pkg.recommended ? styles.recommended : ""}`}
       itemScope
       itemType="https://schema.org/Offer"
     >
@@ -29,7 +36,9 @@ export default function PricingCard({ package: pkg }: PricingCardProps) {
       <meta itemProp="url" content="https://christophetesconidev.com#contact" />
       <meta itemProp="availability" content="https://schema.org/InStock" />
 
-      {pkg.popular && <div className={styles.badge}>Populaire</div>}
+      {pkg.recommended && (
+        <div className={styles.badge}>{recommendedLabel}</div>
+      )}
 
       <div className={styles.cardHeader}>
         <h3 className={styles.packageName} itemProp="name">
@@ -40,10 +49,20 @@ export default function PricingCard({ package: pkg }: PricingCardProps) {
         {pkg.installment && (
           <p className={styles.installment}>{pkg.installment}</p>
         )}
+        {lead ? (
+          <p className={styles.lead}>{lead}</p>
+        ) : (
+          <p
+            className={`${styles.lead} ${styles.leadSpacer}`}
+            aria-hidden="true"
+          >
+            &nbsp;
+          </p>
+        )}
       </div>
 
       <ul className={styles.features}>
-        {pkg.features.map((feature, index) => (
+        {listItems.map((feature, index) => (
           <li key={index}>{feature}</li>
         ))}
       </ul>

@@ -20,7 +20,7 @@ interface Package {
   name: string;
   price: string;
   priceNote: string;
-  popular?: boolean;
+  recommended?: boolean;
   installment?: string;
   features: string[];
 }
@@ -145,7 +145,10 @@ export default function Pricing() {
               key={shouldAnimate ? `pkg-a-${index}` : `pkg-s-${index}`}
               {...fadeUp(STAGGER_DELAY * index)}
             >
-              <PricingCard package={pkg} />
+              <PricingCard
+                package={pkg}
+                recommendedLabel={t.pricing.recommendedLabel}
+              />
             </motion.div>
           ))}
         </div>

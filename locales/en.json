@@ -90,6 +90,7 @@
   },
   "pricing": {
     "title": "Pricing",
+    "recommendedLabel": "Recommended",
     "packages": [
       {
         "name": "Essential",
@@ -108,12 +109,13 @@
         "price": "CHF 3,900",
         "priceNote": "Starting from",
         "installment": "or ~CHF 1,300/month over 3 months",
-        "popular": true,
+        "recommended": true,
         "features": [
-          "Full multi-service website",
+          "Everything in Essential, plus:",
           "Multilingual FR / EN / DE",
           "Enhanced Google visibility",
-          "Booking and contact built-in"
+          "Online booking built in",
+          "Timeline depends on your project"
         ]
       },
       {
@@ -124,7 +126,7 @@
         "features": [
           "Custom web application",
           "Connected to your tools",
-          "Admin back-office included",
+          "Admin area included",
           "Maintenance plan agreed with you"
         ]
       }
@@ -143,9 +145,9 @@
       ]
     },
     "notes": [
-      "Payment in CHF or EUR accepted",
-      "Pay in 2 or 3 installments, no extra fees",
-      "Hosting and domain name included for the first year",
+      "Payment in CHF or EUR, in 2 to 6 installments with no fees, depending on the project",
+      "A bug caused by my work is fixed free of charge",
+      "Hosting and domain name included for the first year, then in your name",
       "Training on how to use your site included"
     ],
     "cta": "Let's discuss your project"

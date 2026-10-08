@@ -90,6 +90,7 @@
   },
   "pricing": {
     "title": "Tarifs",
+    "recommendedLabel": "Recommandé",
     "packages": [
       {
         "name": "Essentiel",
@@ -108,12 +109,13 @@
         "price": "3 900 CHF",
         "priceNote": "À partir de",
         "installment": "ou ~1 300 CHF/mois en 3 fois",
-        "popular": true,
+        "recommended": true,
         "features": [
-          "Site complet multi-services",
+          "Tout l'Essentiel, et en plus :",
           "Multilingue FR / EN / DE",
           "Référencement Google renforcé",
-          "Réservation et contact intégrés"
+          "Réservation en ligne intégrée",
+          "Délai selon votre projet"
         ]
       },
       {
@@ -124,7 +126,7 @@
         "features": [
           "Application web sur-mesure",
           "Connectée à vos outils métier",
-          "Back-office d'administration",
+          "Espace d'administration inclus",
           "Maintenance définie avec vous"
         ]
       }
@@ -143,9 +145,9 @@
       ]
     },
     "notes": [
-      "Paiement en CHF ou EUR accepté",
-      "Paiement en 2 ou 3 fois possible, sans frais",
-      "Hébergement et nom de domaine inclus la première année",
+      "Paiement en CHF ou EUR, en 2 à 6 fois sans frais selon le projet",
+      "Un bug de mon fait est corrigé gratuitement",
+      "Hébergement et nom de domaine inclus la première année, puis à votre nom",
       "Formation à l'utilisation de votre site incluse"
     ],
     "cta": "Discutons de votre projet"
